@@ -1,0 +1,97 @@
+<form>
+    <div class="row">
+        <div class="form-group col-md-2">
+            <label for="nombre" class="sr-only">Nombre</label>
+            <input
+                type="text"
+                name="nombre"
+                id="nombre"
+                placeholder="Ingresar nombre"
+                class="form-control"
+                #nombreInput
+            />
+        </div>
+        <div class="form-group col-md-2">
+            <label for="edad" class="sr-only">Edad (aproximada)</label>
+            <input
+                type="text"
+                name="edad"
+                id="edad"
+                placeholder="Ingresar edad"
+                class="form-control"
+                #edadInput
+            />
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-2">
+            <label for="sexo" class="sr-only">Sexo</label>
+            <select
+                name="sexo"
+                id="sexo"
+                class="form-control"
+                #sexoInput
+            >
+                <option value="">Sexo</option>
+                <option value="masculino">Masculino</option>
+                <option value="femenino">Femenino</option>
+                <option value="otro">Otro</option>
+            </select>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="tamaño" class="sr-only">Tamaño</label>
+            <select
+                name="tamaño"
+                id="tamaño"
+                class="form-control"
+                #tamañoInput
+            >
+                <option value="">Tamaño</option>
+                <option value="chico">Chico</option>
+                <option value="mediano">Mediano</option>
+                <option value="grande">Grande</option>
+            </select>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-2">
+            <label for="libreta">¿Tiene libreta sanitaria?</label><br>
+            <input type="radio" id="libreta" name="libreta" value="si">Si<br>
+            <input type="radio" id="libreta" name="libreta" value="no">No<br>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="castrado">¿Está castrado?</label><br>
+            <input type="radio" id="castrado" name="castrado" value="si">Si<br>
+            <input type="radio" id="castrado" name="castrado" value="no">No<br>
+        </div>
+        <div class="form-group col-md-2">
+            <label for="desparasitado">¿Está desparasitado?</label><br>
+            <input type="radio" id="desparasitado" name="desparasitado" value="si">Si<br>
+            <input type="radio" id="desparasitado" name="desparasitado" value="no">No<br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-md-2">
+            <label for="ciudad">Ciudad</label><br>
+            <select
+                name="ciudad"
+                id="ciudad"
+                class="form-control"
+                #ciudadInput
+            >
+                <option value="">Selecciona una ciudad</option>
+                <option value="buenos aires">Buenos Aires</option>
+                <option value="laplata">La Plata</option>
+                <option value="berazategui">Berazategui</option>
+                <option value="quilmes">Quilmes</option>
+                <option value="varela">Florencio Varela</option>
+            </select>
+        </div>
+    </div>
+    <div class="col">
+        <button type="submit" class="btn btn-primary"
+                (click)="agregarPerro(nombreInput, edadInput, sexoInput, tamañoInput, ciudadInput)">
+            Agregar
+        </button>
+    </div>
+</form>

@@ -3,16 +3,23 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { PublicacionComponent } from './publicacion/publicacion.component';
+import { PerroComponent } from './perro/perro.component';
+import { FormsModule } from '@angular/forms';
+import { LoggingService } from './LoggingService.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PublicacionComponent,
+    PerroComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
