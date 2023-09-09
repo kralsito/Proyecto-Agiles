@@ -11,3 +11,6 @@ class PublicacionCreate(CreateView):
     fields = '__all__'
     serializer_class = PublicacionSerializer
 
+class PublicacionList(ListView):
+    model = Publicacion
+    serializer_class = PublicacionSerializer
