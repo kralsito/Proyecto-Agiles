@@ -11,6 +11,6 @@ class PublicacionCreate(CreateView):
     fields = '__all__'
     serializer_class = PublicacionSerializer
 
-class PublicacionList(ListView):
-    model = Publicacion
+class PublicacionList(generics.ListAPIView):
+    queryset = Publicacion.objects.all()
     serializer_class = PublicacionSerializer

@@ -7,8 +7,8 @@ class Publicacion(models.Model):
     fotoPerro = models.ImageField(upload_to="./media/perros", null=True, blank=True)
     edadPerro = models.CharField(max_length=20)
     SEXO_CHOICES = [
-        ('M', 'Masculino'),
-        ('F', 'Femenino'),
+        ('M', 'Macho'),
+        ('H', 'Hembra'),
     ]
     sexoPerro = models.CharField(max_length=3, choices=SEXO_CHOICES)
 
@@ -17,7 +17,7 @@ class Publicacion(models.Model):
         ('Mediano', 'Mediano'),
         ('Grande', 'Grande'),
     ]
-    tamañoPerro = models.CharField(max_length=10, choices=TAMANO_CHOICES)
+    tamanioPerro = models.CharField(max_length=10, choices=TAMANO_CHOICES)
 
     #Funcion para retornar algo cuando llamo al objeto
     def __str__(self):

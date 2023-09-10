@@ -11,15 +11,12 @@
             <button class="btn btn-primary" id="btnHeart"><fa-icon [icon]="faHeart" id="iconHeart"></fa-icon></button>
             <button class="btn btn-primary" id="btnInteresa">Me interesa</button>
         </div>
-        <div *ngFor="let publicacion of publicaciones" class="example-card"></div>
-            <div>
-                <h1> {{ publicacion.nombrePerro }}</h1>
-                <h1> {{ publicacion.edadPerro }}</h1>
-                <h1> {{ publicacion.sexoPerro }}</h1>
-                <h1> {{ publicacion.tamañoPerro }}</h1>
-            </div>
+        <div *ngFor="let publicacion of publicaciones" class="example-card">
+            <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+            <div id="edadPerro">{{ publicacion.edadPerro }}</div>
+            <div id="sexoPerro">{{ publicacion.sexoPerro }}</div>
+            <div>{{ publicacion.tamanioPerro}} </div> 
+            <div >{{ publicacion.fotoPerro }} </div>
+        </div>
     </div>
 </div>
-
-
-

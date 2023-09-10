@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { PublicacionService } from './publicacion.service';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
-//publicacion
 @Component({
   selector: 'app-publicacion',
   templateUrl: './publicacion.component.html',
@@ -11,10 +10,17 @@ import { faHeart } from '@fortawesome/free-solid-svg-icons';
 export class PublicacionComponent implements OnInit {
   publicaciones: any;
   faHeart = faHeart;
-  constructor(private http: HttpClient) {}
-    ngOnInit() {
-      this.http.get('http://localhost:8000/api/pagina_perros').subscribe((data: any) => {
+
+  constructor(private publicacionService: PublicacionService) {}
+
+  ngOnInit() {
+    this.publicacionService.obtenerPublicaciones().subscribe(
+      (data: any) => {
         this.publicaciones = data;
-      });
-   }
+      },
+      (error) => {
+        console.error('Error al cargar las publicaciones:', error);
+      }
+    );
+  }
 }
