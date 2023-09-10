@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
+//publicacion
 @Component({
   selector: 'app-publicacion',
   templateUrl: './publicacion.component.html',
