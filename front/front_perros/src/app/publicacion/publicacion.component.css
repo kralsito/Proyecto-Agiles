@@ -1,0 +1,38 @@
+#iconHeart {
+    color: white;
+    font-size: 15px;
+}
+
+#btnHeart {
+    background-color: rgb(252, 92, 140);
+    border: none;
+    margin-right: 10px;
+}
+
+#btnInteresa {
+    background-color: rgb(12, 2, 53);
+    border: none;
+}
+
+#nombrePerro {
+    font-weight: 800;
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+#edadPerro, #sexoPerro, #tamañoPerro {
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+#imagenPerro {
+    margin: 20px 0px 20px;
+    width: 100%;
+}
+
+#dataPerro {
+    margin: 20px 10px 20px;
+}
+
+
