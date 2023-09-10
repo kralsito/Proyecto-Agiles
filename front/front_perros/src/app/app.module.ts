@@ -5,14 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { PerroComponent } from './perro/perro.component';
-import { PublicacionComponent } from './publicacion/publicacion.component'; // <-- NgModel lives here
+import { FormpublicacionComponent } from './formpublicacion/formpublicacion.component'; // <-- NgModel lives here
 import { LoggingService } from './LoggingService.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     PerroComponent,
-    PublicacionComponent
+    FormpublicacionComponent
   ],
   imports: [
     BrowserModule,

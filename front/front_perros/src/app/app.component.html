@@ -3,9 +3,9 @@
     <h3>{{titulo}}</h3>
   </div>
   <hr />
-  <app-publicacion
+  <app-formpublicacion
     (perroCreado)="perroAgregado($event)"
-  ></app-publicacion>
+  ></app-formpublicacion>
   <hr />
   <app-perro
   *ngFor="let perroElemento of perros; let i = index"

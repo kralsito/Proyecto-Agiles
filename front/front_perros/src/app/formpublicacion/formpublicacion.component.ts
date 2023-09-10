@@ -3,11 +3,11 @@ import { Perro } from '../perro.model';
 import { LoggingService } from '../LoggingService.service';
 
 @Component({
-  selector: 'app-publicacion',
-  templateUrl: './publicacion.component.html',
-  styleUrls: ['./publicacion.component.css'],
+  selector: 'app-formpublicacion',
+  templateUrl: './formpublicacion.component.html',
+  styleUrls: ['./formpublicacion.component.css'],
 })
-export class PublicacionComponent {
+export class FormpublicacionComponent {
   @Output() perroCreado = new EventEmitter<Perro>();
 
   //nombreInput: string = '';
