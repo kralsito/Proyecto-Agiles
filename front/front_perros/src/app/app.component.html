@@ -1,1 +1,21 @@
+
+<div class="container">
+  <div class="col">
+    <h3>{{titulo}}</h3>
+  </div>
+  <hr />
+  <app-formpublicacion
+    (perroCreado)="perroAgregado($event)"
+  ></app-formpublicacion>
+  <hr />
+  <app-perro
+  *ngFor="let perroElemento of perros; let i = index"
+  [perro]="perroElemento"
+  [indice]="i"
+  >
+
+  </app-perro>
+</div>
+
 <app-publicacion></app-publicacion>
+
