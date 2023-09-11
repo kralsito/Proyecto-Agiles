@@ -12,7 +12,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { PerrosService } from './perros.service';
 
-
 @NgModule({
   declarations: [
     AppComponent,
