@@ -17,14 +17,21 @@ export class FormpublicacionComponent {
 
   agregarPerro(
     nombreInput: HTMLInputElement,
-    edadInput: HTMLInputElement
+    edadInput: HTMLInputElement,
+    sexoSelect: HTMLSelectElement,
+    tamanioSelect: HTMLSelectElement
   ) {
     let perro1 = new Perro(
       nombreInput.value, 
-      edadInput.valueAsNumber
+      edadInput.valueAsNumber,
+      sexoSelect.value,
+      tamanioSelect.value
     );
 
-    this.loggingService.enviarMensajeAConsola("Enviamos perro con nombre: " + perro1.nombre + " y edad: " + perro1.edad);
+    this.loggingService.enviarMensajeAConsola("Enviamos perro con nombre: " + perro1.nombre + 
+    ", edad: " + perro1.edad + 
+    ", sexo: " + perro1.sexo +
+    ", tamanio: " + perro1.tamanio);
     this.perroCreado.emit(perro1);
   }
 }

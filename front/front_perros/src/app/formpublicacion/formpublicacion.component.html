@@ -1,6 +1,7 @@
-<form class="row-cols-2">
+<form>
+  <div class="row">
     <div class="form-group col-md-2">
-        <label for="nombre" class="sr-only">Nombre:</label>
+        <label for="nombre">Nombre:</label>
         <input
           type="text"
           name="nombre"
@@ -12,7 +13,7 @@
     </div>
 
     <div class="form-group col-md-1">
-        <label for="edad" class="sr-only">Edad:</label>
+        <label for="edad">Edad:</label>
         <input
           type="number"
           name="edad"
@@ -22,10 +23,30 @@
           #edadInput
         />
     </div>
+  </div>
+  <div class="row">
+    <div class="form-group col-md-2">
+      <label for="sexo">Sexo:</label>
+      <select name="sexo" id="sexo" class="form-control" #sexoSelect>
+        <option value="">Seleccione un sexo</option>
+        <option value="macho">Macho</option>
+        <option value="hembra">Hembra</option>
+      </select>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="tamanio">Tamaño:</label>
+      <select name="tamanio" id="tamanio" class="form-control" #tamanioSelect>
+        <option value="">Seleccione un tamaño</option>
+        <option value="chico">Chico</option>
+        <option value="mediano">Mediano</option>
+        <option value="grande">Grande</option>
+      </select>
+    </div>
+  </div>
     <br>
     <div class="col">
         <button type="submit" class="btn btn-primary" 
-        (click)="agregarPerro(nombreInput,edadInput)">
+        (click)="agregarPerro(nombreInput,edadInput,sexoSelect,tamanioSelect)">
           Agregar
         </button>
       </div>
