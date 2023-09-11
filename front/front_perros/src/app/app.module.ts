@@ -4,13 +4,14 @@ import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientMo
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { PerroComponent } from './perro/perro.component';
-import { FormpublicacionComponent } from './formpublicacion/formpublicacion.component'; // <-- NgModel lives here
+import { PerroComponent } from './perros/perro/perro.component';
+import { FormpublicacionComponent } from './perros/formpublicacion/formpublicacion.component'; // <-- NgModel lives here
 import { LoggingService } from './LoggingService.service';
 import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { PerrosService } from './perros.service';
+import { PerrosComponent } from './perros/perros.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PerrosService } from './perros.service';
     PerroComponent,
     FormpublicacionComponent,
     PublicacionComponent,
-    PublicacionesComponent
+    PublicacionesComponent,
+    PerrosComponent
   ],
   imports: [
     BrowserModule,

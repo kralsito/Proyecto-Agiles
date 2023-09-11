@@ -10,12 +10,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent{
+export class AppComponent {
+
   title = 'RouteApp';
   mostrarPublicacion: boolean = false;
   constructor(private router: Router){}
   titulo = 'Datos del Perro';
-  perros: Perro[] = [];
 
 
   verPublicaciones(){

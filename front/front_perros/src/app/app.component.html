@@ -3,15 +3,7 @@
     <h3>{{titulo}}</h3>
   </div>
   <hr />
-  <app-formpublicacion></app-formpublicacion>
-  <hr />
-  <app-perro
-  *ngFor="let perroElemento of perros; let i = index"
-  [perro]="perroElemento"
-  [indice]="i"
-  >
-  </app-perro>
-</div>
+<app-perros></app-perros>
 <div *ngIf="mostrarPublicacion">
     <router-outlet></router-outlet>
 </div>
