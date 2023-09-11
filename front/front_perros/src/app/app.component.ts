@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class AppComponent {
+
   title = 'RouteApp';
   mostrarPublicacion: boolean = false;
   constructor(private router: Router){}
