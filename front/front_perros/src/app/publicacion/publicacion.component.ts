@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicacionService } from './publicacion.service';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-publicacion',

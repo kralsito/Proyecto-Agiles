@@ -11,7 +11,6 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
