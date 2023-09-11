@@ -10,19 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent{
   title = 'RouteApp';
   mostrarPublicacion: boolean = false;
   constructor(private router: Router){}
   titulo = 'Datos del Perro';
   perros: Perro[] = [];
 
-  constructor(private loggingService: LoggingService,
-    private perrosService: PerrosService){}
-
-  ngOnInit(): void {
-    this.perros = this.perrosService.perros;
-  }
 
   verPublicaciones(){
     this.mostrarPublicacion = true;
