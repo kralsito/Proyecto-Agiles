@@ -4,6 +4,6 @@ export class Perro {
         public edad: number,
         public sexo: string,
         public tamanio: string,
-        public foto: string
+        public foto: string,
     ){}
 }
