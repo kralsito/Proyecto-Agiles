@@ -1,6 +1,7 @@
-import { Component, ElementRef, EventEmitter, Output, ViewChild } from '@angular/core';
+import { Component } from '@angular/core';
 import { Perro } from '../perro.model';
 import { LoggingService } from '../LoggingService.service';
+import { PerrosService } from '../perros.service';
 
 @Component({
   selector: 'app-formpublicacion',
@@ -8,24 +9,39 @@ import { LoggingService } from '../LoggingService.service';
   styleUrls: ['./formpublicacion.component.css'],
 })
 export class FormpublicacionComponent {
-  @Output() perroCreado = new EventEmitter<Perro>();
 
-  //nombreInput: string = '';
-  //apellidoInput: string = '';
+  constructor(private loggingService: LoggingService, private perrosService: PerrosService) {}
 
-  constructor(private loggingService:LoggingService) {}
+  ngOnInit() {
+  }
 
-  agregarPerro(
+  onAgregarPerro(
     nombreInput: HTMLInputElement,
-    edadInput: HTMLInputElement
+    edadInput: HTMLInputElement,
+    sexoSelect: HTMLSelectElement,
+    tamanioSelect: HTMLSelectElement,
+    imagenInput: HTMLInputElement
   ) {
     let perro1 = new Perro(
-      nombreInput.value, 
-      edadInput.valueAsNumber
+      nombreInput.value,
+      edadInput.valueAsNumber,
+      sexoSelect.value,
+      tamanioSelect.value,
+      imagenInput.value
     );
 
-    this.loggingService.enviarMensajeAConsola("Enviamos perro con nombre: " + perro1.nombre + " y edad: " + perro1.edad);
-    this.perroCreado.emit(perro1);
+    this.perrosService.agregarPerro(perro1);
+    //this.loggingService.enviarMensajeAConsola(
+    //  "Enviamos perro con nombre: " +
+    //    perro1.nombre +
+    //    ", edad: " +
+    //    perro1.edad +
+    //    ", sexo: " +
+    //    perro1.sexo +
+    //    ", tamanio: " +
+    //    perro1.tamanio +
+    //    ", imagen: " +
+    //    perro1.foto
+    //);
   }
 }
-
