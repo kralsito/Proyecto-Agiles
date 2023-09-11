@@ -1,13 +1,23 @@
-<div class="box" id="heading">
-  <h1>Menu principal (TESTING)</h1>
-  <hr>
+<div class="container" *ngIf="!mostrarPublicacion">
+  <div class="col">
+    <h3>Lola</h3>
+  </div>
+  <hr />
 </div>
-<div class="box" id="menu">
+<div *ngIf="mostrarPublicacion">
+    <router-outlet></router-outlet>
+</div>
+<button class="btn btn-primary verPublicaciones" (click)="verPublicaciones()" *ngIf="!mostrarPublicacion">Ver pubicaciones</button>
+<button class="btn btn-primary verApp" (click)="verApp()" *ngIf="mostrarPublicacion">Volver a inicio</button>
 
-<!--Dos botones, uno para acceder a http://localhost:4200/agregarperro-->
-<!-- y otro para acceder a http://localhost:4200/publicacion-->
-  <button routerLink="/agregarperro">Agregar perro</button>
-  <button routerLink="/publicacion">Publicaciones</button>
-  <button routerLink="/verperros">Ver perros (altaPublicacion)</button>
-
-<router-outlet></router-outlet>
+<div class="container" *ngIf="!mostrarFormpublicacion">
+  <div class="col">
+    <h3>Santi</h3>
+  </div>
+  <hr />
+</div>
+<div *ngIf="mostrarFormpublicacion">
+    <router-outlet></router-outlet>
+</div>
+<button class="btn btn-primary verFormpublicacion" (click)="verFormpublicacion()" *ngIf="!mostrarFormpublicacion">Crear pubicacion</button>
+<button class="btn btn-primary verApp" (click)="verApp()" *ngIf="mostrarFormpublicacion">Volver a inicio</button>

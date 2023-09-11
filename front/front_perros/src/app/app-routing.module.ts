@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: 'publicacion', component: PublicacionComponent },
   { path: '', component: PublicacionComponent },
   { path: 'verperros', component: PerrosComponent }, //Testing
-  { path: 'agregarperro', component: FormpublicacionComponent}
+  { path: 'formpublicacion', component: FormpublicacionComponent}
 ];
 
 @NgModule({
