@@ -10,6 +10,7 @@ import { LoggingService } from './LoggingService.service';
 import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { PerrosService } from './perros.service';
 
 
 @NgModule({
@@ -27,7 +28,7 @@ import { PublicacionesComponent } from './publicaciones/publicaciones.component'
     FontAwesomeModule,
     HttpClientModule 
   ],
-  providers: [LoggingService],
+  providers: [LoggingService, PerrosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

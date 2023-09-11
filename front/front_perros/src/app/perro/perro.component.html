@@ -1,10 +1,11 @@
 <div class="container">
-    <hr>
-    <div class="row">
-      <div class="col">
-        <div>
-          {{indice+1}}: {{ perro.nombre }} {{ perro.edad }}
-        </div>
+  <hr>
+  <div class="row">
+    <div class="col">
+      <div>
+        {{indice+1}}: {{ perro.nombre }} {{ perro.edad }} {{perro.sexo}} {{perro.tamanio}}
+        <img [src]="perro.foto" alt="Foto del perro">
       </div>
     </div>
   </div>
+</div>
