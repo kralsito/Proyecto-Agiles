@@ -4,7 +4,7 @@ from django.db import models
 
 class Publicacion(models.Model):
     nombrePerro = models.CharField(max_length=30)
-    fotoPerro = models.ImageField(upload_to="./media/perros", null=True, blank=True)
+    fotoPerro = models.ImageField(upload_to="./perros", null=True, blank=True)
     edadPerro = models.CharField(max_length=20)
     SEXO_CHOICES = [
         ('M', 'Macho'),
