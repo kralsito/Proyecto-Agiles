@@ -38,6 +38,7 @@ export class AppComponent {
     this.mostrarInicio = true;
     this.mostrarPublicacion = false;
     this.mostrarContenido = true;
+    this.router.navigate(['/formpublicacion']);
     }
 
 
