@@ -1,11 +1,24 @@
-<div class="container" *ngIf="!mostrarPublicacion">
+<div>
+  <button class="btn btn-primary verPublicaciones" (click)="verPublicaciones()" *ngIf="!mostrarPublicacion && !mostrarContenido">
+    Ver publicaciones
+  </button>
+  <br>
+  <button class="btn btn-primary crearPublicacion" (click)="crearPublicacion()" *ngIf="!mostrarPublicacion && !mostrarContenido">
+    Crear publicación
+  </button>
+  <button class="btn btn-primary verApp" (click)="verApp()" *ngIf="mostrarInicio">
+    Volver a inicio
+  </button>
+</div>
+
+<div class="container" *ngIf="mostrarContenido">
   <div class="col">
-    <h3>{{titulo}}</h3>
   </div>
   <hr />
-<app-perros></app-perros>
-<div *ngIf="mostrarPublicacion">
+  <app-perros></app-perros>
+  <hr />
+</div>
+
+<div *ngIf="mostrarPublicacion && !mostrarContenido">
     <router-outlet></router-outlet>
 </div>
-<button class="btn btn-primary verPublicaciones" (click)="verPublicaciones()" *ngIf="!mostrarPublicacion">Ver pubicaciones</button>
-<button class="btn btn-primary verApp" (click)="verApp()" *ngIf="mostrarPublicacion">Volver a inicio</button>

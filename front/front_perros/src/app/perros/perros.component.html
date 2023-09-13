@@ -1,10 +1,9 @@
 <div class="container">
-<app-formpublicacion></app-formpublicacion>
-<hr />
-<app-perro
-*ngFor="let perroElemento of perros; let i = index"
-[perro]="perroElemento"
-[indice]="i"
->
-</app-perro>
-</div>
+    <app-formpublicacion></app-formpublicacion>
+    <hr />
+    <div *ngFor="let perroElemento of perros; let i = index">
+      <app-perro [perro]="perroElemento" [indice]="i">
+      </app-perro>
+    </div>
+  </div>
+  

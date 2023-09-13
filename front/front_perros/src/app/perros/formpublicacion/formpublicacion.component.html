@@ -1,4 +1,18 @@
+<!DOCTYPE html>
+<html lang="es">
+<h3>Datos del Perro</h3>
+<p>Completa a continuación los datos de tu perro.</p>
+<hr>
 <form>
+  <div class="row">
+    <div class="form-group col-md-2">
+      
+      <label for="imagen">Imagen:</label>
+      <img id="imgSalida" width="100" height="100" />
+      <input type="file" id="imagen" name="imagen" accept="image/*" #imagenInput>
+      <!--Hacer tambien un espacio para ver la vista previa de la imagen subida-->
+    </div>
+  </div>
   <div class="row">
     <div class="form-group col-md-2">
         <label for="nombre">Nombre:</label>
@@ -12,7 +26,7 @@
         />
     </div>
 
-    <div class="form-group col-md-1">
+    <div class="form-group col-md-2">
         <label for="edad">Edad:</label>
         <input
           type="number"
@@ -44,10 +58,19 @@
     </div>
   </div>
   <div class="row">
-      <div class="form-group col-md-2">
-        <label for="imagen">Imagen:</label>
-        <input type="file" id="imagen" name="imagen" accept="image/*" #imagenInput>
-      </div>
+    <!--Select radio para ver si tiene libreta sanitaria-->
+    <div class="form-group col-md-2">
+      <label for="libreta">¿Tiene libreta sanitaria?</label>
+      <br>
+        <input type="radio" name="libreta" value="si"> Si<br>
+        <input type="radio" name="libreta" value="no"> No<br>
+    </div>
+    <div class="form-group col-md-2">
+      <label for="desparasitado">¿Está desparasitado?</label>
+      <br>
+        <input type="radio" name="desparasitado" value="si"> Si<br>
+        <input type="radio" name="desparasitado" value="no"> No<br>
+    </div>
   </div>
     <br>
     <div class="col">

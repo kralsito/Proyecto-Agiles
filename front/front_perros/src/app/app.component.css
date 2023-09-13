@@ -1,4 +1,15 @@
 .verPublicaciones {
     margin-left: 120px;
     margin-top: 10px;
+    background-color: rgb(218, 111, 211);
+    border: none;
+    margin-top: 10px;
+}
+
+.crearPublicacion {
+    margin-left: 120px;
+    margin-top: 10px;
+    background-color: rgb(212, 74, 74);
+    border: none;
+    margin-top: 10px;
 }
