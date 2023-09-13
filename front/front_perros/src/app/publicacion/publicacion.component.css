@@ -4,6 +4,10 @@
     overflow: hidden;
 }
 
+#publicacionPerro {
+    margin: 0 50px 0;
+}
+
 #iconHeart {
     color: white;
     font-size: 15px;
@@ -43,7 +47,3 @@
     margin: 20px 10px 20px;
 }
 
-hr {
-    margin-left: 100px !important;
-    margin-right: 40px !important;
-}
