@@ -1,0 +1,62 @@
+/* Estilo del fondo y fuente */
+body {
+    background-color: #f0f0f0; /* Color de fondo pastel */
+    font-family: 'San Francisco', Helvetica, Arial, san-serif; /* Fuente tipo Apple */
+  }
+  
+  /* Estilo del formulario */
+  form {
+    background-color: #ffffff; /* Color de fondo del formulario */
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+  }
+  
+  /* Estilo de los botones */
+  .btn {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+  }
+  
+  .btn:hover {
+    background-color: #0056b3; /* Cambia de color al pasar el mouse por encima */
+  }
+  
+  /* Estilo de los encabezados */
+  h3 {
+    color: #333; /* Color del texto del encabezado */
+  }
+  
+  /* Estilo de los labels */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Estilo de los input y select */
+  input[type="text"],
+  input[type="number"],
+  select,
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  /* Estilo de los radio buttons */
+  input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /* Estilo del hr */
+  hr {
+    border: 1px solid #ccc;
+    margin: 20px 0;
+  }
+  

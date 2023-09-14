@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Perro } from '../../perro.model';
 import { LoggingService } from '../../LoggingService.service';
 import { PerrosService } from '../../perros.service';
+import { faFolderOpen} from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-formpublicacion',
@@ -10,6 +11,7 @@ import { PerrosService } from '../../perros.service';
 })
 export class FormpublicacionComponent implements OnInit {
 
+  faFolderOpen = faFolderOpen;
   constructor(private loggingService: LoggingService, private perrosService: PerrosService) {}
 
   ngOnInit() {
