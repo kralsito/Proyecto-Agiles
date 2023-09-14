@@ -9,7 +9,7 @@
       
       <label for="imagen">Imagen:</label>
       <img id="imgSalida" width="100" height="100" />
-      <input type="file" id="imagen" name="imagen" accept="image/*" #imagenInput>
+      <input type="file" id="fotoPerro" name="imagen" accept="image/*" required >
       <!--Hacer tambien un espacio para ver la vista previa de la imagen subida-->
     </div>
   </div>
@@ -19,41 +19,40 @@
         <input
           type="text"
           name="nombre"
-          id="nombre"
+          id="nombrePerro"
           placeholder="Inserte un nombre"
           class="form-control"
-          #nombreInput
         />
     </div>
 
     <div class="form-group col-md-2">
         <label for="edad">Edad:</label>
         <input
-          type="number"
+          type="text"
           name="edad"
-          id="edad"
+          id="edadPerro"
           placeholder="Inserte una edad"
           class="form-control"
-          #edadInput
+          
         />
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-2">
       <label for="sexo">Sexo:</label>
-      <select name="sexo" id="sexo" class="form-control" #sexoSelect>
+      <select name="sexo" id="sexoPerro" class="form-control" >
         <option value="">Seleccione un sexo</option>
-        <option value="macho">Macho</option>
-        <option value="hembra">Hembra</option>
+        <option value="M">Macho</option>
+        <option value="H">Hembra</option>
       </select>
     </div>
     <div class="form-group col-md-2">
       <label for="tamanio">Tamaño:</label>
-      <select name="tamanio" id="tamanio" class="form-control" #tamanioSelect>
+      <select name="tamanio" id="tamanioPerro" class="form-control" >
         <option value="">Seleccione un tamaño</option>
-        <option value="chico">Chico</option>
-        <option value="mediano">Mediano</option>
-        <option value="grande">Grande</option>
+        <option value="Chico">Chico</option>
+        <option value="Mediano">Mediano</option>
+        <option value="Grande">Grande</option>
       </select>
     </div>
   </div>
@@ -75,7 +74,7 @@
     <br>
     <div class="col">
         <button type="submit" class="btn btn-primary" 
-        (click)="onAgregarPerro(nombreInput,edadInput,sexoSelect,tamanioSelect,imagenInput)">
+        (click)="onAgregarPerro()">
           Agregar
         </button>
       </div>

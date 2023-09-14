@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Perro } from './perro.model';
-import { LoggingService } from './LoggingService.service';
-import { PerrosService } from './perros.service';
+import { Component} from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
