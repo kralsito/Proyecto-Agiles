@@ -12,6 +12,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { PerrosService } from './perros.service';
 import { PerrosComponent } from './perros/perros.component';
+import { HomeService } from './home.service';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,7 @@ import { PerrosComponent } from './perros/perros.component';
     FontAwesomeModule,
     HttpClientModule 
   ],
-  providers: [LoggingService, PerrosService],
+  providers: [LoggingService, PerrosService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
