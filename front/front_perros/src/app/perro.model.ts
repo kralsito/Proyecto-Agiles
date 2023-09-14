@@ -1,9 +1,9 @@
 export class Perro {
     constructor(
-        public nombre: string,
-        public edad: number,
-        public sexo: string,
-        public tamanio: string,
-        public foto: string,
+        public nombrePerro: string,
+        public edadPerro: string,
+        public sexoPerro: string,
+        public tamanioPerro: string,
+        public fotoPerro: File | null,
     ){}
 }

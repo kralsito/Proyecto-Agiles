@@ -4,7 +4,6 @@ import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientMo
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
-import { PerroComponent } from './perros/perro/perro.component';
 import { FormpublicacionComponent } from './perros/formpublicacion/formpublicacion.component'; // <-- NgModel lives here
 import { LoggingService } from './LoggingService.service';
 import { PublicacionComponent } from './publicacion/publicacion.component';
@@ -17,11 +16,9 @@ import { HomeService } from './home.service';
 @NgModule({
   declarations: [
     AppComponent,
-    PerroComponent,
     FormpublicacionComponent,
     PublicacionComponent,
     PublicacionesComponent,
-    PerrosComponent
   ],
   imports: [
     BrowserModule,
