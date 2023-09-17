@@ -1,12 +1,21 @@
-<div>
-  <button class="btn btn-primary verPublicaciones" (click)="verPublicaciones()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
+<app-nav-bar></app-nav-bar>
+<section class="tituloyeslogan">
+  <div>
+      <h1>Adoptr</h1>
+      <h2>Una nueva forma de fomentar la adopción responsable.</h2>
+  </div>
+</section>
+  
+
+<div class="contenedor1">
+  <button class="btn btn1" (click)="verPublicaciones()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
     Ver publicaciones
   </button>
   <br>
-  <button class="btn btn-primary crearPublicacion" (click)="crearPublicacion()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
+  <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
     Crear publicación
   </button>
-  <button class="btn btn-primary verApp" (click)="verApp()" *ngIf="homeService.getMostrarInicio()">
+  <button class="btn btn2" (click)="verApp()" *ngIf="homeService.getMostrarInicio()">
     Volver a inicio
   </button>
 </div>

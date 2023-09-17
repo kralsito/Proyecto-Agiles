@@ -1,19 +1,54 @@
-.verPublicaciones {
-    margin-left: 120px;
-    margin-top: 10px;
-    background-color: rgb(218, 111, 211);
-    border: none;
-    margin-top: 10px;
+.btn{
+    border: 3px solid #ffffff;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.btn1,.btn2{
+    color: #ffffff;
+}
+.btn1:hover,.btn2:hover{
+    color: #050505;
+}
+.btn::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #d6a050;
+    z-index: -1;
+    transition: 0.8s;
+}
+.btn1::before,.btn2::before{
+    top: 0;
+    border-radius: 0 0 50% 50%;
 }
 
-.crearPublicacion {
-    margin-left: 120px;
-    margin-top: 10px;
-    background-color: rgb(212, 74, 74);
-    border: none;
-    margin-top: 10px;
+.btn1:hover::before,.btn2:hover::before{
+    height: 180%;
 }
 
-.verApp {
-    margin-left: 50px;
+h1{
+    font-weight: normal;
+    text-align: left;
+    padding-top: 150px;
+    font-size: 90px;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+}
+h2{
+    font-weight: normal;
+    text-align: left;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+    color: white;
 }
