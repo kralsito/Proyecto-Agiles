@@ -15,17 +15,16 @@
   <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!mostrarPublicacion && !mostrarContenido">
     Crear publicación
   </button>
+  <div class="container" *ngIf="mostrarContenido">
+    <div class="col">
+    </div>
+    <hr />
+    <app-formpublicacion></app-formpublicacion>
+    <hr />
+  </div>
   <button class="btn btn2" (click)="verApp()" *ngIf="mostrarInicio">
     Volver a inicio
   </button>
-</div>
-
-<div class="container" *ngIf="mostrarContenido">
-  <div class="col">
-  </div>
-  <hr />
-  <app-formpublicacion></app-formpublicacion>
-  <hr />
 </div>
 
 <div *ngIf="mostrarPublicacion && !mostrarContenido">
