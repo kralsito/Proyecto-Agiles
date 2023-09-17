@@ -15,17 +15,16 @@
   <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
     Crear publicación
   </button>
-  <button class="btn btn2" (click)="verApp()" *ngIf="homeService.getMostrarInicio()">
-    Volver a inicio
-  </button>
-</div>
-
 <div class="container" *ngIf="homeService.getMostrarContenido()">
   <div class="col">
   </div>
   <hr />
   <app-formpublicacion></app-formpublicacion>
   <hr />
+</div>
+  <button class="btn btn2" (click)="verApp()" *ngIf="homeService.getMostrarInicio()">
+    Volver a inicio
+  </button>
 </div>
 
 <div *ngIf="homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
