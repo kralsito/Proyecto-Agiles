@@ -10,6 +10,9 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { FooterComponent } from './footer/footer.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
+import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
 
 
 @NgModule({
@@ -19,6 +22,9 @@ import { FooterComponent } from './footer/footer.component';
     PublicacionComponent,
     PublicacionesComponent,
     FooterComponent,
+    NavBarComponent,
+    MenuPrincipalComponent,
+    TituloYEsloganComponent,
   ],
   imports: [
     BrowserModule,
