@@ -9,6 +9,7 @@ import { LoggingService } from './LoggingService.service';
 import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { PublicacionesComponent } from './publicaciones/publicaciones.component'
     FormpublicacionComponent,
     PublicacionComponent,
     PublicacionesComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

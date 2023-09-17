@@ -1,0 +1,9 @@
+/* Estilos para el footer */
+footer {
+    background-color: beige;
+    padding: 20px;
+    text-align: center;
+    font-size: 16px;
+    color: #333;
+    border-top: 2px solid black;
+  }
