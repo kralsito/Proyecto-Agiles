@@ -8,25 +8,25 @@
   
 
 <div class="contenedor1">
-  <button class="btn btn1" (click)="verPublicaciones()" *ngIf="!mostrarPublicacion && !mostrarContenido">
+  <button class="btn btn1" (click)="verPublicaciones()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
     Ver publicaciones
   </button>
   <br>
-  <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!mostrarPublicacion && !mostrarContenido">
+  <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
     Crear publicación
   </button>
-  <div class="container" *ngIf="mostrarContenido">
-    <div class="col">
-    </div>
-    <hr />
-    <app-formpublicacion></app-formpublicacion>
-    <hr />
+<div class="container" *ngIf="homeService.getMostrarContenido()">
+  <div class="col">
   </div>
-  <button class="btn btn2" (click)="verApp()" *ngIf="mostrarInicio">
+  <hr />
+  <app-formpublicacion></app-formpublicacion>
+  <hr />
+</div>
+  <button class="btn btn2" (click)="verApp()" *ngIf="homeService.getMostrarInicio()">
     Volver a inicio
   </button>
 </div>
 
-<div *ngIf="mostrarPublicacion && !mostrarContenido">
+<div *ngIf="homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
     <router-outlet></router-outlet>
 </div>

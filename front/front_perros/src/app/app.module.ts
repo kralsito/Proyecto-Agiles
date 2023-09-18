@@ -9,10 +9,10 @@ import { LoggingService } from './LoggingService.service';
 import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { HomeService } from './home.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
-
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.compo
     FontAwesomeModule,
     HttpClientModule 
   ],
-  providers: [LoggingService],
+  providers: [LoggingService, HomeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
