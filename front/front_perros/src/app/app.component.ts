@@ -1,47 +1,36 @@
-import { Component} from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { HomeService } from './home.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-
 export class AppComponent {
 
   title = 'RouteApp';
-  mostrarInicio: boolean = false;
-  mostrarPublicacion: boolean = false;
-  mostrarContenido: boolean = false;
-  constructor(private router: Router){}
-  titulo = 'Datos del Perro';
 
+  constructor(private router: Router, public homeService: HomeService) {}
 
-  verPublicaciones(){
-    this.mostrarPublicacion = true;
-    this.mostrarContenido = false;
-    this.mostrarInicio = true;
+  verPublicaciones() {
+    this.homeService.setMostrarPublicacion(true);
+    this.homeService.setMostrarContenido(false);
+    this.homeService.setMostrarInicio(true);
     this.router.navigate(['/publicacion']);
   }
-  
-    verApp() {
-      this.mostrarPublicacion = false;
-      this.mostrarContenido = false; 
-      this.mostrarInicio = false;
-      this.router.navigate(['/']); 
-    }
 
-  crearPublicacion(){
-    this.mostrarInicio = true;
-    this.mostrarPublicacion = false;
-    this.mostrarContenido = true;
+  verApp() {
+    this.homeService.setMostrarPublicacion(false);
+    this.homeService.setMostrarContenido(false);
+    this.homeService.setMostrarInicio(false);
+    this.router.navigate(['/']);
+  }
+
+  crearPublicacion() {
+    this.homeService.setMostrarInicio(true);
+    this.homeService.setMostrarPublicacion(false);
+    this.homeService.setMostrarContenido(true);
     this.router.navigate(['/formpublicacion']);
-    }
-
-
-  //verFormpublicacion() {
-  //  this.mostrarContenido = true; // Ocultar el contenido de "publicacion.component"
-  //  this.mostrarPublicacion = false;
-  //  this.router.navigate(['/formpublicacion']); // Navegar a la página de "publicacion.component"
-  //}
+  }
 }
