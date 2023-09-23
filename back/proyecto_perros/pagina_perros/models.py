@@ -7,10 +7,10 @@ class Publicacion(models.Model):
     fotoPerro = models.ImageField(upload_to="./perros", null=True, blank=True)
     edadPerro = models.CharField(max_length=20)
     SEXO_CHOICES = [
-        ('M', 'Macho'),
-        ('H', 'Hembra'),
+        ('Macho', 'Macho'),
+        ('Hembra', 'Hembra'),
     ]
-    sexoPerro = models.CharField(max_length=3, choices=SEXO_CHOICES)
+    sexoPerro = models.CharField(max_length=15, choices=SEXO_CHOICES)
 
     TAMANO_CHOICES = [
         ('Pequeño', 'Pequeño'),
