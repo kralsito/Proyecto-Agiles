@@ -14,6 +14,7 @@ import { HomeService } from './home.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
+import { FormusuarioComponent } from './formusuario/formusuario.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.compo
     NavBarComponent,
     MenuPrincipalComponent,
     TituloYEsloganComponent,
+    FormusuarioComponent,
   ],
   imports: [
     BrowserModule,
