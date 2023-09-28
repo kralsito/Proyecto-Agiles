@@ -1,10 +1,5 @@
 <app-nav-bar></app-nav-bar>
-<section class="tituloyeslogan">
-  <div>
-      <h1>Adoptr</h1>
-      <h2>Una nueva forma de fomentar la adopción responsable.</h2>
-  </div>
-</section>
+<app-titulo-yeslogan></app-titulo-yeslogan>
   
 
 <div class="contenedor1">
@@ -26,7 +21,7 @@
     Volver a inicio
   </button>
 </div>
-
 <div *ngIf="homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
     <router-outlet></router-outlet>
 </div>
+<app-login></app-login>

@@ -7,6 +7,7 @@ export class HomeService {
   mostrarInicio: boolean = false;
   mostrarPublicacion: boolean = false;
   mostrarContenido: boolean = false;
+  noLogeado: boolean = false;
 
   constructor() {}
 
