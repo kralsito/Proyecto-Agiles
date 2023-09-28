@@ -7,6 +7,6 @@ from . import views
 urlpatterns = [
     path('publicaciones/alta/', PublicacionCreateView.as_view(), name = 'publi-alta'),
     path('publicaciones/', PublicacionList.as_view(), name = 'publi-list'),
-    path('registrar/', UsuarioCreateView.as_view(), name='registrar-usuario'),
+    path('usuario/registrar/', UsuarioCreateView.as_view(), name='registrar-usuario'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
