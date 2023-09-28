@@ -1,8 +1,4 @@
-/* Estilo del fondo y fuente */
-body {
-    background-color: #f0f0f0; /* Color de fondo pastel */
-    font-family: 'San Francisco', Helvetica, Arial, san-serif; /* Fuente tipo Apple */
-  }
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@300&family=Yeseva+One&display=swap');
   
   /* Estilo del formulario */
   form {
@@ -10,6 +6,7 @@ body {
     padding: 20px;
     border-radius: 10px; /* Bordes redondeados */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
+    font-family: 'Open Sans', sans-serif;
   }
   
   /* Estilo de los botones */
@@ -26,10 +23,30 @@ body {
   .btn:hover {
     background-color: #0056b3; /* Cambia de color al pasar el mouse por encima */
   }
+
+  .btn-agregar {
+    font-size: 18px;
+    background-color: #609686;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .btn-agregar:hover {
+    background-color: #17644d;
+  }
   
   /* Estilo de los encabezados */
+  h3, p {
+    color: #ffffff; /* Color del texto del encabezado */
+    font-family: 'Inclusive Sans', sans-serif;
+  }
+
   h3 {
-    color: #333; /* Color del texto del encabezado */
+    font-size: 40px !important;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 18px !important;
   }
   
   /* Estilo de los labels */
@@ -47,11 +64,13 @@ body {
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-family: 'Open Sans', sans-serif;
   }
   
   /* Estilo de los radio buttons */
   input[type="radio"] {
     margin-right: 5px;
+    font-family: 'Open Sans', sans-serif;
   }
   
   /* Estilo del hr */

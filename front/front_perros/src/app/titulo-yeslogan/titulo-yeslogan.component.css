@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+
+h1{
+    font-weight: normal;
+    text-align: left;
+    padding-top: 150px;
+    font-size: 90px;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+    font-family: 'Yeseva One', cursive;
+}
+
+h2{
+    font-weight: normal;
+    text-align: left;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+    color: white;
+}
