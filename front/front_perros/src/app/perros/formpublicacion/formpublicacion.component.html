@@ -1,55 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-<h3>Datos del Perro 🐕</h3>
-<p>Completa a continuación los datos de tu perro.</p>
+<h3>Datos del perro</h3>
+<p>Completá a continuación los datos de tu perro.</p>
 <hr>
 <form>
   <div class="row">
     <div class="form-group col-md-5">
-      
-      <label for="imagen">Imagen:</label>
-      <img id="imgSalida" width="100" height="100" />
-      <input type="file" id="fotoPerro" name="imagen" accept="image/*" required >
-
+      <input type="file" id="fotoPerro" name="imagen" accept="image/*" required>
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-2">
-        <label for="nombre">Nombre:</label>
         <input
           type="text"
           name="nombre"
           id="nombrePerro"
-          placeholder="Inserte un nombre"
+          placeholder="Nombre"
           class="form-control"
         />
     </div>
 
     <div class="form-group col-md-2">
-        <label for="edad">Edad:</label>
         <input
           type="text"
           name="edad"
           id="edadPerro"
-          placeholder="Inserte una edad"
+          placeholder="Edad"
           class="form-control"
-          
         />
     </div>
   </div>
   <div class="row">
     <div class="form-group col-md-2">
-      <label for="sexo">Sexo:</label>
       <select name="sexo" id="sexoPerro" class="form-control" >
-        <option value="">Seleccione un sexo</option>
+        <option value="">Sexo</option>
         <option value="Macho">Macho</option>
         <option value="Hembra">Hembra</option>
       </select>
     </div>
     <div class="form-group col-md-2">
-      <label for="tamanio">Tamaño:</label>
       <select name="tamanio" id="tamanioPerro" class="form-control" >
-        <option value="">Seleccione un tamaño</option>
+        <option value="">Tamaño</option>
         <option value="Pequeño">Pequeño</option>
         <option value="Mediano">Mediano</option>
         <option value="Grande">Grande</option>
@@ -73,9 +64,9 @@
   </div>
     <br>
     <div class="col">
-        <button type="submit" class="btn btn-primary" 
+        <button type="submit" class="btn btn-primary btn-agregar" 
         (click)="onAgregarPerro()">
-          Agregar
+          Publicar perro
         </button>
       </div>
 </form>
