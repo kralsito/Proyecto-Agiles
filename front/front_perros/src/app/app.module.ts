@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http'; // Importa HttpClientModule
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FormpublicacionComponent } from './perros/formpublicacion/formpublicacion.component'; // <-- NgModel lives here
 import { LoggingService } from './LoggingService.service';
 import { PublicacionComponent } from './publicacion/publicacion.component';
@@ -14,6 +14,7 @@ import { HomeService } from './home.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
+import { LoginComponent } from './login/login.component';
 import { FormusuarioComponent } from './formusuario/formusuario.component';
 
 @NgModule({
@@ -26,6 +27,7 @@ import { FormusuarioComponent } from './formusuario/formusuario.component';
     NavBarComponent,
     MenuPrincipalComponent,
     TituloYEsloganComponent,
+    LoginComponent,
     FormusuarioComponent
   ],
   imports: [
@@ -33,6 +35,8 @@ import { FormusuarioComponent } from './formusuario/formusuario.component';
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [LoggingService, HomeService],

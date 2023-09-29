@@ -5,6 +5,7 @@ import { FormpublicacionComponent } from './perros/formpublicacion/formpublicaci
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: 'publicacion', component: PublicacionComponent },
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'nav-bar', component: NavBarComponent },
   { path: 'menu-principal', component: MenuPrincipalComponent},
   { path: 'titulo-yeslogan', component: TituloYEsloganComponent},
+  { path: 'login', component: LoginComponent},
 
 ];
 

@@ -1,0 +1,34 @@
+<link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+<div class="wrapper">
+    <form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
+        <h1>Login</h1>
+        <div class="input-box">
+            <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" placeholder="Email" class="form-control" required>
+            <!--<i class='bx bxs-user'></i>-->
+            <div class="invalid-feedback">
+                Email obligatorio
+            </div>
+        </div>
+        <div class="input-box">
+            <input formControlName="password" [class.is-invalid]="f.password.errors && f.password.touched" type="password" placeholder="Contraseña" class="form-control" required>
+            <!--<i class='bx bxs-lock-alt' ></i>-->
+            <div class="invalid-feedback">
+                Contraseña obligatoria
+            </div>
+        </div>
+
+        <div class="remember-forgot">
+            <label><input type="checkbox"> Recordarme</label>
+            <a href="#">Olvidaste tu contraseña?</a>
+        </div>
+
+        <button type="submit" class="btn btn-success">Ingresar</button>
+
+        <div class="register-link">
+            <p>No tienes una cuenta? <a href="#">Crear una cuenta</a></p>
+
+
+        </div>
+    </form>
+</div>
