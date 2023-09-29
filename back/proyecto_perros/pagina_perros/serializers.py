@@ -11,14 +11,14 @@ class UsuarioSerializer(serializers.ModelSerializer):
         model = Usuario
         fields = ('id', 'email', 'nombreUsuario', 'apellidoUsuario', 'telefono', 'provincia', 'localidad')
         extra_kwargs = {
-            'contraseña': {'write_only': True},  # Para que la contraseña no sea visible en respuestas GET
+            'password': {'write_only': True},  # Para que la password no sea visible en respuestas GET
         }
 
     def create(self, validated_data):
         # Utiliza el método `create_user` del manager para crear un nuevo usuario
         user = Usuario.objects.create_user(
             email=validated_data['email'],
-            contraseña=validated_data['contraseña'],
+            password=validated_data['password'],
             nombreUsuario=validated_data['nombreUsuario'],
             apellidoUsuario=validated_data['apellidoUsuario'],
             telefono=validated_data['telefono'],

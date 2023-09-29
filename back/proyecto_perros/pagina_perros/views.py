@@ -28,5 +28,5 @@ class UsuarioCreateView(generics.CreateAPIView):
     permission_classes = [AllowAny]  # Esto permite que cualquier usuario pueda crear una cuenta
 
     def perform_create(self, serializer):
-        # Puedes agregar lógica adicional aquí antes de que se cree el usuario, si es necesario
+        print("Creating user...")
         serializer.save()

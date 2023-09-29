@@ -26,11 +26,11 @@ export class FormusuarioComponent implements OnInit {
 
     const nombre = (document.getElementById('nombreUsuario') as HTMLInputElement).value;
     const apellido = (document.getElementById('apellidoUsuario') as HTMLInputElement).value;
-    const email = (document.getElementById('emailUsuario') as HTMLInputElement).value;
-    const telefono = (document.getElementById('telefonoUsuario') as HTMLInputElement).value;
-    const provincia = (document.getElementById('provinciaUsuario') as HTMLInputElement).value;
-    const localidad = (document.getElementById('localidadUsuario') as HTMLInputElement).value;
-    const password = (document.getElementById('passwordUsuario') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value;
+    const telefono = (document.getElementById('telefono') as HTMLInputElement).value;
+    const provincia = (document.getElementById('provincia') as HTMLInputElement).value;
+    const localidad = (document.getElementById('localidad') as HTMLInputElement).value;
+    const password = (document.getElementById('password') as HTMLInputElement).value;
     const confPassword = (document.getElementById('confirmarPassword') as HTMLInputElement).value;
 
     if (password !== confPassword) {
@@ -41,21 +41,21 @@ export class FormusuarioComponent implements OnInit {
       const usuario: Usuario = {
         nombreUsuario: nombre,
         apellidoUsuario: apellido,
-        emailUsuario: email,
-        telefonoUsuario: parseInt(telefono),
-        provinciaUsuario: provincia,
-        localidadUsuario: localidad,
-        passwordUsuario: password,
+        email: email,
+        telefono: parseInt(telefono),
+        provincia: provincia,
+        localidad: localidad,
+        password: password,
       };
 
       const formData = new FormData();
       formData.append('nombreUsuario', nombre);
       formData.append('apellidoUsuario', apellido);
-      formData.append('emailUsuario', email);
-      formData.append('telefonoUsuario', telefono);
-      formData.append('provinciaUsuario', provincia);
-      formData.append('localidadUsuario', localidad);
-      formData.append('passwordUsuario', password);
+      formData.append('email', email);
+      formData.append('telefono', telefono);
+      formData.append('provincia', provincia);
+      formData.append('localidad', localidad);
+      formData.append('password', password);
 
       this.formuserService.altaUsuario(usuario).subscribe(
         (response) => {

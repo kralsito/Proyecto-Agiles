@@ -10,7 +10,7 @@ export class FormuserService {
   constructor(private http: HttpClient) {}
 
   altaUsuario(usuario: any): Observable<any> {
-    const url = 'http://localhost:8000/api/registrar';
+    const url = 'http://localhost:8000/api/usuario/registrar/';
     
     return this.http.post(url, usuario);
   }
