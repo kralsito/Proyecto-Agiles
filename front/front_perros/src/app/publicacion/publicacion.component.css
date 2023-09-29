@@ -23,6 +23,7 @@
     border: none;
     margin-right: 10px;
     margin-top: 10px;
+    font-size: 15px;
 }
 
 #btnHeart:hover {
@@ -32,7 +33,7 @@
 #btnInteresa {
     background-color: #609686;
     border: none;
-    font-size: 18px;
+    font-size: 15px;
     margin-top: 10px;
     font-family: 'Open Sans', sans-serif;
 }

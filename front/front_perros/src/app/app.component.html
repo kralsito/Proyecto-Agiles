@@ -1,18 +1,8 @@
 <app-nav-bar></app-nav-bar>
-<div class="contenedor1">
-  <button class="btn btn1" (click)="verPublicaciones()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
-    Ver publicaciones
-  </button>
-  <br>
-  <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
-    Crear publicación
-  </button>
 <div *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
   <app-titulo-yeslogan></app-titulo-yeslogan>
 </div>
 <div class="container" *ngIf="homeService.getMostrarContenido()">
-  <div class="col">
-  </div>
   <hr />
   <app-formpublicacion></app-formpublicacion>
   <hr />
@@ -20,20 +10,19 @@
 <div class="container" *ngIf="homeService.getMostrarPublicacion()">
   <app-publicacion></app-publicacion>
 </div>
-<app-login></app-login>
 <div class="container botones">
-    <button class="btn btn1" (click)="verPublicaciones()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
-      Ver publicaciones
-    </button>
-    <br>
-    <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
-      Crear publicación
-    </button>
-    <button class="btn btn3" (click)="verApp()" *ngIf="homeService.getMostrarInicio()">
-      Volver a inicio
-    </button>
+  <button class="btn btn3" (click)="verApp()" *ngIf="homeService.getMostrarInicio()">
+    Volver a inicio
+  </button>
+  <button class="btn btn1" (click)="verPublicaciones()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
+    Ver publicaciones
+  </button>
+  <br>
+  <button class="btn btn2" (click)="crearPublicacion()" *ngIf="!homeService.getMostrarPublicacion() && !homeService.getMostrarContenido()">
+    Crear publicación
+  </button>
 </div>
-
+<app-login></app-login>
 <app-formusuario></app-formusuario>
 
 <app-footer></app-footer>
