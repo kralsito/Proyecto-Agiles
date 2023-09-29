@@ -6,8 +6,9 @@
 <form class="wrapper">
   <div class="row">
     <div class="form-group col-md-5">
-      <input type="file" id="fotoPerro" name="imagen" accept="image/*" required>
+      <div id="imgPreview"></div>
     </div>
+    <input type="file" id="fotoPerro" name="fotoPerro" accept="image/*" (change)="mostrarImagen()"/>
   </div>
   <div class="row">
     <div class="form-group col-md-2">

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Perro } from '../../perro.model';
 import { LoggingService } from '../../LoggingService.service';
 import { FormpubliService } from './formpubli.service';
@@ -9,7 +9,22 @@ import { FormpubliService } from './formpubli.service';
   styleUrls: ['./formpublicacion.component.css'],
 })
 export class FormpublicacionComponent implements OnInit {
+  
+  mostrarImagen() {
+    const imgPreviewElement: HTMLElement = document.getElementById('imgPreview')!;
+    const fotoPerroInput: HTMLInputElement = document.getElementById('fotoPerro') as HTMLInputElement;
 
+    if (fotoPerroInput.files && fotoPerroInput.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        imgPreviewElement.innerHTML = `<img src="${e.target.result}" id="fotoInputPerro" style="max-width: 300px; max-height: 300px; margin-bottom: 10px"/>`;
+      };
+
+      reader.readAsDataURL(fotoPerroInput.files[0]);
+    }
+  }
+  
   constructor(private loggingService: LoggingService, private formpubliService: FormpubliService) {}
 
   ngOnInit() {
