@@ -7,40 +7,45 @@
         <h1>Creá tu cuenta</h1>
         <div class="input-box">
             <div class="input-field">
-                <input type="text" placeholder="Nombre" required>
+                <input type="text" placeholder="Nombre" id="nombreUsuario" required>
                 <i class='bx bxs-user' ></i>
             </div>
             <div class="input-field">
-                <input type="text" placeholder="Apellido" required>
+                <input type="text" placeholder="Apellido" id="apellidoUsuario" required>
                 <i class='bx bxs-user' ></i>
             </div>
             <div class="input-field">
-                <input type="text" placeholder="Correo electrónico" required>
+                <input type="text" placeholder="Correo electrónico" id="emailUsuario" required>
                 <i class='bx bxs-envelope' ></i>
             </div>
             <div class="input-field">
-                <input type="number" placeholder="Teléfono" required>
+                <input type="number" placeholder="Teléfono" id="telefonoUsuario" required>
                 <i class='bx bxs-phone'></i>
             </div>
             <div class="input-field">
-                <input type="text" placeholder="Provincia" required>
+                <input type="text" placeholder="Provincia" id="provinciaUsuario" required>
                 <i class='bx bxs-landscape'></i>
             </div>
             <div class="input-field">
-                <input type="text" placeholder="Localidad" required>
+                <input type="text" placeholder="Localidad" id="localidadUsuario" required>
                 <i class='bx bxs-buildings'></i>
             </div>
             <div class="input-field">
-                <input type="password" placeholder="Contraseña" required>
+                <input type="password" placeholder="Contraseña" id="passwordUsuario" required>
                 <i class='bx bxs-lock-alt' ></i>
             </div>
             <div class="input-field">
-                <input type="password" placeholder="Confirmar contraseña" required>
+                <input type="password" placeholder="Confirmar contraseña" id="confirmarPassword" required>
                 <i class='bx bxs-lock-alt' ></i>
             </div>
+            <div id="mensajeError" style="color: red;">{{ mensajeError }}</div>
         </div>
-        <label><input type="checkbox" class="dec">Declaro que la información ingresada arriba es legítima y correcta.</label>
-        <button type="submit" class="boton">Registrarme</button>
+        <label>
+            <input type="checkbox" class="dec" id="checkboxAceptado">
+            Declaro que la información ingresada arriba es legítima y correcta.
+          </label>
+          <button type="submit" class="boton" (click)="onAgregarUsuario()">Registrarme</button>
+          
     </form>
 </div>
 </body>

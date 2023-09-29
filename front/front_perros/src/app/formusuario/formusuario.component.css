@@ -94,3 +94,9 @@ body {
     color: #333;
     font-weight: 600;
 }
+
+/* Estilo para el botón cuando está deshabilitado */
+.boton:disabled {
+    background-color: #ccc; /* Color de fondo cuando está deshabilitado (gris) */
+    color: #999; /* Color del texto cuando está deshabilitado (gris) */
+  }
