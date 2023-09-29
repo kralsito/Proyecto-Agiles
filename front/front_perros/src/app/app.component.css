@@ -1,5 +1,21 @@
+.botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn1, .btn2 {
+    margin-top: 80px !important;
+    margin-bottom: 100px !important;
+}
+
+.btn3 {
+    margin-top: 40px !important;
+}
+
 .btn{
     border: 3px solid #ffffff;
+    color: #ffffff;
     background: none;
     padding: 10px 20px;
     font-size: 20px;
@@ -10,12 +26,11 @@
     overflow: hidden;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.btn1,.btn2{
-    color: #ffffff;
-}
-.btn1:hover,.btn2:hover{
+
+.btn:hover{
     color: #050505;
 }
+
 .btn::before{
     content: "";
     position: absolute;
@@ -26,29 +41,12 @@
     z-index: -1;
     transition: 0.8s;
 }
-.btn1::before,.btn2::before{
+.btn::before {
     top: 0;
     border-radius: 0 0 50% 50%;
 }
 
-.btn1:hover::before,.btn2:hover::before{
+.btn:hover::before {
     height: 180%;
 }
 
-h1{
-    font-weight: normal;
-    text-align: left;
-    padding-top: 150px;
-    font-size: 90px;
-    text-align: center;
-    margin: auto;
-    color: #fff;
-}
-h2{
-    font-weight: normal;
-    text-align: left;
-    font-size: 30px;
-    text-align: center;
-    margin: auto;
-    color: white;
-}
