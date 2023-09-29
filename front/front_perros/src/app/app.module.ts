@@ -26,14 +26,14 @@ import { FormusuarioComponent } from './formusuario/formusuario.component';
     NavBarComponent,
     MenuPrincipalComponent,
     TituloYEsloganComponent,
-    FormusuarioComponent,
+    FormusuarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [LoggingService, HomeService],
   bootstrap: [AppComponent]

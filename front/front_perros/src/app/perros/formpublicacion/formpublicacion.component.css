@@ -2,12 +2,19 @@
   
   /* Estilo del formulario */
   form {
-    background-color: #ffffff; /* Color de fondo del formulario */
     padding: 20px;
     border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Sombra */
     font-family: 'Open Sans', sans-serif;
   }
+
+  .wrapper{
+    background: rgba(255,255,255,.1);
+    border: 2px solid rgba(255,255,255,.2);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    color: #fff;
+}
   
   /* Estilo de los botones */
   .btn {
@@ -78,4 +85,5 @@
     border: 1px solid #ccc;
     margin: 20px 0;
   }
+
   
