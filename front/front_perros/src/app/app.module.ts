@@ -24,14 +24,14 @@ import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.compo
     FooterComponent,
     NavBarComponent,
     MenuPrincipalComponent,
-    TituloYEsloganComponent,
+    TituloYEsloganComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     FontAwesomeModule,
-    HttpClientModule 
+    HttpClientModule
   ],
   providers: [LoggingService, HomeService],
   bootstrap: [AppComponent]
