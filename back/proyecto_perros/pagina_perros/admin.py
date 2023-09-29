@@ -12,14 +12,14 @@ class UsuarioAdmin(admin.ModelAdmin):
     list_filter = ('is_staff', 'is_active')
     ordering = ('-date_joined',)
     fieldsets = (
-        (None, {'fields': ('email', 'contraseña')}),
+        (None, {'fields': ('email', 'password')}),
         ('Información personal', {'fields': ('nombreUsuario', 'apellidoUsuario', 'telefono', 'provincia', 'localidad')}),
         ('Permisos', {'fields': ('is_staff', 'is_active')}),
     )
     add_fieldsets = (
         (None, {
             'classes': ('wide',),
-            'fields': ('email', 'contraseña1', 'contraseña2'),
+            'fields': ('email', 'password1', 'password2'),
         }),
     )
 
