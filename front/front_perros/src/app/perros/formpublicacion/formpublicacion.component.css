@@ -83,3 +83,15 @@
     border: 1px solid #ccc;
     margin: 20px 0;
   }
+
+  .btnModal {
+    background-color:#17644d;
+    font-family:'Open Sans', sans-serif;
+    font-size: 15px;
+  }
+
+.modal-body {
+  color: black;
+  font-family:'Open Sans', sans-serif;
+  font-size: 15px;
+}
