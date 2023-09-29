@@ -2,6 +2,9 @@
 <html lang="es">
 <h3>Datos del perro</h3>
 <p>Completá a continuación los datos de tu perro.</p>
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
 <hr>
 <form class="wrapper">
   <div class="row">
@@ -65,9 +68,26 @@
   </div>
     <br>
     <div class="col">
-        <button type="submit" class="btn btn-primary btn-agregar" 
-        (click)="onAgregarPerro()">
+        <button type="submit" class="btn btn-primary btn-agregar" (click)="onAgregarPerro()">
           Publicar perro
         </button>
       </div>
 </form>
+
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandled()"></button>
+      </div>
+      <div class="modal-body">
+        ¡La publicación fue creada exitosamente!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btnModal" (click)="onCloseHandled()" >Aceptar</button>
+      </div>
+    </div>
+  </div>
+</div>
+

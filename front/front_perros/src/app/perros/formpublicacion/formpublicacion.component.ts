@@ -9,7 +9,7 @@ import { FormpubliService } from './formpubli.service';
   styleUrls: ['./formpublicacion.component.css'],
 })
 export class FormpublicacionComponent implements OnInit {
-  
+  display = "none";
   mostrarImagen() {
     const imgPreviewElement: HTMLElement = document.getElementById('imgPreview')!;
     const fotoPerroInput: HTMLInputElement = document.getElementById('fotoPerro') as HTMLInputElement;
@@ -58,10 +58,11 @@ export class FormpublicacionComponent implements OnInit {
       if (fotoFile) {
         formData.append('fotoPerro', fotoFile);
       }
-  
+      
       this.formpubliService.altaPublicacion(formData).subscribe(
         (response) => {
           console.log('Publicación creada exitosamente', response);
+          this.display= "block";
         },
         (error) => {
           console.error('Error al crear la publicación', error);
@@ -70,5 +71,8 @@ export class FormpublicacionComponent implements OnInit {
     } else {
       console.error('Elemento de entrada de imagen no encontrado.');
     }
+  }
+  onCloseHandled() {
+    this.display = "none";
   }
   }
