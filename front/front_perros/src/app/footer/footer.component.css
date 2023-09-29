@@ -1,9 +1,75 @@
-/* Estilos para el footer */
 footer {
-    background-color: beige;
-    padding: 20px;
-    text-align: center;
-    font-size: 16px;
-    color: #333;
-    border-top: 2px solid black;
-  }
+  width: 100%;
+  position: bottom;
+  bottom: 0;
+  background: linear-gradient(to right, #00093c, #2d0b00);
+  color: #fff;
+  padding: 100px 0 30px;
+  border-top-left-radius: 125px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.row{
+width: 85%;
+margin: auto;
+display: flex;
+flex-wrap: wrap;
+align-items: flex-start;
+justify-content: space-between;
+}
+
+.col{
+flex-basis: 25%;
+padding: 10px;
+}
+.colo:nth-child(2), .colo:nth-child(3){
+  flex-basis: 15%;
+}
+
+.col h3{
+width: fit-content;
+margin-bottom: 40px;
+position: relative;
+}
+
+.email-id{
+width: fit-content;
+border-bottom: 1px solid #ccc;
+margin: 20px 0;
+}
+
+ul li{
+list-style: none;
+margin-bottom: 12px;
+}
+
+ul li a{
+text-decoration: none;
+color: #fff;
+}
+
+form{
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 50px;
+}
+
+form input{
+  width: 100%;
+  background: transparent;
+  color: #ccc;
+  border: 0;
+  outline: none;
+}
+
+form button{
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
