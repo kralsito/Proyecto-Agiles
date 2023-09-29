@@ -1,7 +1,12 @@
-.container-fluid {
-    padding: 0px;
-    margin: 0px;
-    overflow: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@300&family=Yeseva+One&display=swap');
+
+.wrapper{
+    background: rgba(255,255,255,.1);
+    border: 2px solid rgba(255,255,255,.2);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    color: #fff;
 }
 
 #publicacionPerro {
@@ -14,36 +19,46 @@
 }
 
 #btnHeart {
-    background-color: rgb(252, 92, 140);
+    background-color: rgb(247, 170, 193);
     border: none;
     margin-right: 10px;
     margin-top: 10px;
 }
 
+#btnHeart:hover {
+    background-color: rgb(255, 103, 149);
+}
+
 #btnInteresa {
-    background-color: rgb(12, 2, 53);
+    background-color: #609686;
     border: none;
+    font-size: 18px;
     margin-top: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#btnInteresa:hover {
+    background-color: #17644d;
 }
 
 #nombrePerro {
-    font-weight: 800;
-    font-size: 20px;
-    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: 'Inclusive Sans', sans-serif;
 }
 
 #edadPerro, #sexoPerro, #tamañoPerro {
-    font-size: 15px;
-    font-family: 'Roboto', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
 }
 
+#nombrePerro, #edadPerro, #sexoPerro, #tamañoPerro {
+    margin-left: 10px;
+}
 
 #imagenPerro {
     margin: 20px 0px 20px;
     width: 100%;
-}
-
-#dataPerro {
-    margin: 20px 10px 20px;
 }
 

@@ -1,0 +1,151 @@
+*{
+  box-sizing: border-box;
+}
+footer {
+  width: 100%;
+  position: bottom;
+  bottom: 0;
+  background: linear-gradient(to right, rgba(207, 184, 149), rgba(241, 214, 173));
+  color: #070707;
+  padding: 100px 0 30px;
+  border-top-left-radius: 125px;
+  font-size: 13px;
+  line-height: 20px;
+}
+
+.row{
+width: 85%;
+margin: auto;
+display: flex;
+flex-wrap: wrap;
+align-items: flex-start;
+justify-content: space-between;
+}
+
+.col{
+flex-basis: 25%;
+padding: 10px;
+}
+.col:nth-child(2), .col:nth-child(3){
+  flex-basis: 15%;
+}
+
+.col h3{
+width: fit-content;
+margin-bottom: 40px;
+position: relative;
+}
+
+.email-id{
+width: fit-content;
+border-bottom: 1px solid #000000;
+margin: 20px 0;
+}
+
+ul li{
+list-style: none;
+margin-bottom: 12px;
+font-size: 15px;
+}
+
+ul li a{
+text-decoration: none;
+color: #0c0c0c;
+}
+
+form{
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #080808;
+  margin-bottom: 50px;
+}
+
+form input{
+  width: 100%;
+  background: transparent;
+  color: #020202;
+  border: 0;
+  outline: none;
+}
+
+form button{
+  background: transparent;
+  border: 0;
+  outline: none;
+  cursor: pointer;
+}
+
+form .fa-regular{
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+form button .fa-solid{
+  font-size: 16px;
+  color: #020202;
+}
+.social-icons .fa-brands{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 40px;
+  font-size: 20px;
+  color: #000;
+  background: #d4b560;
+  margin-right: 15px;
+  cursor: pointer;
+}
+
+hr{
+  width: 90%;
+  border: 0;
+  border-bottom: 1px solid #000000;
+  margin: 20px auto;
+}
+.copyright{
+  text-align: center;
+}
+.underline{
+  width: 100%;
+  height: 5px;
+  background: #af7802;
+  border-radius: 3px;
+  position: absolute;
+  top: 25px;
+  left: 0;
+  overflow: hidden;
+  margin-top: 6px;
+}
+.underline span{
+  width: 15px;
+  height: 100%;
+  background: #020202;
+  border-radius: 3px;
+  position: absolute;
+  top: 0;
+  left: 10px;
+  animation: moving 2s linear infinite;
+}
+@keyframes moving{
+  0%{
+    left: -20px;
+  }
+  100%{
+    left: 100%;
+  }
+}
+
+@media (max-width: 700px) {
+  footer{
+    bottom: unset;
+  }
+  .col{
+    flex-basis: 100%;
+  }
+  .col:nth-child(2), .col:nth-child(3){
+    flex-basis: 10%;
+  }
+}

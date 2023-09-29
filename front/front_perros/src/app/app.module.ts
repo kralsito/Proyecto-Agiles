@@ -9,13 +9,13 @@ import { LoggingService } from './LoggingService.service';
 import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
+import { FooterComponent } from './footer/footer.component';
 import { HomeService } from './home.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
 import { LoginComponent } from './login/login.component';
-
-
+import { FormusuarioComponent } from './formusuario/formusuario.component';
 
 @NgModule({
   declarations: [
@@ -23,10 +23,12 @@ import { LoginComponent } from './login/login.component';
     FormpublicacionComponent,
     PublicacionComponent,
     PublicacionesComponent,
+    FooterComponent,
     NavBarComponent,
     MenuPrincipalComponent,
     TituloYEsloganComponent,
     LoginComponent,
+    FormusuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +36,8 @@ import { LoginComponent } from './login/login.component';
     FormsModule,
     FontAwesomeModule,
     HttpClientModule,
-    FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [LoggingService, HomeService],
   bootstrap: [AppComponent]
