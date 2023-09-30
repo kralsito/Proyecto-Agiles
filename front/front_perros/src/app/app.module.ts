@@ -10,7 +10,6 @@ import { PublicacionComponent } from './publicacion/publicacion.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { PublicacionesComponent } from './publicaciones/publicaciones.component';
 import { FooterComponent } from './footer/footer.component';
-import { HomeService } from './home.service';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MenuPrincipalComponent } from './menu-principal/menu-principal.component';
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
@@ -39,7 +38,7 @@ import { FormusuarioComponent } from './formusuario/formusuario.component';
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [LoggingService, HomeService],
+  providers: [LoggingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

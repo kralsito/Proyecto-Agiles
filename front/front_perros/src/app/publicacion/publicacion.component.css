@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@300&family=Yeseva+One&display=swap');
 
-.wrapper{
+.contenedor{
     background: rgba(255,255,255,.1);
     border: 2px solid rgba(255,255,255,.2);
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     backdrop-filter: blur(50px);
     border-radius: 10px;
     color: #fff;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
 }
 
 #publicacionPerro {

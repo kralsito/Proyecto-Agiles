@@ -51,3 +51,6 @@
 .btn:hover::before {
     height: 180%;
 }
+.contenedor1 {
+    margin-top: 0px;
+}
