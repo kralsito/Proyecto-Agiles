@@ -10,7 +10,7 @@ import { FormusuarioComponent } from './formusuario/formusuario.component';
 
 const routes: Routes = [
   { path: 'publicacion', component: PublicacionComponent },
-  { path: '', component: PublicacionComponent },
+  { path: '', component: MenuPrincipalComponent },
   { path: 'formpublicacion', component: FormpublicacionComponent},
   { path: 'nav-bar', component: NavBarComponent },
   { path: 'menu-principal', component: MenuPrincipalComponent},
