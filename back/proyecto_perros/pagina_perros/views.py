@@ -6,6 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 
@@ -30,3 +31,16 @@ class UsuarioCreateView(generics.CreateAPIView):
     def perform_create(self, serializer):
         print("Creating user...")
         serializer.save()
+
+class LoginView(APIView):
+    def post(self, request):
+        username = request.data.get('email')  
+        password = request.data.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            login(request, user)  
+            return Response({'message': 'Inicio de sesión exitoso'}, status=status.HTTP_200_OK)
+        else:
+            return Response({'message': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
