@@ -100,3 +100,9 @@ body {
     background-color: #ccc; /* Color de fondo cuando está deshabilitado (gris) */
     color: #999; /* Color del texto cuando está deshabilitado (gris) */
   }
+
+p {
+    font-family: "Poppins", sans-serif;
+    font-size: 14.5px;
+}
+
