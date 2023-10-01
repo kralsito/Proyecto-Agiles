@@ -16,8 +16,8 @@
 }
 
 .btn{
-    border: 3px solid #206B47;
-    color: #206B47;
+    border: 3px solid #20264D;
+    color: #20264D;
     background: none;
     padding: 10px 20px;
     font-size: 20px;
@@ -30,7 +30,7 @@
 }
 
 .btn:hover{
-    color: #206B47;
+    color: #20264D;
 }
 
 .btn::before{

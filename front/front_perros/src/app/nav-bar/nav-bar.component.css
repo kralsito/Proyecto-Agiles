@@ -18,7 +18,7 @@
 
 #brand-part1 {
     font-family: 'Genty Demo', sans-serif;
-    color: #206B47;
+    color: #17205e;
 }
 
 #brand-part2 {
@@ -28,7 +28,7 @@
 
 .nav-link {
     font-size: 21px;
-    color: #206B47;
+    color: #17205e;
     font-weight: 500;
     text-decoration: none;
     margin-left: 40px;
@@ -41,7 +41,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #206B47;
+    background: #17205e;
     transition: .3s;
 }
 
