@@ -7,17 +7,17 @@
 }
 
 .btn1, .btn2 {
-    margin-top: 80px !important;
+    margin-top: 20px;
     margin-bottom: 100px !important;
 }
 
 .btn3 {
-    margin-top: 40px !important;
+    margin-top: 40px;
 }
 
 .btn{
-    border: 3px solid #ffffff;
-    color: #ffffff;
+    border: 3px solid #206B47;
+    color: #206B47;
     background: none;
     padding: 10px 20px;
     font-size: 20px;
@@ -30,7 +30,7 @@
 }
 
 .btn:hover{
-    color: #050505;
+    color: #206B47;
 }
 
 .btn::before{
@@ -39,7 +39,7 @@
     left: 0;
     width: 100%;
     height: 0%;
-    background: #d6a050;
+    background: #FF5D31;
     z-index: -1;
     transition: 0.8s;
 }
@@ -51,6 +51,7 @@
 .btn:hover::before {
     height: 180%;
 }
+
 .contenedor1 {
     margin-top: 0px;
 }

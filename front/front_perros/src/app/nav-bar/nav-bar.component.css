@@ -1,38 +1,50 @@
 @import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/genty-demo');
 
 .header{
     padding: 10px 20px;
-    background: rgba(241, 214, 173, 0.533);
-    backdrop-filter: blur(10px);
     box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
     margin-bottom: 30px;
 }
 
 .navbar-brand{
-    font-family: 'Yeseva One', cursive;
-    font-size: 50px;
-    color: #000000;
-    text-shadow: 4px 3px 0px rgba(88, 81, 71, 0.678);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 70px;
+    text-shadow: 2px 2px 0px rgba(88, 81, 71, 0.678);
     text-decoration: none;
     font-weight: 700;
 }
-.nav-item {
+
+#brand-part1 {
+    font-family: 'Genty Demo', sans-serif;
+    color: #206B47;
+}
+
+#brand-part2 {
+    font-family: 'Genty Demo', sans-serif;
+    color: #FF5D31;
+}
+
+.nav-link {
     font-size: 21px;
-    color: #000000;
+    color: #206B47;
     font-weight: 500;
     text-decoration: none;
     margin-left: 40px;
     line-height: 35px;
 }
+
 .nav-item::before{
     content: '';
     top: 100%;
     left: 0;
     width: 0;
     height: 2px;
-    background: #020202;
+    background: #206B47;
     transition: .3s;
 }
+
 .nav-item:hover::before{
     width: 100%;
 }

@@ -6,8 +6,8 @@ footer {
   position: relative;
   clear: both;
   bottom: 0;
-  background: linear-gradient(to right, rgba(207, 184, 149), rgba(241, 214, 173));
-  color: #070707;
+  background: #20264D;
+  color:white;
   padding: 100px 0 30px;
   border-top-left-radius: 125px;
   font-size: 13px;
@@ -39,7 +39,7 @@ position: relative;
 
 .email-id{
 width: fit-content;
-border-bottom: 1px solid #000000;
+border-bottom: 1px solid white;
 margin: 20px 0;
 }
 
@@ -49,9 +49,9 @@ margin-bottom: 12px;
 font-size: 15px;
 }
 
-ul li a{
+ul li a {
 text-decoration: none;
-color: #0c0c0c;
+color: white;
 }
 
 form{
@@ -59,14 +59,14 @@ form{
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #080808;
+  border-bottom: 1px solid white;
   margin-bottom: 50px;
 }
 
 form input{
   width: 100%;
   background: transparent;
-  color: #020202;
+  color: white;
   border: 0;
   outline: none;
 }
@@ -85,7 +85,7 @@ form .fa-regular{
 
 form button .fa-solid{
   font-size: 16px;
-  color: #020202;
+  color: white;
 }
 .social-icons .fa-brands{
   width: 40px;
@@ -94,8 +94,8 @@ form button .fa-solid{
   text-align: center;
   line-height: 40px;
   font-size: 20px;
-  color: #000;
-  background: #d4b560;
+  color: white;
+  background: #FF5D31;
   margin-right: 15px;
   cursor: pointer;
 }
@@ -112,7 +112,7 @@ hr{
 .underline{
   width: 100%;
   height: 5px;
-  background: #af7802;
+  background: #FF5D31;
   border-radius: 3px;
   position: absolute;
   top: 25px;
@@ -123,7 +123,7 @@ hr{
 .underline span{
   width: 15px;
   height: 100%;
-  background: #020202;
+  background: white;
   border-radius: 3px;
   position: absolute;
   top: 0;
