@@ -25,7 +25,8 @@ body {
     backdrop-filter: blur(50px);
     border-radius: 10px;
     color: #fff;
-    padding: 40px 35px 55px;
+    margin-bottom: 30px;
+    padding: 40px 35px 40px;
 }
 
 .wrapper h1 {
@@ -81,6 +82,7 @@ body {
     accent-color: #fff;
     margin-right:5px;
 }
+
 
 .boton {
     background-color: #ff592b;
