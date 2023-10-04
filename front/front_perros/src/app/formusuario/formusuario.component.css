@@ -109,3 +109,30 @@ p {
     font-size: 14.5px;
 }
 
+
+.btnModal {
+    background-color:#20264D;
+    font-family:'Open Sans', sans-serif;
+    font-size: 15px;
+    border: none;
+}
+
+.btnModal:hover {
+  cursor: pointer;
+  background-color: #20264D;
+}
+
+.modal-body {
+  color: #20264D;
+  font-family:'Open Sans', sans-serif;
+  font-size: 15px;
+}
+
+.btnInicio {
+    font-size: 15px;
+    border: none;
+}
+
+.btnInicio:hover {
+    cursor: pointer;
+}
