@@ -5,6 +5,7 @@
     padding: 20px;
     border-radius: 10px; /* Bordes redondeados */
     font-family: 'Open Sans', sans-serif;
+    color: #20264D;
   }
 
   .wrapper{
@@ -13,11 +14,12 @@
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     backdrop-filter: blur(50px);
     border-radius: 10px;
-    color: #fff;
+    margin: 20px 100px 50px;
+    color: #20264D;
 }
-  
+
   /* Estilo de los botones */
-  .btn {
+.btn {
     background-color: #007bff; /* Color de fondo del botón */
     color: #ffffff; /* Color del texto del botón */
     border: none;
@@ -25,7 +27,7 @@
     padding: 10px 20px;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Transición suave del color de fondo */
-  }
+}
   
   .btn:hover {
     background-color: #0056b3; /* Cambia de color al pasar el mouse por encima */
@@ -43,7 +45,7 @@
   
   /* Estilo de los encabezados */
   h3, p {
-    color: #ffffff; /* Color del texto del encabezado */
+    color: #20264D; /* Color del texto del encabezado */
     font-family: 'Inclusive Sans', sans-serif;
   }
 
