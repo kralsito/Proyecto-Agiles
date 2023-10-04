@@ -86,14 +86,11 @@ body {
 }
 
 .btn {
-    color: #6d7399;
+    background-color: #ff592b;
     width: 100%;
     height: 45px;
-    background: none;
     border: none;
-    outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(240, 88, 0, 0.288);
     cursor: pointer;
     font-size: 16px;
     color: #ffffff;
@@ -101,27 +98,6 @@ body {
     padding: 10px 20px;
     font-size: 20px;
     margin: 10px;
-    transition: 0.8s;
-    position: relative;
-    overflow: hidden;
-}
-.btn::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background: #FF5D31;
-    z-index: -1;
-    transition: 0.8s;
-}
-.btn::before {
-    top: 0;
-    border-radius: 0 0 50% 50%;
-}
-
-.btn:hover::before {
-    height: 180%;
 }
 
 .wrapper .register-link {
