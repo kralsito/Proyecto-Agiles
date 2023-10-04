@@ -2,7 +2,7 @@
 
 <div class="wrapper">
     <form [formGroup]="myForm" (ngSubmit)="submitFormulario()">
-        <h1>Login</h1>
+        <h1>Iniciar sesión</h1>
         <div class="input-box">
             <input formControlName="email" [class.is-invalid]="f.email.errors && f.email.touched" type="email" placeholder="Email" class="form-control" required>
             <!--<i class='bx bxs-user'></i>-->
@@ -20,13 +20,13 @@
 
         <div class="remember-forgot">
             <label><input type="checkbox"> Recordarme</label>
-            <a href="#">Olvidaste tu contraseña?</a>
+            <a href="#">¿Olvidaste tu contraseña?</a>
         </div>
 
         <button type="submit" class="btn btn-success">Ingresar</button>
 
         <div class="register-link">
-            <p>No tienes una cuenta? <a href="/registro">Crear una cuenta</a></p>
+            <p>¿No tenes una cuenta? <a href="/registro">Crear una cuenta</a></p>
 
 
         </div>
