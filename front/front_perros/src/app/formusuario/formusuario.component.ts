@@ -10,7 +10,7 @@ import { FormuserService } from './formuser.service';
   styleUrls: ['./formusuario.component.css']
 })
 export class FormusuarioComponent implements OnInit {
-
+  display = "none";
   public checkboxAceptado: boolean = false;
   public mensajeError: string = '';
   constructor(private loggingService: LoggingService, private formuserService: FormuserService) { }
@@ -60,6 +60,7 @@ export class FormusuarioComponent implements OnInit {
       this.formuserService.altaUsuario(usuario).subscribe(
         (response) => {
           console.log('Usuario creado exitosamente', response);
+          this.display = "block";
         },
         (error) => {
           console.error('Error al crear el usuario', error);
@@ -67,5 +68,13 @@ export class FormusuarioComponent implements OnInit {
       );
     }
 
+  }
+  onCloseHandled() {
+    this.display = "none";
+    window.location.href = "/login";
+  }
+  onCloseHandledInicio() {
+    this.display = "none";
+    window.location.href = "/";
   }
 }

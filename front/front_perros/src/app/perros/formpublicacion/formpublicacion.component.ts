@@ -74,6 +74,6 @@ export class FormpublicacionComponent implements OnInit {
   }
   onCloseHandled() {
     this.display = "none";
-    window.location.reload();
+    window.location.href = "/";
   }
   }
