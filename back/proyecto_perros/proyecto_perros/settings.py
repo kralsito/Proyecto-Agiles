@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'pagina_perros',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
