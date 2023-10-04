@@ -66,3 +66,15 @@
     width: 100%;
 }
 
+.btnInicio {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    background-color: #FF5D31;
+    border: none;
+}
+
+.btnInicio:hover {
+    cursor: pointer;
+    background-color: #fc5020;
+}

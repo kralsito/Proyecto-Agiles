@@ -87,13 +87,30 @@
   }
 
   .btnModal {
-    background-color:#17644d;
+    background-color:#20264D;
     font-family:'Open Sans', sans-serif;
     font-size: 15px;
   }
 
+.btnModal:hover {
+  background-color: #FF5D31;
+  cursor: pointer;
+}
+
 .modal-body {
-  color: black;
+  color: #20264D;
   font-family:'Open Sans', sans-serif;
   font-size: 15px;
+}
+
+.btnVolverInicio {
+  margin-bottom: 40px;
+  font-size: 20px;
+  background-color: #FF5D31;
+  border: none;
+}
+
+.btnVolverInicio:hover {
+  cursor: pointer;
+  background-color: #fc5020;
 }
