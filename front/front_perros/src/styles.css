@@ -13,52 +13,8 @@
 
 .contenedor1{
     text-align: center;
-    margin-top: 360px;
+    margin-top: 20px;
 }
-
-.btn{
-    border: 1px solid #000000;
-    background: none;
-    padding: 10px 20px;
-    font-size: 20px;
-    font-family: "montserrat";
-    cursor: pointer;
-    margin: 10px;
-    transition: 0.8s;
-    position: relative;
-    overflow: hidden;
-}
-.btn1,.btn2{
-    color: #000000;
-}
-.btn1:hover,.btn2:hover{
-    color: #050505;
-}
-.btn::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background: #d6a050;
-    z-index: -1;
-    transition: 0.8s;
-}
-.btn1::before,.btn2::before{
-    top: 0;
-    border-radius: 0 0 50% 50%;
-}
-
-.btn1:hover::before,.btn2:hover::before{
-    height: 180%;
-}
-
-body{
-    background: linear-gradient(rgba(49, 49, 49, 0.8), rgba(49, 49, 49, 0.8)),url(assets/fondo/Cute-dog_m.jpg) fixed;
-    background-size: cover;
-
-}
-
 
 /*----------------Texto----------------*/
 h1{
@@ -78,4 +34,7 @@ h2{
     margin: auto;
 }
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}

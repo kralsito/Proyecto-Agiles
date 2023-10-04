@@ -16,10 +16,9 @@ body {
 }
 
 .wrapper {
-    width: 420px;
-    background: transparent;
-    background: rgba(255,255,255,.1);
-    border: 2px solid rgba(255,255,255,.2);
+    width: 450px;
+    background: #20264D;
+    border: 3px solid rgba(5, 5, 5, 0.2);
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     backdrop-filter: blur(50px);
     color: white;
@@ -86,18 +85,19 @@ body {
    text-decoration: underline; 
 }
 
-.wrapper .btn {
+.btn {
+    background-color: #ff592b;
     width: 100%;
     height: 45px;
-    background: #fff;
     border: none;
-    outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: #ffffff;
     font-weight: 600;
+    padding: 10px 20px;
+    font-size: 20px;
+    margin: 10px;
 }
 
 .wrapper .register-link {
