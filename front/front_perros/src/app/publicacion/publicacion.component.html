@@ -1,0 +1,19 @@
+    <div class="contenedor">
+        <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
+            <div class="col-md-3 containerImagen">
+                <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
+            </div>
+            <div class="col-md-3" id="dataPerro">
+                <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+                <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
+                <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
+                <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
+                <button class="btn btn-primary" id="btnHeart"><fa-icon [icon]="faHeart" id="iconHeart"></fa-icon></button>
+                <button class="btn btn-primary" id="btnInteresa">Me interesa</button>
+            </div>
+            <hr>
+        </div>
+    </div>
+    <div class="text-center">
+        <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
+    </div>

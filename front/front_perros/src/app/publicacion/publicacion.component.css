@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@300&family=Yeseva+One&display=swap');
+
+.contenedor{
+    background: rgba(255,255,255,.1);
+    border: 2px solid rgba(255,255,255,.2);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    color: #20264D;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+}
+
+#publicacionPerro {
+    margin: 0 50px 0;
+}
+
+#iconHeart {
+    color: white;
+    font-size: 15px;
+}
+
+#btnHeart {
+    background-color: rgb(247, 170, 193);
+    border: none;
+    margin-right: 10px;
+    margin-top: 10px;
+    font-size: 15px;
+}
+
+#btnHeart:hover {
+    background-color: rgb(255, 103, 149);
+}
+
+#btnInteresa {
+    background-color: #609686;
+    border: none;
+    font-size: 15px;
+    margin-top: 10px;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#btnInteresa:hover {
+    background-color: #17644d;
+}
+
+#nombrePerro {
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: 'Inclusive Sans', sans-serif;
+}
+
+#edadPerro, #sexoPerro, #tamañoPerro {
+    font-size: 17px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#nombrePerro, #edadPerro, #sexoPerro, #tamañoPerro {
+    margin-left: 10px;
+}
+
+#imagenPerro {
+    margin: 20px 0px 20px;
+    width: 100%;
+}
+
+.btnInicio {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    background-color: #FF5D31;
+    border: none;
+}
+
+.btnInicio:hover {
+    cursor: pointer;
+    background-color: #fc5020;
+}

@@ -1,1 +1,40 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&family=Roboto:wght@300&display=swap');
+@import '~font-awesome/css/font-awesome.min.css';
+
+
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.contenedor1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+/*----------------Texto----------------*/
+h1{
+    font-weight: normal;
+    text-align: left;
+    padding-top: 150px;
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
+    color: #fff;
+}
+h2{
+    font-weight: normal;
+    text-align: left;
+    font-size: 30px;
+    text-align: center;
+    margin: auto;
+}
+html, body { height: 100%; }
+body { 
+    margin: 0; 
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+}

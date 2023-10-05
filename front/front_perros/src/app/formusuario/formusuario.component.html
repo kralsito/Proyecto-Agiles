@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Agrega los siguientes enlaces de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body>
+<!-- Modal -->
+<!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandled()"></button>
+      </div>
+      <div class="modal-body">
+        ¡El usuario fue creado exitosamente!
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary btnInicio" (click)="onCloseHandledInicio()" >Volver al Inicio</button>
+        <button type="button" class="btn btn-primary btnModal" (click)="onCloseHandled()" >Iniciar Sesión</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="wrapper">
+    <form action="">
+        <h1>Creá tu cuenta</h1>
+        <div class="input-box">
+            <div class="input-field">
+                <input type="text" placeholder="Nombre" id="nombreUsuario" required>
+                <i class='bx bxs-user' ></i>
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Apellido" id="apellidoUsuario" required>
+                <i class='bx bxs-user' ></i>
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Correo electrónico" id="email" required>
+                <i class='bx bxs-envelope' ></i>
+            </div>
+            <div class="input-field">
+                <input type="number" placeholder="Teléfono" id="telefono" required>
+                <i class='bx bxs-phone'></i>
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Provincia" id="provincia" required>
+                <i class='bx bxs-landscape'></i>
+            </div>
+            <div class="input-field">
+                <input type="text" placeholder="Localidad" id="localidad" required>
+                <i class='bx bxs-buildings'></i>
+            </div>
+            <div class="input-field">
+                <input type="password" placeholder="Contraseña" id="password" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+            <div class="input-field">
+                <input type="password" placeholder="Confirmar contraseña" id="confirmarPassword" required>
+                <i class='bx bxs-lock-alt' ></i>
+            </div>
+            <div id="mensajeError" style="color: red;">{{ mensajeError }}</div>
+        </div>
+        <label>
+            <input type="checkbox" class="dec" id="checkboxAceptado">
+            Declaro que la información ingresada arriba es legítima y correcta.
+          </label>
+          <button type="submit" class="boton" (click)="onAgregarUsuario()">Registrarme</button>
+          
+    </form>
+    <br>
+    <p>¿Ya tenés una cuenta? <a href="/login">Iniciá sesión</a></p>
+</div>
+</body>

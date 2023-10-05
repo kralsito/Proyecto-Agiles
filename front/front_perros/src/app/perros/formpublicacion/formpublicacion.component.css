@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@300&family=Yeseva+One&display=swap');
+  
+  /* Estilo del formulario */
+  form {
+    padding: 20px;
+    border-radius: 10px; /* Bordes redondeados */
+    font-family: 'Open Sans', sans-serif;
+    color: #20264D;
+  }
+
+  .wrapper{
+    background: rgba(255,255,255,.1);
+    border: 2px solid rgba(255,255,255,.2);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    margin: 20px 100px 50px;
+    color: #20264D;
+}
+
+  /* Estilo de los botones */
+.btn {
+    background-color: #007bff; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto del botón */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+}
+  
+  .btn:hover {
+    background-color: #0056b3; /* Cambia de color al pasar el mouse por encima */
+  }
+
+  .btn-agregar {
+    font-size: 18px;
+    background-color: #609686;
+    font-family: 'Open Sans', sans-serif;
+  }
+
+  .btn-agregar:hover {
+    background-color: #17644d;
+  }
+  
+  /* Estilo de los encabezados */
+  h3, p {
+    color: #20264D; /* Color del texto del encabezado */
+    font-family: 'Inclusive Sans', sans-serif;
+  }
+
+  h3 {
+    font-size: 40px !important;
+    font-weight: bold;
+  }
+
+  p {
+    font-size: 18px !important;
+  }
+  
+  /* Estilo de los labels */
+  label {
+    font-weight: bold;
+  }
+  
+  /* Estilo de los input y select */
+  input[type="text"],
+  input[type="number"],
+  select,
+  input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Estilo de los radio buttons */
+  input[type="radio"] {
+    margin-right: 5px;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  /* Estilo del hr */
+  hr {
+    border: 1px solid #ccc;
+    margin: 20px 0;
+  }
+
+  .btnModal {
+    background-color:#20264D;
+    font-family:'Open Sans', sans-serif;
+    font-size: 15px;
+  }
+
+.btnModal:hover {
+  background-color: #FF5D31;
+  cursor: pointer;
+}
+
+.modal-body {
+  color: #20264D;
+  font-family:'Open Sans', sans-serif;
+  font-size: 15px;
+}
+
+.btnVolverInicio {
+  margin-bottom: 40px;
+  font-size: 20px;
+  background-color: #FF5D31;
+  border: none;
+}
+
+.btnVolverInicio:hover {
+  cursor: pointer;
+  background-color: #fc5020;
+}
