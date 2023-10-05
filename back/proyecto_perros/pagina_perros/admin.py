@@ -9,3 +9,4 @@ User = get_user_model()
 class PublicacionAdmin(admin.ModelAdmin):
     pass
 
+admin.site.register(User)
