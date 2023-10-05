@@ -24,7 +24,7 @@ export class FormusuarioComponent implements OnInit {
   }
   onAgregarUsuario() {
 
-    const nombre = (document.getElementById('nombreUsuario') as HTMLInputElement).value;
+    const name = (document.getElementById('nombreUsuario') as HTMLInputElement).value;
     const apellido = (document.getElementById('apellidoUsuario') as HTMLInputElement).value;
     const email = (document.getElementById('email') as HTMLInputElement).value;
     const telefono = (document.getElementById('telefono') as HTMLInputElement).value;
@@ -39,7 +39,7 @@ export class FormusuarioComponent implements OnInit {
     }
     else {
       const usuario: Usuario = {
-        nombreUsuario: nombre,
+        name: name,    //Kral le cambio a Name por problemas con el back 
         apellidoUsuario: apellido,
         email: email,
         telefono: parseInt(telefono),
@@ -49,12 +49,12 @@ export class FormusuarioComponent implements OnInit {
       };
 
       const formData = new FormData();
-      formData.append('nombreUsuario', nombre);
-      formData.append('apellidoUsuario', apellido);
+      formData.append('name', name);
+      //formData.append('apellidoUsuario', apellido);
       formData.append('email', email);
-      formData.append('telefono', telefono);
-      formData.append('provincia', provincia);
-      formData.append('localidad', localidad);
+      //formData.append('telefono', telefono);
+      //formData.append('provincia', provincia);
+      //formData.append('localidad', localidad);
       formData.append('password', password);
 
       this.formuserService.altaUsuario(usuario).subscribe(
