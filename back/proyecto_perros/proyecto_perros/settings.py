@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'pagina_perros',
     'rest_framework',
+    'rest_framework.authtoken',
 ]
 
 MIDDLEWARE = [
@@ -146,3 +147,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',  
     'django.contrib.auth.backends.AllowAllUsersModelBackend',  # Permite usar email como usuario
 )
+
+AUTH_USER_MODEL ='pagina_perros.User'
+
+CORS_ALLOW_CREDENTIALS = True
