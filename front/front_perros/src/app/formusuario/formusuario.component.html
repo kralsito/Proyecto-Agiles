@@ -1,15 +1,117 @@
-<!DOCTYPE html>
-<html lang="es">
-  <head>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- Agrega los siguientes enlaces de Bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</head>
-<body>
-<!-- Modal -->
+<div class="wrapper">
+<form [formGroup]="registerForm" (ngSubmit)="submitForm()">
+  <h1>Creá tu cuenta</h1>
+  <div class="row">
+    <div class="col mb-3">
+      <div class="input-box">
+      <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="Nombre">
+      <div class="for-text text-danger" *ngIf="nombre.errors?.['required'] && (nombre.dirty || nombre.touched)">
+        Introduzca su nombre.
+      </div>
+      <div class="for-text text-danger" *ngIf="nombre.errors?.['minlength'] && (nombre.dirty || nombre.touched)">
+        El nombre debe tener al menos 3 caracteres.
+      </div>
+      <div class="for-text text-danger" *ngIf="nombre.errors?.['maxlength'] && (nombre.dirty || nombre.touched)">
+        El nombre no puede tener más de 30 caracteres.
+      </div>
+      <div class="for-text text-danger" *ngIf="nombre.errors?.['pattern'] && (nombre.dirty || nombre.touched)">
+        El nombre solo puede contener letras.
+      </div>
+    </div>
+    </div>
+    <div class="col mb-3">
+      <div class="input-box">
+      <input type="text" class="form-control" formControlName="apellido" id="apellido" placeholder="Apellido">
+      <div class="for-text text-danger" *ngIf="apellido.errors?.['required'] && (apellido.dirty || apellido.touched)">
+        Introduzca su apellido.
+      </div>
+      <div class="for-text text-danger" *ngIf="apellido.errors?.['minlength'] && (apellido.dirty || apellido.touched)">
+        El apellido debe tener al menos 3 caracteres.
+      </div>
+      <div class="for-text text-danger" *ngIf="apellido.errors?.['maxlength'] && (apellido.dirty || apellido.touched)">
+        El apellido no puede tener más de 30 caracteres.
+      </div>
+      <div class="for-text text-danger" *ngIf="apellido.errors?.['pattern'] && (apellido.dirty || apellido.touched)">
+        El apellido solo puede contener letras.
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <div class="input-box">
+      <input type="email" class="form-control" formControlName="email" id="email" placeholder="Email">
+      <div class="form-text text-danger" *ngIf="email.errors?.['required'] && (email.dirty || email.touched)">
+        Introduzca su email.
+      </div>
+      <div class="form-text text-danger" *ngIf="email.errors?.['email'] && (email.dirty || email.touched)">
+        El email no es válido.
+      </div>
+    </div>
+    </div>
+    <div class="col mb-3">
+      <div class="input-box">
+      <input type="number" class="form-control" formControlName="telefono" id="telefono" placeholder="Teléfono">
+      <div class="form-text text-danger" *ngIf="telefono.errors?.['required'] && (telefono.dirty || telefono.touched)">
+        Introduzca su teléfono.
+      </div>
+      <div class="form-text text-danger" *ngIf="telefono.errors?.['minlength'] && (telefono.dirty || telefono.touched)">
+        El teléfono debe tener al menos 10 caracteres.
+      </div>
+      <div class="form-text text-danger" *ngIf="telefono.errors?.['maxlength'] && (telefono.dirty || telefono.touched)">
+        El teléfono no puede tener más de 10 caracteres.
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+      <div class="input-box">
+      <input type="text" class="form-control" formControlName="provincia" id="provincia" placeholder="Provincia">
+      <div class="form-text text-danger" *ngIf="provincia.errors?.['required'] && (provincia.dirty || provincia.touched)">
+        Introduzca su provincia.
+      </div>
+      </div>
+    </div>
+      <div class="col mb-3">
+        <div class="input-box">
+        <input type="text" class="form-control" formControlName="localidad" id="localidad" placeholder="Localidad">
+        <div class="form-text text-danger" *ngIf="localidad.errors?.['required'] && (localidad.dirty || localidad.touched)">
+          Introduzca su localidad.
+        </div>
+        </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col mb-3">
+    <div class="input-box">
+      <input type="password" class="form-control" formControlName="password" id="password" placeholder="Contraseña">
+      <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">
+        Introduzca su password.
+      </div>
+    </div>
+    </div>
+    <div class="col mb-3">
+    <div class="input-box">
+      <input type="password" class="form-control" formControlName="confPassword" id="password2" placeholder="Repetir contraseña">
+      <div class="form-text text-danger" [ngStyle]="{'display': repeatPass}">
+        Las contraseñas no coinciden.
+      </div>
+    </div>
+    </div>
+  </div>
+  <br>
+    <input type="checkbox" class="form-check-input" formControlName="terminos" id="terminos">
+    <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
+  <div class="row">
+    <div class="col-6 offset-3">
+      <div class="d-grid">
+        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Registrarse</button>
+      </div>
+    </div>
+  </div>
+</form>
+</div>
 <!-- Modal -->
 <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
   <div class="modal-dialog" role="document">
@@ -27,52 +129,3 @@
     </div>
   </div>
 </div>
-<div class="wrapper">
-    <form action="">
-        <h1>Creá tu cuenta</h1>
-        <div class="input-box">
-            <div class="input-field">
-                <input type="text" placeholder="Nombre" id="nombreUsuario" required>
-                <i class='bx bxs-user' ></i>
-            </div>
-            <div class="input-field">
-                <input type="text" placeholder="Apellido" id="apellidoUsuario" required>
-                <i class='bx bxs-user' ></i>
-            </div>
-            <div class="input-field">
-                <input type="text" placeholder="Correo electrónico" id="email" required>
-                <i class='bx bxs-envelope' ></i>
-            </div>
-            <div class="input-field">
-                <input type="number" placeholder="Teléfono" id="telefono" required>
-                <i class='bx bxs-phone'></i>
-            </div>
-            <div class="input-field">
-                <input type="text" placeholder="Provincia" id="provincia" required>
-                <i class='bx bxs-landscape'></i>
-            </div>
-            <div class="input-field">
-                <input type="text" placeholder="Localidad" id="localidad" required>
-                <i class='bx bxs-buildings'></i>
-            </div>
-            <div class="input-field">
-                <input type="password" placeholder="Contraseña" id="password" required>
-                <i class='bx bxs-lock-alt' ></i>
-            </div>
-            <div class="input-field">
-                <input type="password" placeholder="Confirmar contraseña" id="confirmarPassword" required>
-                <i class='bx bxs-lock-alt' ></i>
-            </div>
-            <div id="mensajeError" style="color: red;">{{ mensajeError }}</div>
-        </div>
-        <label>
-            <input type="checkbox" class="dec" id="checkboxAceptado">
-            Declaro que la información ingresada arriba es legítima y correcta.
-          </label>
-          <button type="submit" class="boton" (click)="onAgregarUsuario()">Registrarme</button>
-          
-    </form>
-    <br>
-    <p>¿Ya tenés una cuenta? <a href="/login">Iniciá sesión</a></p>
-</div>
-</body>

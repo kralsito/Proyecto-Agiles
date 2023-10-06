@@ -1,10 +1,8 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
-
 * {
-    margin: 0;
+    margin: auto auto;
     padding: 0;
-    box-sizing: border-box; 
-  font-family: "Poppins", sans-serif;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -12,79 +10,76 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: transparent;
+    background: url(../../assets/fondo/Cute-dog_m.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.wrapper{
-    width: 750px;
+.row{
+    height:80px;
+}
+
+
+.wrapper {
+    width: 50%;
     background: #20264D;
     border: 3px solid rgba(5, 5, 5, 0.2);
     box-shadow: 0 0 10px rgba(0,0,0,.2);
     backdrop-filter: blur(50px);
+    color: white;
     border-radius: 10px;
-    color: #fff;
-    margin-bottom: 30px;
-    padding: 40px 35px 40px;
+    padding: 30px 40px;
+    margin-top: 70px;
+    margin-bottom: 70px;
 }
 
 .wrapper h1 {
-    font-size:40px;
+    font-size: 36px;
     text-align: center;
-    margin-bottom: 20px;
-    font-family: Gill Sans, Gill Sans MT, Calibri, sans-serif;
+    margin-bottom: 10px;
 }
 
 .wrapper .input-box {
+    width: 90%;
+    height: 50px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
 }
 
-.input-box .input-field {
-    position: relative;
-    width: 48%;
-    height: 50px;
-    margin: 13px 0;
-}
-
-.input-box .input-field input {
+.input-box input{
     width: 100%;
     height: 100%;
     background: transparent;
-    border: 2px solid grey;
-    font-size: 18px;
-    color: #fff;
-    border-radius: 6px;
-    padding: 15px 15px 15px 40px;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 15px;
+    color: white;
+    padding: 20px 45px 20px 20px;
 }
 
-.input-box .input-field input::placeholder {
-    color: rgb(172, 172, 172);
+.input-box input::placeholder{
+    color: white;
 }
 
-.input-box .input-field i {
+.input-box i {
     position: absolute;
-    left: 15px;
+    right: 20px;
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
 }
 
-.wrapper label {
-    font-size: 14.5px;
-    display: inline-block;
-    margin: 10px 0 23px;
+.wrapper form-text text-danger {
+    font-size: 12px;
+    margin-top: 5px;
+    margin-left: 5px;
+    color: blue;
 }
 
-.dec {
-    accent-color: #fff;
-    margin-right:5px;
-}
-
-
-.boton {
+.btn {
     background-color: #ff592b;
     width: 100%;
     height: 45px;
@@ -97,42 +92,4 @@ body {
     padding: 10px 20px;
     font-size: 20px;
     margin: 10px;
-}
-/* Estilo para el botón cuando está deshabilitado */
-.boton:disabled {
-    background-color: #ccc; /* Color de fondo cuando está deshabilitado (gris) */
-    color: #999; /* Color del texto cuando está deshabilitado (gris) */
-  }
-
-p {
-    font-family: "Poppins", sans-serif;
-    font-size: 14.5px;
-}
-
-
-.btnModal {
-    background-color:#20264D;
-    font-family:'Open Sans', sans-serif;
-    font-size: 15px;
-    border: none;
-}
-
-.btnModal:hover {
-  cursor: pointer;
-  background-color: #20264D;
-}
-
-.modal-body {
-  color: #20264D;
-  font-family:'Open Sans', sans-serif;
-  font-size: 15px;
-}
-
-.btnInicio {
-    font-size: 15px;
-    border: none;
-}
-
-.btnInicio:hover {
-    cursor: pointer;
 }
