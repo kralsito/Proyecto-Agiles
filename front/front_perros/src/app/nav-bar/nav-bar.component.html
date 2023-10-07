@@ -14,20 +14,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Nosotros</a>
                 </li>
-                <li class="nav-item">
+                <li class="nav-item last">
                     <a class="nav-link" href="#">Contacto</a>
                 </li>
                 <li class="nav-item">
-                    <button mat-button [matMenuTriggerFor]="menu">
-                        <i class="fa fa-user-circle" aria-hidden="true"></i>
+                    <button mat-button [matMenuTriggerFor]="menu" class=" no-hover">
+                        <i class="fa fa-user-circle" aria-hidden="true"></i><i class="fa-solid fa-caret-down"></i>
                     </button>
                     <mat-menu #menu="matMenu">
-                        <button mat-menu-item>
-                            <a [routerLink]="['/registro']" class="mat-item">Crear cuenta</a>
-                        </button>
-                        <button mat-menu-item>
-                            <a [routerLink]="['/login']" class="mat-item">Iniciar sesión</a>
-                        </button>
                         <button mat-menu-item class="mat-item" (click)="openDialog()">Cerrar sesión</button>
                     </mat-menu>
                 </li>

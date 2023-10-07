@@ -11,6 +11,8 @@
     margin-right: 10px;
     font-size: 15px;
     font-weight: lighter;
+    border: none;
+    outline: none;
 }
 
 .accept:hover {
@@ -23,6 +25,8 @@
     font-family: 'Open Sans', sans-serif;
     font-size: 15px;
     font-weight: lighter;
+    border: none;
+    outline: none;
 }
 
 .cancel:hover {
