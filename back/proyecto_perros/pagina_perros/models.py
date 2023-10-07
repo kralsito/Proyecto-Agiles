@@ -69,7 +69,20 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
+def registrar_usuario(request):
+    if request.method == 'POST':
+        email = request.data.get('email')
+        name = request.data.get('name')
+        apellido = request.data.get('apellido')
+        telefono = request.data.get('telefono')
+        provincia = request.data.get('provincia')
+        localidad = request.data.get('localidad')
 
+        try:
+            user = User.objects.create_user(email=email, password='password', name=name, apellidoUsuario=apellido, telefono=telefono, provincia=provincia, localidad=localidad)
+            return JsonResponse({'mensaje': 'Usuario registrado exitosamente'})
+        except IntegrityError:
+            return JsonResponse({'mensaje': 'Correo duplicado'}, status=400)
    
 
 
