@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario.model';
 import { LoggingService } from '../LoggingService.service';
 import { FormuserService } from './formuser.service';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AlertMailDuplicadoComponent } from '../alert-mail-duplicado/alert-mail-duplicado.component';
 
@@ -11,71 +12,109 @@ import { AlertMailDuplicadoComponent } from '../alert-mail-duplicado/alert-mail-
   styleUrls: ['./formusuario.component.css']
 })
 export class FormusuarioComponent implements OnInit {
+  repeatPass: string = 'none';
   display = "none";
-  public checkboxAceptado: boolean = false;
-  public mensajeError: string = '';
   constructor(private loggingService: LoggingService, private formuserService: FormuserService, private dialog: MatDialog) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
 
-  actualizarEstadoBoton() {
-    const botonSubmit = document.querySelector('.boton') as HTMLButtonElement;
-    botonSubmit.disabled = !this.checkboxAceptado;
-  }
-  onAgregarUsuario() {
+  registerForm = new FormGroup({
+    name: new FormControl("", 
+    [Validators.required, 
+      Validators.minLength(3), 
+      Validators.maxLength(30),
+      Validators.pattern("[a-zA-Z].*")]),
+    apellido: new FormControl("", 
+    [Validators.required, 
+      Validators.minLength(3), 
+      Validators.maxLength(30),
+      Validators.pattern("[a-zA-Z].*")]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    telefono: new FormControl("", [Validators.required, 
+      Validators.minLength(10),
+      Validators.maxLength(10)]),
+    provincia: new FormControl("", [Validators.required]),
+    localidad: new FormControl("", [Validators.required]),
+    password: new FormControl("", [Validators.required]),
+    confPassword: new FormControl(""),
+    terminos: new FormControl("", [Validators.required])
+  });
 
-    const name = (document.getElementById('nombreUsuario') as HTMLInputElement).value;
-    const apellido = (document.getElementById('apellidoUsuario') as HTMLInputElement).value;
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const telefono = (document.getElementById('telefono') as HTMLInputElement).value;
-    const provincia = (document.getElementById('provincia') as HTMLInputElement).value;
-    const localidad = (document.getElementById('localidad') as HTMLInputElement).value;
-    const password = (document.getElementById('password') as HTMLInputElement).value;
-    const confPassword = (document.getElementById('confirmarPassword') as HTMLInputElement).value;
 
-    if (password !== confPassword) {
-      alert('Las contraseñas no coinciden');
-      return;
-    }
-    else {
+
+  submitForm(){
+    if(this.password.value == this.confPassword.value){
       const usuario: Usuario = {
-        name: name,    //Kral le cambio a Name por problemas con el back 
-        apellidoUsuario: apellido,
-        email: email,
-        telefono: parseInt(telefono),
-        provincia: provincia,
-        localidad: localidad,
-        password: password,
-      };
-
-      const formData = new FormData();
-      formData.append('name', name);
-      //formData.append('apellidoUsuario', apellido);
-      formData.append('email', email);
-      //formData.append('telefono', telefono);
-      //formData.append('provincia', provincia);
-      //formData.append('localidad', localidad);
-      formData.append('password', password);
-
-      this.formuserService.altaUsuario(usuario).subscribe(
-        (response) => {
-          console.log('Usuario creado exitosamente', response);
-          this.display = "block";
-        },
-        (error) => {
-          console.error('Error al crear el usuario', error);
-          if (error.status === 400) {
+        name: this.name.value,
+        apellidoUsuario: this.apellido.value,
+        email: this.email.value,
+        telefono: parseInt(this.telefono.value),
+        provincia: this.provincia.value,
+        localidad: this.localidad.value,
+        password: this.password.value,
+    };
+    // Llamar al método altaUsuario del formuserService
+    this.formuserService.altaUsuario(usuario).subscribe(
+      (response) => {
+        console.log('Usuario creado exitosamente', response);
+        this.display= "block";
+      },
+      (error) => {
+        console.error('Error al crear el usuario', error);
+        if (error.status === 400) {
             this.mostrarAlertaCorreoDuplicado();
         }
-        }
-      );
+      }
+    );
+  }else{
+      this.repeatPass = 'inline';
     }
+    
   }
+
+  get name(): FormControl {
+    return this.registerForm.get("name") as FormControl;
+  }
+
+  get apellido(): FormControl {
+    return this.registerForm.get("apellido") as FormControl;
+  }
+
+  get email(): FormControl {
+    return this.registerForm.get("email") as FormControl;
+  }
+
+  get telefono(): FormControl {
+    return this.registerForm.get("telefono") as FormControl;
+  }
+  
+  get provincia(): FormControl {
+    return this.registerForm.get("provincia") as FormControl;
+  }
+
+  get localidad(): FormControl {
+    return this.registerForm.get("localidad") as FormControl;
+  }
+
+  get password(): FormControl {
+    return this.registerForm.get("password") as FormControl;
+  }
+
+  get confPassword(): FormControl {
+    return this.registerForm.get("confPassword") as FormControl;
+  }
+
+  get terminos(): FormControl {
+    return this.registerForm.get("terminos") as FormControl;
+  }
+  // Método onCloseHandled() para cerrar el formulario y redirigir a "/login"
   onCloseHandled() {
     this.display = "none";
     window.location.href = "/login";
   }
+
+  // Método onCloseHandledInicio() para cerrar el formulario y redirigir a "/"
   onCloseHandledInicio() {
     this.display = "none";
     window.location.href = "/";
