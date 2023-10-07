@@ -3,7 +3,8 @@ import { Usuario } from '../usuario.model';
 import { LoggingService } from '../LoggingService.service';
 import { FormuserService } from './formuser.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { AlertMailDuplicadoComponent } from '../alert-mail-duplicado/alert-mail-duplicado.component';
 
 @Component({
   selector: 'app-formusuario',
@@ -13,7 +14,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class FormusuarioComponent implements OnInit {
   repeatPass: string = 'none';
   display = "none";
-  constructor(private formuserService: FormuserService) {}
+  constructor(private loggingService: LoggingService, private formuserService: FormuserService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -61,7 +62,9 @@ export class FormusuarioComponent implements OnInit {
       },
       (error) => {
         console.error('Error al crear el usuario', error);
-        // Aquí puedes manejar errores
+        if (error.status === 400) {
+            this.mostrarAlertaCorreoDuplicado();
+        }
       }
     );
   }else{
@@ -84,7 +87,6 @@ export class FormusuarioComponent implements OnInit {
 
   get telefono(): FormControl {
     return this.registerForm.get("telefono") as FormControl;
-  }
 
   get provincia(): FormControl {
     return this.registerForm.get("provincia") as FormControl;
@@ -115,5 +117,15 @@ export class FormusuarioComponent implements OnInit {
   onCloseHandledInicio() {
     this.display = "none";
     window.location.href = "/";
+  }
+  mostrarAlertaCorreoDuplicado() {
+    const dialogRef = this.dialog.open(AlertMailDuplicadoComponent, {
+      width: '300px',
+      data: { mensaje: 'El correo electrónico ya está registrado.' }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('Alerta cerrada');
+    });
   }
 }

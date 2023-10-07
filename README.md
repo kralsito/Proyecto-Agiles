@@ -24,6 +24,7 @@ npm install --save @fortawesome/angular-fontawesome
 ```
 python manage.py makemigrations
 python manage.py migrate
+python3 -m pip install PyJWT
 
 ```
 ### Tecnologias que hay que instalar previamente.

@@ -1,13 +1,17 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from .models import Publicacion , Usuario
-from .serializers import PublicacionSerializer , UsuarioSerializer
+from .models import Publicacion , User
+from .serializers import PublicacionSerializer , UserSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import AllowAny
 from django.contrib.auth import authenticate, login
-
+from django.contrib.auth.hashers import make_password
+from django.contrib.auth.hashers import check_password
+from django.contrib.auth.models import Group
+from rest_framework.exceptions import AuthenticationFailed
+import jwt, datetime
 # Create your views here.
 
 
@@ -23,24 +27,66 @@ class PublicacionCreateView(APIView):
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
-class UsuarioCreateView(generics.CreateAPIView):
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
-    permission_classes = [AllowAny]  # Esto permite que cualquier usuario pueda crear una cuenta
+class RegisterView(APIView):
+    def post(self, request):
+         serializer = UserSerializer(data=request.data)
+         serializer.is_valid(raise_exception=True)
+         serializer.save()
+         return Response(serializer.data)
 
-    def perform_create(self, serializer):
-        print("Creating user...")
-        serializer.save()
 
 class LoginView(APIView):
     def post(self, request):
-        username = request.data.get('email')  
+        email = request.data.get('email')  
         password = request.data.get('password')
+
+        user = User.objects.filter(email=email).first()
+
+        if user is None:
+            raise AuthenticationFailed('User not found')
         
-        user = authenticate(request, username=username, password=password)
+        if not user.check_password(password):
+            raise AuthenticationFailed('Contraseña incorrecta')
         
-        if user is not None:
-            login(request, user)  
-            return Response({'message': 'Inicio de sesión exitoso'}, status=status.HTTP_200_OK)
-        else:
-            return Response({'message': 'Credenciales inválidas'}, status=status.HTTP_401_UNAUTHORIZED)
+        payload ={
+            'id': user.id,
+            'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
+            'iat': datetime.datetime.utcnow()
+        }
+
+        token = jwt.encode(payload, 'secret', algorithm='HS256')
+        
+        response = Response()
+        response.set_cookie(key='jwt', value=token, httponly=True)
+        response.data = {
+            'jwt': token
+        }
+        return response
+
+class UserView(APIView):
+
+    def get(self, request):
+        token = request.COOKIES.get('jwt')
+
+        if not token:
+            raise AuthenticationFailed('Unauthenticated')
+        
+        try:
+            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+        except jwt.ExpiredSignatureError:
+            raise AuthenticationFailed('Unauthenticated')
+        
+        user = User.objects.filter(id=payload['id']).first()
+        serializer= UserSerializer(user)
+
+        return Response(serializer.data)
+
+
+class LogoutView(APIView):
+    def post(self, request):
+        response = Response()
+        response.delete_cookie('jwt')
+        response.data = {
+            'message': 'success'
+        }
+        return response
