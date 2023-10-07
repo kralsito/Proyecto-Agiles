@@ -15,6 +15,7 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
 import { LoginComponent } from './login/login.component';
 import { FormusuarioComponent } from './formusuario/formusuario.component';
+import { NavBarNoLogueadoComponent } from './nav-bar-no-logueado/nav-bar-no-logueado.component';
 import { AlertMailDuplicadoComponent } from './alert-mail-duplicado/alert-mail-duplicado.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -64,6 +65,7 @@ import {MatTreeModule} from '@angular/material/tree';
     TituloYEsloganComponent,
     LoginComponent,
     FormusuarioComponent,
+    NavBarNoLogueadoComponent,
     AlertMailDuplicadoComponent
   ],
   imports: [
