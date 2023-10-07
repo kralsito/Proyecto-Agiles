@@ -14,6 +14,7 @@
     padding: 30px 40px;
     margin: 0 auto;
     margin-bottom: 30px;
+    font-size: 16px;
 }
 
 .wrapper h1 {
@@ -21,7 +22,7 @@
     text-align: center;
     margin-bottom: 10px;
     padding-top: 0px;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
 }
 
 .wrapper .input-box {
@@ -43,10 +44,12 @@
     font-size: 15px;
     color: white;
     padding: 20px 45px 20px 20px;
+    font-size: 16px;
 }
 
 .input-box input::placeholder{
     color: white;
+    font-size: 16px;
 }
 
 .input-box i {
@@ -55,13 +58,6 @@
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
-}
-
-.wrapper form-text text-danger {
-    font-size: 12px;
-    margin-top: 5px;
-    margin-left: 5px;
-    color: blue;
 }
 
 .boton {

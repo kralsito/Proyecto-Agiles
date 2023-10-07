@@ -87,7 +87,8 @@ export class FormusuarioComponent implements OnInit {
 
   get telefono(): FormControl {
     return this.registerForm.get("telefono") as FormControl;
-
+  }
+  
   get provincia(): FormControl {
     return this.registerForm.get("provincia") as FormControl;
   }
