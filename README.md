@@ -16,6 +16,7 @@ Nuestro proyecto surge de la idea de crear una aplicación dedicada al rescate y
 npm install
 npm i bootstrap@5.3.1
 npm install --save @fortawesome/angular-fontawesome
+ng add @angular/material
 
 ```
 
