@@ -19,7 +19,7 @@ export class FormusuarioComponent implements OnInit {
   }
 
   registerForm = new FormGroup({
-    nombre: new FormControl("", 
+    name: new FormControl("", 
     [Validators.required, 
       Validators.minLength(3), 
       Validators.maxLength(30),
@@ -45,7 +45,7 @@ export class FormusuarioComponent implements OnInit {
   submitForm(){
     if(this.password.value == this.confPassword.value){
       const usuario: Usuario = {
-        nombreUsuario: this.nombre.value,
+        name: this.name.value,
         apellidoUsuario: this.apellido.value,
         email: this.email.value,
         telefono: parseInt(this.telefono.value),
@@ -70,8 +70,8 @@ export class FormusuarioComponent implements OnInit {
     
   }
 
-  get nombre(): FormControl {
-    return this.registerForm.get("nombre") as FormControl;
+  get name(): FormControl {
+    return this.registerForm.get("name") as FormControl;
   }
 
   get apellido(): FormControl {

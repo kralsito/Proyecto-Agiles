@@ -14,17 +14,17 @@
   <div class="row">
     <div class="col mb-3">
       <div class="input-box">
-      <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="Nombre">
-      <div class="form-text text-danger" *ngIf="nombre.errors?.['required'] && (nombre.dirty || nombre.touched)">
+      <input type="text" class="form-control" formControlName="name" id="name" placeholder="Nombre">
+      <div class="form-text text-danger" *ngIf="name.errors?.['required'] && (name.dirty || name.touched)">
         Introduzca su nombre.
       </div>
-      <div class="form-text text-danger" *ngIf="nombre.errors?.['minlength'] && (nombre.dirty || nombre.touched)">
+      <div class="form-text text-danger" *ngIf="name.errors?.['minlength'] && (name.dirty || name.touched)">
         El nombre debe tener al menos 3 caracteres.
       </div>
-      <div class="form-text text-danger" *ngIf="nombre.errors?.['maxlength'] && (nombre.dirty || nombre.touched)">
+      <div class="form-text text-danger" *ngIf="name.errors?.['maxlength'] && (name.dirty || name.touched)">
         El nombre no puede tener más de 30 caracteres.
       </div>
-      <div class="form-text text-danger" *ngIf="nombre.errors?.['pattern'] && (nombre.dirty || nombre.touched)">
+      <div class="form-text text-danger" *ngIf="name.errors?.['pattern'] && (name.dirty || name.touched)">
         El nombre solo puede contener letras.
       </div>
     </div>
