@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.cdnfonts.com/css/genty-demo');
+
+.header{
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,.2);
+    margin-bottom: 30px;
+}
+
+.navbar-brand{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 70px;
+    text-shadow: 2px 2px 0px rgba(88, 81, 71, 0.678);
+    text-decoration: none;
+    font-weight: 700;
+}
+
+#brand-part1 {
+    font-family: 'Genty Demo', sans-serif;
+    color: #17205e;
+}
+
+#brand-part2 {
+    font-family: 'Genty Demo', sans-serif;
+    color: #FF5D31;
+}
+
+.nav-link {
+    font-size: 21px;
+    color: #17205e;
+    font-weight: 550;
+    text-decoration: none;
+    margin-left: 40px;
+    line-height: 35px;
+}
+
+.nav-item::before{
+    content: '';
+    top: 100%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #17205e;
+    transition: .3s;
+}
+
+.nav-item:hover::before{
+    width: 100%;
+}
+
+.navbar-nav {
+    margin-left: auto;
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#btnRegistro{
+    border: 3px solid #20264D;
+    border-radius: 20px;
+    color: #20264D;
+    background: none;
+    font-size: 20px;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+#btnLogIn{
+    border-radius: 20px;
+}
+#btnLogIn:hover{
+    background-color: #FF5D31;
+    transition: .6s;
+    color: #fff;
+}
+#btnRegistro:hover{
+    color: #fff;
+    background-color: #FF5D31;
+}
