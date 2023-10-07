@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Agrega los siguientes enlaces de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
 <div class="wrapper">
 <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
   <h1>Creá tu cuenta</h1>
@@ -5,16 +15,16 @@
     <div class="col mb-3">
       <div class="input-box">
       <input type="text" class="form-control" formControlName="nombre" id="nombre" placeholder="Nombre">
-      <div class="for-text text-danger" *ngIf="nombre.errors?.['required'] && (nombre.dirty || nombre.touched)">
+      <div class="form-text text-danger" *ngIf="nombre.errors?.['required'] && (nombre.dirty || nombre.touched)">
         Introduzca su nombre.
       </div>
-      <div class="for-text text-danger" *ngIf="nombre.errors?.['minlength'] && (nombre.dirty || nombre.touched)">
+      <div class="form-text text-danger" *ngIf="nombre.errors?.['minlength'] && (nombre.dirty || nombre.touched)">
         El nombre debe tener al menos 3 caracteres.
       </div>
-      <div class="for-text text-danger" *ngIf="nombre.errors?.['maxlength'] && (nombre.dirty || nombre.touched)">
+      <div class="form-text text-danger" *ngIf="nombre.errors?.['maxlength'] && (nombre.dirty || nombre.touched)">
         El nombre no puede tener más de 30 caracteres.
       </div>
-      <div class="for-text text-danger" *ngIf="nombre.errors?.['pattern'] && (nombre.dirty || nombre.touched)">
+      <div class="form-text text-danger" *ngIf="nombre.errors?.['pattern'] && (nombre.dirty || nombre.touched)">
         El nombre solo puede contener letras.
       </div>
     </div>
@@ -22,16 +32,16 @@
     <div class="col mb-3">
       <div class="input-box">
       <input type="text" class="form-control" formControlName="apellido" id="apellido" placeholder="Apellido">
-      <div class="for-text text-danger" *ngIf="apellido.errors?.['required'] && (apellido.dirty || apellido.touched)">
+      <div class="form-text text-danger" *ngIf="apellido.errors?.['required'] && (apellido.dirty || apellido.touched)">
         Introduzca su apellido.
       </div>
-      <div class="for-text text-danger" *ngIf="apellido.errors?.['minlength'] && (apellido.dirty || apellido.touched)">
+      <div class="form-text text-danger" *ngIf="apellido.errors?.['minlength'] && (apellido.dirty || apellido.touched)">
         El apellido debe tener al menos 3 caracteres.
       </div>
-      <div class="for-text text-danger" *ngIf="apellido.errors?.['maxlength'] && (apellido.dirty || apellido.touched)">
+      <div class="form-text text-danger" *ngIf="apellido.errors?.['maxlength'] && (apellido.dirty || apellido.touched)">
         El apellido no puede tener más de 30 caracteres.
       </div>
-      <div class="for-text text-danger" *ngIf="apellido.errors?.['pattern'] && (apellido.dirty || apellido.touched)">
+      <div class="form-text text-danger" *ngIf="apellido.errors?.['pattern'] && (apellido.dirty || apellido.touched)">
         El apellido solo puede contener letras.
       </div>
       </div>
@@ -101,16 +111,21 @@
     </div>
   </div>
   <br>
+  <div class="form-check">
     <input type="checkbox" class="form-check-input" formControlName="terminos" id="terminos">
-    <label class="form-check-label" for="terminos">Acepto los términos y condiciones</label>
+    <label class="form-check-label" for="terminos"><p>Juro que la información proporcionada arriba es verídica</p></label>
+  </div>
   <div class="row">
     <div class="col-6 offset-3">
       <div class="d-grid">
-        <button type="submit" [disabled]="registerForm.invalid" class="btn btn-primary">Registrarse</button>
+        <button type="submit" [disabled]="registerForm.invalid" class="boton">Registrarse</button>
       </div>
     </div>
   </div>
 </form>
+<div class="register-link">
+  <p>¿Ya tenés una cuenta? <a href="/registro">Iniciá sesión.</a></p>
+</div>
 </div>
 <!-- Modal -->
 <div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">

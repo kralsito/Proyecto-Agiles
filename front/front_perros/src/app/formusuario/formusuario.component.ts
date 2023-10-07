@@ -18,18 +18,6 @@ export class FormusuarioComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    // Método onCloseHandled() para cerrar el formulario y redirigir a "/login"
-    onCloseHandled() {
-      this.display = "none";
-      window.location.href = "/login";
-    }
-  
-    // Método onCloseHandledInicio() para cerrar el formulario y redirigir a "/"
-    onCloseHandledInicio() {
-      this.display = "none";
-      window.location.href = "/";
-    }
-
   registerForm = new FormGroup({
     nombre: new FormControl("", 
     [Validators.required, 
@@ -69,7 +57,7 @@ export class FormusuarioComponent implements OnInit {
     this.formuserService.altaUsuario(usuario).subscribe(
       (response) => {
         console.log('Usuario creado exitosamente', response);
-        // Aquí puedes manejar lo que sucede después de crear el usuario
+        this.display= "block";
       },
       (error) => {
         console.error('Error al crear el usuario', error);
@@ -116,5 +104,16 @@ export class FormusuarioComponent implements OnInit {
 
   get terminos(): FormControl {
     return this.registerForm.get("terminos") as FormControl;
+  }
+  // Método onCloseHandled() para cerrar el formulario y redirigir a "/login"
+  onCloseHandled() {
+    this.display = "none";
+    window.location.href = "/login";
+  }
+
+  // Método onCloseHandledInicio() para cerrar el formulario y redirigir a "/"
+  onCloseHandledInicio() {
+    this.display = "none";
+    window.location.href = "/";
   }
 }
