@@ -15,6 +15,7 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
 import { LoginComponent } from './login/login.component';
 import { FormusuarioComponent } from './formusuario/formusuario.component';
+import { NavBarNoLogueadoComponent } from './nav-bar-no-logueado/nav-bar-no-logueado.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { FormusuarioComponent } from './formusuario/formusuario.component';
     MenuPrincipalComponent,
     TituloYEsloganComponent,
     LoginComponent,
-    FormusuarioComponent
+    FormusuarioComponent,
+    NavBarNoLogueadoComponent
   ],
   imports: [
     BrowserModule,
