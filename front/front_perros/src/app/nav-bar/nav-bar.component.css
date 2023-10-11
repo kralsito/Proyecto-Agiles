@@ -56,8 +56,12 @@
     align-items: center;
 }
 
+.last {
+    margin-right: 40px;
+}
+
 .fa-user-circle {
-    font-size: 20px ;
+    font-size: 25px !important;
 }
 
 .mat-item {
@@ -65,3 +69,8 @@
     color: #17205e;
     text-decoration: none;
 }
+
+.fa-caret-down {
+    margin-left: 5px;
+}
+

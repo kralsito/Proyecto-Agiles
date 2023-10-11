@@ -67,7 +67,7 @@ import { DialogCerrarSesionComponent } from './dialog-cerrar-sesion/dialog-cerra
     LoginComponent,
     FormusuarioComponent,
     AlertMailDuplicadoComponent,
-    DialogCerrarSesionComponent
+    DialogCerrarSesionComponent,
     NavBarNoLogueadoComponent
   ],
   imports: [
