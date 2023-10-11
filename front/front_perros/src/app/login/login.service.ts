@@ -15,7 +15,7 @@ export class LoginService {
   }
 
   isAuthenticated(): boolean {
-    return true; 
+    return !!localStorage.getItem('token');
   }
 }
 

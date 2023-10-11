@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from './login.service'; // Asegúrate de importar tu servicio
+import { LoginService } from './login.service'; 
 
 @Component({
   selector: 'app-login',
@@ -36,6 +36,8 @@ export class LoginComponent {
       this.loginService.login(email, password).subscribe(
         (response) => {
           console.log('Inicio de sesión exitoso', response);
+          localStorage.setItem('token', response.jwt);
+              window.location.href = "/";
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
