@@ -1,0 +1,40 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@300&family=Yeseva+One&display=swap');
+ 
+.buttons {
+    margin-top: 10px;
+}
+
+.accept {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    font-family: 'Open Sans', sans-serif;
+    margin-right: 10px;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.accept:hover {
+    background-color: #2e8331;
+}
+
+.cancel {
+    background-color: #d10202 !important;
+    color: white !important;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 15px;
+    font-weight: lighter;
+}
+
+.cancel:hover {
+    background-color: #a50202;
+}
+
+.text-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #20264D;
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}

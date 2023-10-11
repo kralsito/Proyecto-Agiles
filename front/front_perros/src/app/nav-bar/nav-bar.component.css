@@ -29,7 +29,7 @@
 .nav-link {
     font-size: 21px;
     color: #17205e;
-    font-weight: 550;
+    font-weight: light;
     text-decoration: none;
     margin-left: 40px;
     line-height: 35px;
@@ -56,6 +56,12 @@
     align-items: center;
 }
 
-#btnUser {
-    font-size: 35px;
+.fa-user-circle {
+    font-size: 20px ;
+}
+
+.mat-item {
+    font-size: 15px !important;
+    color: #17205e;
+    text-decoration: none;
 }

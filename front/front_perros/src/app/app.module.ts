@@ -52,6 +52,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { DialogCerrarSesionComponent } from './dialog-cerrar-sesion/dialog-cerrar-sesion.component';
 
 @NgModule({
   declarations: [
@@ -65,8 +66,9 @@ import {MatTreeModule} from '@angular/material/tree';
     TituloYEsloganComponent,
     LoginComponent,
     FormusuarioComponent,
-    NavBarNoLogueadoComponent,
-    AlertMailDuplicadoComponent
+    AlertMailDuplicadoComponent,
+    DialogCerrarSesionComponent
+    NavBarNoLogueadoComponent
   ],
   imports: [
     BrowserModule,
