@@ -1,6 +1,6 @@
+
 <app-nav-bar *ngIf="isAuthenticated()"></app-nav-bar>
 <app-nav-bar-no-logueado *ngIf="!isAuthenticated()"></app-nav-bar-no-logueado>
-
 <div class="background">
     <router-outlet></router-outlet>
 </div>
