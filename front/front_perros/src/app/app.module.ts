@@ -53,6 +53,16 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { DialogCerrarSesionComponent } from './dialog-cerrar-sesion/dialog-cerrar-sesion.component';
+import { AuthService } from './guards/auth.service';
+import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+
+export function jwtOptionsFactory() {
+  return {
+    tokenGetter: () => {
+      return localStorage.getItem('token');
+    }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -77,7 +87,6 @@ import { DialogCerrarSesionComponent } from './dialog-cerrar-sesion/dialog-cerra
     FontAwesomeModule,
     HttpClientModule,
     ReactiveFormsModule,
-    HttpClientModule,
     MatDialogModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
@@ -113,9 +122,15 @@ import { DialogCerrarSesionComponent } from './dialog-cerrar-sesion/dialog-cerra
     MatTabsModule,
     MatToolbarModule,
     MatTooltipModule,
-    MatTreeModule
+    MatTreeModule,
+    JwtModule.forRoot({
+      jwtOptionsProvider: {
+        provide: JWT_OPTIONS,
+        useFactory: jwtOptionsFactory,
+      }
+    })
   ],
-  providers: [LoggingService],
+  providers: [LoggingService, { provide: AuthService, useClass: AuthService }, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
