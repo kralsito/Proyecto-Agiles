@@ -52,6 +52,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import {MatTreeModule} from '@angular/material/tree';
     LoginComponent,
     FormusuarioComponent,
     NavBarNoLogueadoComponent,
-    AlertMailDuplicadoComponent
+    AlertMailDuplicadoComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

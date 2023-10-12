@@ -7,6 +7,7 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
 import { LoginComponent } from './login/login.component';
 import { FormusuarioComponent } from './formusuario/formusuario.component';
+import { PerfilComponent } from './perfil/perfil.component';
 
 const routes: Routes = [
   { path: 'publicacion', component: PublicacionComponent },
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'titulo-yeslogan', component: TituloYEsloganComponent},
   { path: 'login', component: LoginComponent},
   { path: 'registro', component: FormusuarioComponent},
+  { path: 'perfil', component: PerfilComponent},
 
 ];
 
