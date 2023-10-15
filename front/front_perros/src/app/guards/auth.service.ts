@@ -14,4 +14,22 @@ export class AuthService {
       return false;
     }
   }
+  public getCurrentUser(): number | null {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);
+  
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      if (decodedToken && typeof decodedToken.id === 'number') {
+        const id = decodedToken.id;
+        return id;
+      } else {
+        console.error('El token contiene la propiedad userId, pero su tipo es incorrecto.');
+      }
+    } else {
+      console.error('El token no está presente en el localStorage.');
+    }
+    return null;
+  }
+  
 }

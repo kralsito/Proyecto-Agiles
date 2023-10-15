@@ -2,6 +2,7 @@ import { Component, OnInit} from '@angular/core';
 import { Perro } from '../../perro.model';
 import { LoggingService } from '../../LoggingService.service';
 import { FormpubliService } from './formpubli.service';
+import { AuthService } from '../../guards/auth.service';
 
 @Component({
   selector: 'app-formpublicacion',
@@ -25,7 +26,7 @@ export class FormpublicacionComponent implements OnInit {
     }
   }
   
-  constructor(private loggingService: LoggingService, private formpubliService: FormpubliService) {}
+  constructor(private authService: AuthService, private loggingService: LoggingService, private formpubliService: FormpubliService) {}
 
   ngOnInit() {
   }
@@ -47,6 +48,7 @@ export class FormpublicacionComponent implements OnInit {
         sexoPerro: sexo,
         tamanioPerro: tamanio,
         fotoPerro: fotoFile || null, // Asignar el archivo seleccionado o null si no se seleccionó ningún archivo
+        usuario: this.authService.getCurrentUser()
       };
   
       const formData = new FormData();
@@ -54,7 +56,12 @@ export class FormpublicacionComponent implements OnInit {
       formData.append('edadPerro', edad);
       formData.append('sexoPerro', sexo);
       formData.append('tamanioPerro', tamanio);
-  
+      const currentUser = this.authService.getCurrentUser();
+      if (currentUser !== null) {
+        formData.append('usuario', currentUser.toString());
+      }
+
+
       if (fotoFile) {
         formData.append('fotoPerro', fotoFile);
       }
