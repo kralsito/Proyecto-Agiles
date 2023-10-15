@@ -12,6 +12,7 @@ from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import Group
 from rest_framework.exceptions import AuthenticationFailed
 import jwt, datetime
+from rest_framework.permissions import IsAuthenticated  
 # Create your views here.
 
 
@@ -20,6 +21,7 @@ class PublicacionList(generics.ListAPIView):
     serializer_class = PublicacionSerializer
 
 class PublicacionCreateView(APIView):
+    
     def post(self, request):
         serializer = PublicacionSerializer(data=request.data)
         if serializer.is_valid():

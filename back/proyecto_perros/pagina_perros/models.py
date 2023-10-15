@@ -2,31 +2,8 @@ from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.contrib.auth.models import Group, Permission
 from django.utils import timezone
+from django.contrib.auth import get_user_model
 # Create your models here.
-
-class Publicacion(models.Model):
-    nombrePerro = models.CharField(max_length=30)
-    fotoPerro = models.ImageField(upload_to="./perros", null=True, blank=True)
-    edadPerro = models.CharField(max_length=20)
-    SEXO_CHOICES = [
-        ('Macho', 'Macho'),
-        ('Hembra', 'Hembra'),
-    ]
-    sexoPerro = models.CharField(max_length=15, choices=SEXO_CHOICES)
-
-    TAMANO_CHOICES = [
-        ('Pequeño', 'Pequeño'),
-        ('Mediano', 'Mediano'),
-        ('Grande', 'Grande'),
-    ]
-    tamanioPerro = models.CharField(max_length=10, choices=TAMANO_CHOICES)
-
-    #Funcion para retornar algo cuando llamo al objeto
-    def __str__(self):
-        return self.nombrePerro
-    
-from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
-from django.db import models
 
 class UserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -85,6 +62,29 @@ def registrar_usuario(request):
             return JsonResponse({'mensaje': 'Correo duplicado'}, status=400)
    
 
+User = get_user_model()
+class Publicacion(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    nombrePerro = models.CharField(max_length=30)
+    fotoPerro = models.ImageField(upload_to="./perros", null=True, blank=True)
+    edadPerro = models.CharField(max_length=20)
+    SEXO_CHOICES = [
+        ('Macho', 'Macho'),
+        ('Hembra', 'Hembra'),
+    ]
+    sexoPerro = models.CharField(max_length=15, choices=SEXO_CHOICES)
+
+    TAMANO_CHOICES = [
+        ('Pequeño', 'Pequeño'),
+        ('Mediano', 'Mediano'),
+        ('Grande', 'Grande'),
+    ]
+    tamanioPerro = models.CharField(max_length=10, choices=TAMANO_CHOICES)
+
+    #Funcion para retornar algo cuando llamo al objeto
+    def __str__(self):
+        return self.nombrePerro
+    
 
 
 
