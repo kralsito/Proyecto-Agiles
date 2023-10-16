@@ -84,7 +84,17 @@ class Publicacion(models.Model):
     def __str__(self):
         return self.nombrePerro
     
+class Perfil(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
+    fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
+    nombrePerfil = models.CharField(max_length=30)
+    apellidoPerfil = models.CharField(max_length=30)
+    descripcion = models.CharField(max_length=200)
+    localidad = models.CharField(max_length=30)
+    telefono = models.IntegerField()
 
+    def __str__(self):
+        return f"Perfil de {self.usuario.email}"
 
 
 
