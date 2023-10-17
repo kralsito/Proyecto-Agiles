@@ -95,7 +95,6 @@ class LogoutView(APIView):
     
 class MiPerfilView(APIView):
     permission_classes = [IsAuthenticated]
-
     def get(self, request):
         user = request.user
         perfil = user.perfil
