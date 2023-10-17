@@ -9,11 +9,12 @@
             </div>
             <div class="col-md-3" id="dataPerro">
                 <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+                <br>
                 <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
                 <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
                 <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
                 <button class="btn btn-primary" id="btnHeart"><fa-icon [icon]="faHeart" id="iconHeart"></fa-icon></button>
-                <button class="btn btn-primary" id="btnInteresa">Me interesa</button>
+                <button class="btn btn-primary" id="btnInteresa" (click)="infoMeInteresa(publicacion)">Me interesa</button>
             </div>
             <hr>
         </div>
@@ -23,7 +24,7 @@
     </div>
 
     <!-- Modal -->
-<div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':display}">
+<div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':displayFiltros}">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-body opciones">
@@ -46,5 +47,20 @@
       </div>
     </div>
 </div>
-  
+<div class="modal" tabindex="-1" role="dialog" id="modalMeInteresa" [ngStyle]="{'display':displayMeInteresa}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Datos del dueño</h2>
+          <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledMeInteresa()"></button>
+        </div>
+        <div class="modal-body">
+          <p>Usuario: {{usuarioPerroSeleccionado}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandledMeInteresa()">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
