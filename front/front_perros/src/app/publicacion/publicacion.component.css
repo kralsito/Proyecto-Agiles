@@ -159,10 +159,43 @@ p {
     color: white;
 }
 
-.modal-content {
+[id="modalMeInteresa"] .modal-content {
+    border-radius: 10px;
+}
+
+[id="modalFiltros"] .modal-content {
     border: none;
 }
 
+#modalMeInteresa .modal-content {
+    animation-name: example;
+    animation-duration: 0.3s;
+}
+
+@keyframes example {
+    from {
+      top: -50px;
+      opacity: 0;
+    }
+  
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+#modalMeInteresa .modal-header h2 {
+    text-align: center;
+    margin: 0 0 0;
+    font-family: Poppins, sans-serif;
+    font-weight: bold;
+  }
+
+#modalMeInteresa .modal-body p {
+    font-size: 15px;
+    font-family: Poppins, sans-serif;
+}
+  
 mat-chip-option {
     background-color: rgb(247, 170, 193);
 }

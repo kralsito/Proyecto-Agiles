@@ -13,7 +13,10 @@ export class PublicacionComponent implements OnInit {
   faHeart = faHeart;
   filtrosSexo: string[] = [];
   filtrosTamanio: string[] = [];
-  display = "none";
+  displayFiltros = "none";
+  displayMeInteresa = "none";
+  usuarioPerroSeleccionado: string = '';
+
 
   constructor(private publicacionService: PublicacionService) {}
 
@@ -30,18 +33,28 @@ export class PublicacionComponent implements OnInit {
   } 
   
   abrirFiltros() {
-    this.display= "block";
+    this.displayFiltros= "block";
     const contenidoPrincipal = document.getElementById("contenidoPrincipal");
     if (contenidoPrincipal) {
         contenidoPrincipal.style.display = "block";
     }
   }
+
+  infoMeInteresa(publicacion: any) {
+    this.usuarioPerroSeleccionado = publicacion.usuario;
+    this.displayMeInteresa = "block";
+  }
+
   onCloseHandled() {
-    this.display = "none";
+    this.displayFiltros = "none";
+  }
+
+  onCloseHandledMeInteresa() {
+    this.displayMeInteresa = "none";
   }
 
   cancelarFiltros() {
-    this.display = "none";
+    this.displayFiltros = "none";
     return this.publicaciones = [...this.publicacionesOriginales];
   }
 
