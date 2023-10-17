@@ -1,4 +1,8 @@
-    <div class="contenedor">
+<div class="contenedor" id="contenidoPrincipal">
+    <div class="container-fluid">
+        <p id="filterBy">FILTRAR POR</p>
+        <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
+    </div>
         <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
             <div class="col-md-3 containerImagen">
                 <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
@@ -17,3 +21,30 @@
     <div class="text-center">
         <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
     </div>
+
+    <!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':display}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-body opciones">
+            <p>Filtrar por sexo</p>
+            <mat-chip-listbox selectable multiple aria-label="Sexo selection">
+                <mat-chip-option (click)="toggleFiltroSexo('Macho')">Macho</mat-chip-option>
+                <mat-chip-option (click)="toggleFiltroSexo('Hembra')">Hembra</mat-chip-option>
+            </mat-chip-listbox>
+            <p id="sexFilter">Filtrar por tamaño</p>
+            <mat-chip-listbox selectable multiple aria-label="Tamaño selection">
+                <mat-chip-option (click)="toggleFiltroTamanio('Pequeño')">Pequeño</mat-chip-option>
+                <mat-chip-option (click)="toggleFiltroTamanio('Mediano')">Mediano</mat-chip-option>
+                <mat-chip-option (click)="toggleFiltroTamanio('Grande')">Grande</mat-chip-option>
+            </mat-chip-listbox>
+        </div>
+        <div class="text-center">
+            <button type="button" class="btn btn-primary btnAceptar" (click)="onCloseHandled()">Aplicar</button>
+            <button type="button" class="btn btn-primary btnCancelar" (click)="cancelarFiltros()">Limpiar</button>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  
