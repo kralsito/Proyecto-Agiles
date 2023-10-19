@@ -17,8 +17,21 @@ from rest_framework.permissions import IsAuthenticated
 
 
 class PublicacionList(generics.ListAPIView):
-    queryset = Publicacion.objects.all()
     serializer_class = PublicacionSerializer
+    queryset = Publicacion.objects.none()  
+
+    def list(self, request, *args, **kwargs):
+        queryset = Publicacion.objects.all()  
+        serializer = self.get_serializer(queryset, many=True)
+
+        for publicacion in serializer.data:
+            usuario_id = publicacion.get('usuario')
+            usuario = User.objects.filter(id=usuario_id).first()
+            if usuario:
+                publicacion['usuario_email'] = usuario.email
+
+        return Response(serializer.data)
+
 
 class PublicacionCreateView(APIView):
     

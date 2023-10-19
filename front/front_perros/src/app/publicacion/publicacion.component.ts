@@ -41,9 +41,10 @@ export class PublicacionComponent implements OnInit {
   }
 
   infoMeInteresa(publicacion: any) {
-    this.usuarioPerroSeleccionado = publicacion.usuario;
+    this.usuarioPerroSeleccionado = publicacion.usuario_email; 
     this.displayMeInteresa = "block";
   }
+  
 
   onCloseHandled() {
     this.displayFiltros = "none";
