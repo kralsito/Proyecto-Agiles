@@ -11,6 +11,6 @@ urlpatterns = [
     path('usuario/login/', LoginView.as_view(), name='login'),
     path('usuario/', UserView.as_view()),
     path('usuario/logout/', LogoutView.as_view()),
-    path('mi-perfil/', MiPerfilView.as_view(), name='mi_perfil'),
+    path('usuario/mi-perfil/', MiPerfilView.as_view(), name='mi_perfil'),
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
