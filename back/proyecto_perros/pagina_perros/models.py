@@ -89,7 +89,7 @@ class Perfil(models.Model):
     fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
     nombrePerfil = models.CharField(max_length=30)
     apellidoPerfil = models.CharField(max_length=30)
-    descripcion = models.CharField(max_length=200)
+    descripcion = models.CharField(max_length=200, null=True)
     localidad = models.CharField(max_length=30)
     telefono = models.IntegerField()
 
