@@ -55,13 +55,18 @@ def registrar_usuario(request):
         localidad = request.data.get('localidad')
 
         try:
-            user = User.objects.create_user(email=email, password='password', name=name, apellidoUsuario=apellido, telefono=telefono, provincia=provincia, localidad=localidad)
+            user = User.objects.create_user(email=email, password='password')
+            perfil = Perfil.objects.create(
+                usuario=user,
+                nombrePerfil=name,
+                apellidoPerfil=apellido,
+                telefono=telefono,
+                localidad=localidad
+            )
             return JsonResponse({'mensaje': 'Usuario registrado exitosamente'})
         except IntegrityError:
             return JsonResponse({'mensaje': 'Correo duplicado'}, status=400)
    
-
-User = get_user_model()
 class Publicacion(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     nombrePerro = models.CharField(max_length=30)
@@ -85,16 +90,13 @@ class Publicacion(models.Model):
         return self.nombrePerro
     
 class Perfil(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE, related_name='perfil')
-    fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    #fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
     nombrePerfil = models.CharField(max_length=30)
     apellidoPerfil = models.CharField(max_length=30)
-    descripcion = models.CharField(max_length=200, null=True)
+    #descripcion = models.CharField(max_length=200, null=True)
     localidad = models.CharField(max_length=30)
     telefono = models.IntegerField()
 
     def __str__(self):
         return f"Perfil de {self.usuario.email}"
-
-
-

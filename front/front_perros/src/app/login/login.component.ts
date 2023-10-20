@@ -41,7 +41,7 @@ export class LoginComponent {
         },
         (error) => {
           console.error('Error al iniciar sesión', error);
-          this.errorMessage = 'Credenciales inválidas'; 
+          this.errorMessage = 'Credenciales inválidas';
         }
       );
     }
