@@ -9,7 +9,7 @@ import {
   MatDialogRef,
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
-import { AlertMailDuplicadoComponent } from '../alert-mail-duplicado/alert-mail-duplicado.component';
+import { AlertMailDuplicadoComponent } from '../alerts/alert-mail-duplicado/alert-mail-duplicado.component';
 import { FormperfilService } from '../perfil/formperfil.service';
 
 @Component({

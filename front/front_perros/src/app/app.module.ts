@@ -16,7 +16,7 @@ import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.compo
 import { LoginComponent } from './login/login.component';
 import { FormusuarioComponent } from './formusuario/formusuario.component';
 import { NavBarNoLogueadoComponent } from './nav-bar-no-logueado/nav-bar-no-logueado.component';
-import { AlertMailDuplicadoComponent } from './alert-mail-duplicado/alert-mail-duplicado.component';
+import { AlertMailDuplicadoComponent } from './alerts/alert-mail-duplicado/alert-mail-duplicado.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
@@ -56,6 +56,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { DialogCerrarSesionComponent } from './dialog-cerrar-sesion/dialog-cerrar-sesion.component';
 import { AuthService } from './guards/auth.service';
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AlertCredencialesInvalidasComponent } from './alerts/alert-credenciales-invalidas/alert-credenciales-invalidas.component';
 
 export function jwtOptionsFactory() {
   return {
@@ -82,7 +83,8 @@ export function jwtOptionsFactory() {
     PerfilComponent,
     AlertMailDuplicadoComponent,
     DialogCerrarSesionComponent,
-    NavBarNoLogueadoComponent
+    NavBarNoLogueadoComponent,
+    AlertCredencialesInvalidasComponent
   ],
   imports: [
     BrowserModule,
