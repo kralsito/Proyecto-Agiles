@@ -22,7 +22,13 @@ class UserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
 class PerfilSerializer(serializers.ModelSerializer):
     class Meta:
         model = Perfil
-        fields = '__all__'
+        fields = ['id', 'nombrePerfil', 'apellidoPerfil', 'telefono', 'localidad', 'usuario']
+        
+    def create(self, validated_data):
+        instance = self.Meta.model(**validated_data)
+        instance.save()
+        return instance

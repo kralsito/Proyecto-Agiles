@@ -22,6 +22,7 @@
                         <i class="fa fa-user-circle" aria-hidden="true"></i><i class="fa-solid fa-caret-down"></i>
                     </button>
                     <mat-menu #menu="matMenu">
+                        <button mat-menu-item class="mat-item" [routerLink]="'/perfil'">Mi perfil</button>
                         <button mat-menu-item class="mat-item" (click)="openDialog()">Cerrar sesión</button>
                     </mat-menu>
                 </li>
