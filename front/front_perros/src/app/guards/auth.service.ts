@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import * as jwtDecode from 'jwt-decode';
+
 
 @Injectable({
   providedIn: 'root'
@@ -20,6 +22,8 @@ export class AuthService {
   
     if (token) {
       const decodedToken = this.jwtHelper.decodeToken(token);
+
+      console.log('Decoded Token:', decodedToken);
       if (decodedToken && typeof decodedToken.id === 'number') {
         const id = decodedToken.id;
         return id;
@@ -32,4 +36,22 @@ export class AuthService {
     return null;
   }
   
+  public getCurrentUserEmail(): string | null {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);
+  
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      console.log('Decoded Token:', decodedToken);
+      if (decodedToken && typeof decodedToken.email === 'string') {
+        const email = decodedToken.email;
+        return email;
+      } else {
+        console.error('El token contiene la propiedad userId, pero su tipo es incorrecto.');
+      }
+    } else {
+      console.error('El token no está presente en el localStorage.');
+    }
+    return null;
+  }
 }

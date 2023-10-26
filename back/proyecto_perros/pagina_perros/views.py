@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from .models import Publicacion , User
+from .models import Publicacion , User, Perfil
 from .serializers import PublicacionSerializer , UserSerializer, PerfilSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -63,8 +63,13 @@ class LoginView(APIView):
         if not user.check_password(password):
             raise AuthenticationFailed('Contraseña incorrecta')
         
-        payload ={
+        # Obtener el perfil del usuario
+        perfil = user.perfil  # Asegúrate de que el campo de perfil esté correctamente relacionado en tu modelo User
+
+        payload = {
             'id': user.id,
+            'email': user.email,
+            'nombre_perfil': perfil.nombrePerfil if perfil else None,  # Obtener el nombre del perfil si existe
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             'iat': datetime.datetime.utcnow()
         }
@@ -92,10 +97,18 @@ class UserView(APIView):
             raise AuthenticationFailed('Unauthenticated')
         
         user = User.objects.filter(id=payload['id']).first()
-        serializer= UserSerializer(user)
+        perfil = user.perfil  # Obtener el perfil asociado al usuario
 
-        return Response(serializer.data)
+        if user and perfil:
+            user_serializer = UserSerializer(user)
+            perfil_serializer = PerfilSerializer(perfil)
 
+            return Response({
+                'user_data': user_serializer.data,
+                'perfil_data': perfil_serializer.data
+            })
+        else:
+            raise AuthenticationFailed('User not found')
 
 class LogoutView(APIView):
     def post(self, request):
@@ -108,6 +121,7 @@ class LogoutView(APIView):
     
 class MiPerfilView(APIView):
     permission_classes = [IsAuthenticated]
+
     def get(self, request):
         user = request.user
         perfil = user.perfil
@@ -117,7 +131,6 @@ class MiPerfilView(APIView):
             return Response(serializer.data)
         else:
             return Response({"mensaje": "El usuario no tiene un perfil."}, status=status.HTTP_404_NOT_FOUND)
-        
 class PerfilCreateView(APIView):
     def post(self, request):
          serializer = PerfilSerializer(data=request.data)
