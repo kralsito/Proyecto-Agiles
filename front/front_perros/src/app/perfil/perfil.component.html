@@ -22,13 +22,13 @@
                     <div class="profile-card card rounded-lg shadow p-4 p-xl-5 mb-4 text-center">
                         <div class="banner"></div>
                         <img src="../../assets/img/user-profile-icon-free-vector.jpg" alt="" class="img-circle mx-auto mb-3">
-                        <h3 class="mb-4">Ignacio Cángaro Gabriel</h3>
+                        <div *ngIf="currentUserEmail">
+                        <h3 class="mb-4">{{currentProfileNombre}} {{currentProfileApellido}}</h3>
                         <div class="text-left mb-4">
-                                <div *ngIf="currentUserEmail">
                                 <p class="mb-2"><i class="fa fa-envelope mr-2"></i> {{currentUserEmail}}</p>
                                 </div>
-                                <p class="mb-2"><i class="fa fa-phone mr-2"></i> +54 9 221 4382853</p>
-                                <p class="mb-2"><i class="fa fa-map-marker mr-2"></i>La Plata</p>   
+                                <p class="mb-2"><i class="fa fa-phone mr-2"></i> {{currentProfileTelefono}}</p>
+                                <p class="mb-2"><i class="fa fa-map-marker mr-2"></i>{{currentProfileLocalidad}}</p>   
                         </div>
                     </div>
                 </div>

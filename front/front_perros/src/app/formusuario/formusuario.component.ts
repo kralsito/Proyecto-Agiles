@@ -71,29 +71,29 @@ export class FormusuarioComponent implements OnInit {
       };
 
       // Llamar al método altaUsuario del formuserService
-      this.formuserService.altaUsuario(usuario).subscribe(
-        (userResponse) => {
-          console.log('Usuario creado exitosamente', userResponse);
+      this.formperfilService.altaPerfil(perfil).subscribe(
+        (profileResponse) => {
+          console.log('Perfil creado exitosamente', profileResponse);
 
           // Una vez que se ha creado el usuario, puedes crear el perfil
-          this.formperfilService
-            .altaPerfil({
-              usuario: userResponse.id, // userResponse debería contener el ID del usuario recién creado
-              ...perfil,
+          this.formuserService
+            .altaUsuario({
+              perfil: profileResponse.id, // userResponse debería contener el ID del usuario recién creado
+              ...usuario,
             })
             .subscribe(
-              (profileResponse) => {
-                console.log('Perfil creado exitosamente', profileResponse);
+              (userResponse) => {
+                console.log('Usuario creado exitosamente', userResponse);
                 this.display = "block";
               },
-              (profileError) => {
-                console.error('Error al crear el perfil', profileError);
+              (userError) => {
+                console.error('Error al crear el usuario', userError);
               }
             );
         },
-        (userError) => {
-          console.error('Error al crear el usuario', userError);
-          if (userError.status === 400) {
+        (profileError) => {
+          console.error('Error al crear el perfil', profileError);
+          if (profileError.status === 400) {
             this.mostrarAlertaCorreoDuplicado();
           }
         }

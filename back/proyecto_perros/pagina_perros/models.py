@@ -25,6 +25,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     password = models.CharField(max_length=128)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
+    perfil = models.OneToOneField('Perfil', on_delete=models.CASCADE, null=True, blank=True)
 
     # Agregar related_name personalizado para evitar conflictos
     groups = models.ManyToManyField(
@@ -63,12 +64,14 @@ def registrar_usuario(request):
                 telefono=telefono,
                 localidad=localidad
             )
+            user.perfil = perfil  # Asignar el perfil al usuario
+            user.save()  # Guardar el usuario con el perfil asignado
             return JsonResponse({'mensaje': 'Usuario registrado exitosamente'})
         except IntegrityError:
             return JsonResponse({'mensaje': 'Correo duplicado'}, status=400)
    
 class Publicacion(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     nombrePerro = models.CharField(max_length=30)
     fotoPerro = models.ImageField(upload_to="./perros", null=True, blank=True)
     edadPerro = models.CharField(max_length=20)
@@ -90,13 +93,11 @@ class Publicacion(models.Model):
         return self.nombrePerro
     
 class Perfil(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     #fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
     nombrePerfil = models.CharField(max_length=30)
     apellidoPerfil = models.CharField(max_length=30)
     #descripcion = models.CharField(max_length=200, null=True)
     localidad = models.CharField(max_length=30)
     telefono = models.IntegerField()
-
     def __str__(self):
-        return f"Perfil de {self.usuario.email}"
+        return f"Perfil de: {self.nombrePerfil}"

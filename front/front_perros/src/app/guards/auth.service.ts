@@ -54,4 +54,32 @@ export class AuthService {
     }
     return null;
   }
+  public getCurrentUserProfile(): any {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);
+  
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+      console.log('Decoded Token:', decodedToken);
+      
+      if (decodedToken && typeof decodedToken.nombrePerfil === 'string') {
+        const nombrePerfil = decodedToken.nombrePerfil;
+        const apellidoPerfil = decodedToken.apellidoPerfil;
+        // Agrega más atributos si es necesario
+  
+        // Devuelve un objeto con la información del perfil
+        return {
+          nombrePerfil,
+          apellidoPerfil,
+          // Agrega más atributos si es necesario
+        };
+      } else {
+        console.error('El token contiene atributos de perfil, pero su tipo es incorrecto.');
+      }
+    } else {
+      console.error('El token no está presente en el localStorage.');
+    }
+    return null;
+  }
+  
 }

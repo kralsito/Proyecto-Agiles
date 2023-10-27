@@ -70,6 +70,9 @@ class LoginView(APIView):
             'id': user.id,
             'email': user.email,
             'nombre_perfil': perfil.nombrePerfil if perfil else None,  # Obtener el nombre del perfil si existe
+            'apellido_perfil': perfil.apellidoPerfil if perfil else None,  # Obtener el apellido del perfil si existe
+            'localidad_perfil': perfil.localidad if perfil else None,  # Obtener la localidad del perfil si existe
+            'telefono_perfil': perfil.telefono if perfil else None,  # Obtener el telefono del perfil si existe
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             'iat': datetime.datetime.utcnow()
         }
