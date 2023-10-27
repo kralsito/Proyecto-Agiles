@@ -10,7 +10,7 @@ class PublicacionSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['id', 'email', 'password']
+        fields = ['id', 'email', 'password', 'perfil']
         extra_kwargs = {
             'password': {'write_only': True}
         }
@@ -26,7 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 class PerfilSerializer(serializers.ModelSerializer):
     class Meta:
         model = Perfil
-        fields = ['id', 'nombrePerfil', 'apellidoPerfil', 'telefono', 'localidad', 'usuario']
+        fields = ['id', 'nombrePerfil', 'apellidoPerfil', 'telefono', 'localidad']
         
     def create(self, validated_data):
         instance = self.Meta.model(**validated_data)
