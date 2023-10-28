@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { FormusuarioComponent } from './formusuario/formusuario.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { authGuard } from './guards/auth.guard';
+import { authGuardForLogin } from './guards/sesion-guard.guard';
 import { NavBarNoLogueadoComponent } from './nav-bar-no-logueado/nav-bar-no-logueado.component';
 
 const routes: Routes = [
@@ -18,8 +19,8 @@ const routes: Routes = [
   { path: 'nav-bar', component: NavBarComponent, canActivate: [authGuard] },
   { path: 'menu-principal', component: MenuPrincipalComponent, canActivate: [authGuard]},
   { path: 'titulo-yeslogan', component: TituloYEsloganComponent, canActivate: [authGuard]},
-  { path: 'login', component: LoginComponent},
-  { path: 'registro', component: FormusuarioComponent},
+  { path: 'login', component: LoginComponent, canActivate: [authGuardForLogin]},
+  { path: 'registro', component: FormusuarioComponent, canActivate: [authGuardForLogin]},
   { path: 'perfil', component: PerfilComponent},
   { path: 'nav-bar-no-logueado', component: NavBarNoLogueadoComponent}
 ];
