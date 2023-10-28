@@ -199,3 +199,21 @@ p {
 mat-chip-option {
     background-color: rgb(247, 170, 193);
 }
+
+.no-publicaciones {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .no-publicaciones p {
+    margin: 0;
+  }
+  
+  .no-publicaciones i {
+    color: #ff0000; /* Cambia el color del icono según tus preferencias */
+  }

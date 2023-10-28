@@ -37,7 +37,16 @@ export class FormpublicacionComponent implements OnInit {
     const sexo = (document.getElementById('sexoPerro') as HTMLSelectElement).value;
     const tamanio = (document.getElementById('tamanioPerro') as HTMLSelectElement).value;
     const fotoInput = document.getElementById('fotoPerro') as HTMLInputElement;
-  
+    const libreta = (document.querySelector('input[name="libretaPerro"]:checked') as HTMLInputElement)?.value;
+    const desparasitado = (document.querySelector('input[name="desparasitadoPerro"]:checked') as HTMLInputElement)?.value;
+    const castrado = (document.querySelector('input[name="castradoPerro"]:checked') as HTMLInputElement)?.value;
+    const vacunado = (document.querySelector('input[name="vacunadoPerro"]:checked') as HTMLInputElement)?.value;
+    
+
+    console.log('Castrado: ', castrado);
+    console.log('Desparasitado: ', desparasitado);
+    console.log('Libreta: ', libreta);
+    console.log('Vacunado: ', vacunado);
     // Verificar que fotoInput no sea nulo
     if (fotoInput) {
       const fotoFile = fotoInput.files?.[0]; // Obtener el archivo seleccionado (usando el operador '?')
@@ -47,7 +56,12 @@ export class FormpublicacionComponent implements OnInit {
         edadPerro: edad,
         sexoPerro: sexo,
         tamanioPerro: tamanio,
+        desparasitadoPerro: desparasitado,
+        libretaPerro: libreta,
+        castradoPerro: castrado,
+        vacunadoPerro: vacunado,
         fotoPerro: fotoFile || null, // Asignar el archivo seleccionado o null si no se seleccionó ningún archivo
+
         usuario: this.authService.getCurrentUser()
       };
   
@@ -56,6 +70,10 @@ export class FormpublicacionComponent implements OnInit {
       formData.append('edadPerro', edad);
       formData.append('sexoPerro', sexo);
       formData.append('tamanioPerro', tamanio);
+      formData.append('desparasitadoPerro', desparasitado);
+      formData.append('libretaPerro', libreta);
+      formData.append('castradoPerro', castrado);
+      formData.append('vacunadoPerro', vacunado);
       const currentUser = this.authService.getCurrentUser();
       if (currentUser !== null) {
         formData.append('usuario', currentUser.toString());

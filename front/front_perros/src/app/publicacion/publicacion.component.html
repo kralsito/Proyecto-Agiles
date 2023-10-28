@@ -3,6 +3,9 @@
         <p id="filterBy">FILTRAR POR</p>
         <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
     </div>
+    <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
+      <p>No hay publicaciones disponibles.</p>
+    </div>
         <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
             <div class="col-md-3 containerImagen">
                 <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">

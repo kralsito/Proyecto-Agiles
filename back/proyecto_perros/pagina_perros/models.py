@@ -88,6 +88,15 @@ class Publicacion(models.Model):
     ]
     tamanioPerro = models.CharField(max_length=10, choices=TAMANO_CHOICES)
 
+    BOOLEAN_CHOICES = [
+        ('Si', 'Si'),
+        ('No', 'No'),
+    ]
+    desparasitadoPerro = models.CharField(max_length=5, choices=BOOLEAN_CHOICES, default='No')
+    castradoPerro = models.CharField(max_length=5, choices=BOOLEAN_CHOICES, default='No')
+    libretaPerro = models.CharField(max_length=5, choices=BOOLEAN_CHOICES, default='No')
+    vacunadoPerro = models.CharField(max_length=5, choices=BOOLEAN_CHOICES, default='No')
+
     #Funcion para retornar algo cuando llamo al objeto
     def __str__(self):
         return self.nombrePerro
