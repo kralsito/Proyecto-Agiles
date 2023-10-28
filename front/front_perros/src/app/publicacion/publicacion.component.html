@@ -42,6 +42,23 @@
                 <mat-chip-option (click)="toggleFiltroTamanio('Mediano')">Mediano</mat-chip-option>
                 <mat-chip-option (click)="toggleFiltroTamanio('Grande')">Grande</mat-chip-option>
             </mat-chip-listbox>
+            <p id="sexFilter">Otros filtros</p>
+            <mat-chip-listbox selectable multiple aria-label="Desparasitado selection">
+              <mat-chip-option (click)="toggleFiltroDes('Si')">Desparasitado</mat-chip-option>
+              <mat-chip-option (click)="toggleFiltroDes('No')">No desparasitado</mat-chip-option>
+            </mat-chip-listbox>
+            <mat-chip-listbox selectable multiple aria-label="Vacunado selection">
+              <mat-chip-option (click)="toggleFiltroVac('Si')">Vacunado</mat-chip-option>
+              <mat-chip-option (click)="toggleFiltroVac('No')">No vacunado</mat-chip-option>
+            </mat-chip-listbox>
+            <mat-chip-listbox selectable multiple aria-label="Castrado selection">
+              <mat-chip-option (click)="toggleFiltroCas('Si')">Castrado</mat-chip-option>
+              <mat-chip-option (click)="toggleFiltroCas('No')">No castrado</mat-chip-option>
+            </mat-chip-listbox>
+            <mat-chip-listbox selectable multiple aria-label="Libreta selection">
+              <mat-chip-option (click)="toggleFiltroLib('Si')">Con libreta sanitaria</mat-chip-option>
+              <mat-chip-option (click)="toggleFiltroLib('No')">Sin libreta sanitaria</mat-chip-option>
+            </mat-chip-listbox>
         </div>
         <div class="text-center">
             <button type="button" class="btn btn-primary btnAceptar" (click)="onCloseHandled()">Aplicar</button>
