@@ -11,6 +11,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { authGuard } from './guards/auth.guard';
 import { authGuardForLogin } from './guards/sesion-guard.guard';
 import { NavBarNoLogueadoComponent } from './nav-bar-no-logueado/nav-bar-no-logueado.component';
+import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
 
 const routes: Routes = [
   { path: 'publicacion', component: PublicacionComponent, canActivate: [authGuard]},
@@ -22,7 +23,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [authGuardForLogin]},
   { path: 'registro', component: FormusuarioComponent, canActivate: [authGuardForLogin]},
   { path: 'perfil', component: PerfilComponent},
-  { path: 'nav-bar-no-logueado', component: NavBarNoLogueadoComponent}
+  { path: 'nav-bar-no-logueado', component: NavBarNoLogueadoComponent},
+  { path: 'mis-publicaciones', component: MisPublicacionesComponent}
 ];
 
 @NgModule({

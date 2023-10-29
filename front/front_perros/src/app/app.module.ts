@@ -57,6 +57,7 @@ import { DialogCerrarSesionComponent } from './dialog-cerrar-sesion/dialog-cerra
 import { AuthService } from './guards/auth.service';
 import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AlertCredencialesInvalidasComponent } from './alerts/alert-credenciales-invalidas/alert-credenciales-invalidas.component';
+import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
 
 export function jwtOptionsFactory() {
   return {
@@ -84,7 +85,8 @@ export function jwtOptionsFactory() {
     AlertMailDuplicadoComponent,
     DialogCerrarSesionComponent,
     NavBarNoLogueadoComponent,
-    AlertCredencialesInvalidasComponent
+    AlertCredencialesInvalidasComponent,
+    MisPublicacionesComponent
   ],
   imports: [
     BrowserModule,
