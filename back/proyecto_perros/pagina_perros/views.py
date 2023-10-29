@@ -10,7 +10,7 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth.hashers import check_password
 from django.contrib.auth.models import Group
-from rest_framework.exceptions import AuthenticationFailed
+from rest_framework.exceptions import AuthenticationFailed, NotFound
 import jwt, datetime
 from rest_framework.permissions import IsAuthenticated  
 # Create your views here.
@@ -140,3 +140,21 @@ class PerfilCreateView(APIView):
          serializer.is_valid(raise_exception=True)
          serializer.save()
          return Response(serializer.data)
+    
+class VerPerfilDeOtroUsuarioView(APIView):
+    def get(self, request, user_id):
+        try:
+            user = User.objects.get(id=user_id)
+            perfil = user.perfil  
+            if user and perfil:
+                user_serializer = UserSerializer(user)
+                perfil_serializer = PerfilSerializer(perfil)
+
+                return Response({
+                    'user_data': user_serializer.data,
+                    'perfil_data': perfil_serializer.data
+                })
+            else:
+                raise NotFound('User not found')
+        except User.DoesNotExist:
+            raise NotFound('User not found')

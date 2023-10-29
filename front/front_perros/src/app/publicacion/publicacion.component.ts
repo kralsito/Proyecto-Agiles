@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PublicacionService } from './publicacion.service';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-publicacion',
   templateUrl: './publicacion.component.html',
@@ -22,7 +22,7 @@ export class PublicacionComponent implements OnInit {
   usuarioPerroSeleccionado: string = '';
 
 
-  constructor(private publicacionService: PublicacionService) {}
+  constructor(private publicacionService: PublicacionService, private router: Router) {}
 
   ngOnInit() {
     this.publicacionService.obtenerPublicaciones().subscribe(
@@ -45,8 +45,8 @@ export class PublicacionComponent implements OnInit {
   }
 
   infoMeInteresa(publicacion: any) {
-    this.usuarioPerroSeleccionado = publicacion.usuario_email; 
-    this.displayMeInteresa = "block";
+    const usuarioId = publicacion.usuario;
+    this.router.navigate([`/perfil-otro/${usuarioId}`]);
   }
   
 
