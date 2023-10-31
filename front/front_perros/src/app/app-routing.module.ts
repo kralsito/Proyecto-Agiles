@@ -23,10 +23,10 @@ const routes: Routes = [
   { path: 'titulo-yeslogan', component: TituloYEsloganComponent, canActivate: [authGuard]},
   { path: 'login', component: LoginComponent, canActivate: [authGuardForLogin]},
   { path: 'registro', component: FormusuarioComponent, canActivate: [authGuardForLogin]},
-  { path: 'perfil', component: PerfilComponent},
+  { path: 'perfil', component: PerfilComponent, canActivate: [authGuard]},
   { path: 'nav-bar-no-logueado', component: NavBarNoLogueadoComponent},
-  { path: 'mis-publicaciones', component: MisPublicacionesComponent},
-  { path: 'perfil-otro/:usuarioId', component: PerfilOtroComponent },
+  { path: 'mis-publicaciones', component: MisPublicacionesComponent, canActivate: [authGuard]},
+  { path: 'perfil-otro/:usuarioId', component: PerfilOtroComponent, canActivate: [authGuard] },
 ];
 
 @NgModule({

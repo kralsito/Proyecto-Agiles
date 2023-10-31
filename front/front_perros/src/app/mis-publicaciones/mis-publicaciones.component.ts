@@ -12,6 +12,7 @@ import { Perro } from '../perro.model';
 export class MisPublicacionesComponent implements OnInit {
   publicaciones: any;
   publicacionesOriginales: any;
+  publicacionSeleccionada: any;
   faHeart = faHeart;
   filtrosSexo: string[] = [];
   filtrosTamanio: string[] = [];
@@ -20,7 +21,7 @@ export class MisPublicacionesComponent implements OnInit {
   filtrosCas: string[] = [];
   filtrosLib: string[] = [];
   displayFiltros = "none";
-  displayMeInteresa = "none";
+  displayEditar = "none";
   usuarioPerroSeleccionado: string = '';
 
 
@@ -32,11 +33,13 @@ export class MisPublicacionesComponent implements OnInit {
     const userId = this.authService.getCurrentUser();
 
     if (userId !== null) {
+      this.publicaciones = [];
+      this.publicacionSeleccionada = null;
       // Obtiene todas las publicaciones, luego filtra por usuario logeado
       this.publicacionService.obtenerPublicaciones().subscribe(
         (data: Perro[]) => {
-          this.publicacionesOriginales = data;
-          this.publicaciones = data.filter(publicacion => publicacion.usuario === userId);
+          this.publicacionesOriginales = data.filter(publicacion => publicacion.usuario === userId);
+          this.publicaciones = [...this.publicacionesOriginales];
         },
         (error) => {
           console.error('Error al cargar las publicaciones:', error);
@@ -55,18 +58,8 @@ export class MisPublicacionesComponent implements OnInit {
     }
   }
 
-  infoMeInteresa(publicacion: any) {
-    this.usuarioPerroSeleccionado = publicacion.usuario_email; 
-    this.displayMeInteresa = "block";
-  }
-  
-
   onCloseHandled() {
     this.displayFiltros = "none";
-  }
-
-  onCloseHandledMeInteresa() {
-    this.displayMeInteresa = "none";
   }
 
   cancelarFiltros() {
@@ -167,4 +160,79 @@ export class MisPublicacionesComponent implements OnInit {
   
     this.publicaciones = publicacionesFiltradasVac;
   } 
-}
+
+  editarPubli(publicacion: any) {
+    this.publicacionSeleccionada = publicacion;
+    this.displayEditar = "block";
+  }
+
+  onCloseHandledEditar() {
+    this.displayEditar = "none";
+  }
+
+  mostrarImagen() {
+    const imgPreviewElement: HTMLElement = document.getElementById('imgPreview')!;
+    const fotoPerroInput: HTMLInputElement = document.getElementById('fotoPerroModal') as HTMLInputElement;
+
+    if (fotoPerroInput.files && fotoPerroInput.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        imgPreviewElement.innerHTML = `<img src="${e.target.result}" id="fotoInputPerro" style="max-width: 300px; max-height: 300px; margin-bottom: 10px"/>`;
+      };
+
+      reader.readAsDataURL(fotoPerroInput.files[0]);
+    }
+  }
+
+  onAceptarEdicion() {
+    if (this.publicacionSeleccionada) {
+      const publicacionEditada = {
+        nombrePerro: this.publicacionSeleccionada.nombrePerro,
+        edadPerro: this.publicacionSeleccionada.edadPerro,
+        sexoPerro: this.publicacionSeleccionada.sexoPerro,
+        tamanioPerro: this.publicacionSeleccionada.tamanioPerro,
+        desparasitadoPerro: this.publicacionSeleccionada.desparasitadoPerro,
+        vacunadoPerro: this.publicacionSeleccionada.vacunadoPerro,
+        libretaPerro: this.publicacionSeleccionada.libretaPerro,
+        castradoPerro: this.publicacionSeleccionada.castradoPerro,
+        fotoPerro: this.publicacionSeleccionada.fotoPerro
+      };
+  
+      const nuevaFotoInput: HTMLInputElement = document.getElementById('fotoPerroModal') as HTMLInputElement;
+      if (nuevaFotoInput && nuevaFotoInput.files && nuevaFotoInput.files.length > 0) {
+        const nuevaFotoFile = nuevaFotoInput.files[0];
+        const formData = new FormData();
+        formData.append('nombrePerro', publicacionEditada.nombrePerro);
+        formData.append('edadPerro', publicacionEditada.edadPerro);
+        formData.append('sexoPerro', publicacionEditada.sexoPerro);
+        formData.append('tamanioPerro', publicacionEditada.tamanioPerro);
+        formData.append('desparasitadoPerro', publicacionEditada.desparasitadoPerro);
+        formData.append('vacunadoPerro', publicacionEditada.vacunadoPerro);
+        formData.append('libretaPerro', publicacionEditada.libretaPerro);
+        formData.append('castradoPerro', publicacionEditada.castradoPerro);
+        formData.append('fotoPerro', nuevaFotoFile);
+
+        this.publicacionService.editarPublicacion(this.publicacionSeleccionada.id, formData).subscribe(
+          (response) => {
+            console.log('Publicación editada exitosamente', response);
+            this.onCloseHandledEditar();
+          },
+          (error) => {
+            console.error('Error al editar la publicación', error);
+          }
+        );
+      } else {
+        this.publicacionService.editarPublicacion(this.publicacionSeleccionada.id, publicacionEditada).subscribe(
+          (response) => {
+            console.log('Publicación editada exitosamente', response);
+            this.onCloseHandledEditar();
+          },
+          (error) => {
+            console.error('Error al editar la publicación', error);
+          }
+        );
+      }
+    }
+  }
+}  
