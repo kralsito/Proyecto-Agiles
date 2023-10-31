@@ -207,6 +207,24 @@ mat-chip-option {
     color: #ff0000; /* Cambia el color del icono según tus preferencias */
   }
 
+  .icon-container {
+    padding-top: 10px;
+    display: inline-block;
+    margin-right: 10px; /* Ajusta el espaciado horizontal entre los iconos */
+    font-size: 24px; /* Ajusta el tamaño de los iconos según tus preferencias */
+    color: #333; /* Ajusta el color de los iconos según tus preferencias */
+}
+
+.icons-row {
+    display: flex; /* Coloca los iconos de vacunado, libreta y desparasitado en una fila */
+    align-items: center; /* Alinea verticalmente los iconos con otros elementos */
+}
+
+.btn-container {
+    display: flex; /* Coloca los botones en una fila */
+    margin-top: 10px; /* Ajusta el espaciado entre los botones y los iconos */
+}
+
   .bookmarkBtn {
     width: 105px;
     height: 45px;
