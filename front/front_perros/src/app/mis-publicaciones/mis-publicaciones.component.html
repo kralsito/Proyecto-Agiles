@@ -12,14 +12,36 @@
                 <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
             </div>
             <div class="col-md-3" id="dataPerro">
-                <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
-                <br>
-                <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
-                <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
-                <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
+              <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+              <br>
+              <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
+              <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
+              <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro }}</div>
+              <div class="icon-container">
+                <div class="icons-row">
+                    <div id="vacunadoPerro" class="icon-container">
+                        <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
+                        <p class="noVacunado">{{ publicacion.vacunadoPerro === 'No' ? 'No vacunado' : '' }}</p>
+                    </div>
+                    <div id="libretaPerro" class="icon-container">
+                        <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
+                        <p class="noLibreta">{{ publicacion.libretaPerro === 'No' ? 'Sin libreta' : '' }}</p>
+                    </div>
+                    <div id="desparasitadoPerro" class="icon-container">
+                        <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>
+                        <p class="noDesparasitado">{{ publicacion.desparasitadoPerro === 'No' ? 'No desparasitado' : '' }}</p>
+                    </div>
+                    <div id="castradoPerro" class="icon-container">
+                      <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
+                      <p class="noCastrado">{{ publicacion.castradoPerro === 'No' ? 'No castrado' : '' }}</p>
+                  </div>
+                </div>
+            </div> 
+            <div class="btn-container">
                 <button class="btn btn-primary" id="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
                 <button class="btn btn-primary" id="btnDelete"><i class="fa-solid fa-trash"></i></button>
             </div>
+          </div>
             <hr>
         </div>
     </div>

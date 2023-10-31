@@ -16,41 +16,6 @@
     margin: 0 50px 0;
 }
 
-#iconFav {
-    color: white;
-    font-size: 15px;
-}
-.fa-solid {
-    color: white;
-    font-size: 15px;
-
-}
-
-#btnFav {
-    background-color: #FF5D31;
-    border: none;
-    margin-right: 10px;
-    margin-top: 10px;
-    font-size: 17px;
-    color: rgb(255, 255, 255);
-}
-
-#btnFav:hover {
-    background-color: #bd4727;
-}
-
-#btnContactar {
-    background-color: #20264D;
-    border: none;
-    font-size: 15px;
-    margin-top: 10px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-#btnContactar:hover {
-    background-color: #2f3a70;
-    transition: .3s;
-}
 
 #nombrePerro {
     margin-top: 20px;
@@ -207,7 +172,7 @@ mat-chip-option {
     color: #ff0000; /* Cambia el color del icono según tus preferencias */
   }
 
-  .bookmarkBtn {
+.bookmarkBtn {
     width: 105px;
     height: 45px;
     border-radius: 40px;
@@ -220,9 +185,9 @@ mat-chip-option {
     transition-duration: .3s;
     overflow: hidden;
     text-align: center;
-  }
+}
   
-  .IconContainer {
+.IconContainer {
     width: 30px;
     height: 30px;
     background: linear-gradient(to bottom, #FF5D31,#e75128);
@@ -233,13 +198,13 @@ mat-chip-option {
     overflow: hidden;
     z-index: 2;
     transition-duration: .3s;
-  }
+}
   
-  .icon {
+.icon {
     border-radius: 1px;
-  }
+}
   
-  .text {
+.text {
     padding-top: 13px;
     height: 100%;
     width: 60px;
@@ -250,27 +215,27 @@ mat-chip-option {
     z-index: 1;
     transition-duration: .3s;
     font-size: 1em;
-  }
+}
   
-  .bookmarkBtn:hover .IconContainer {
+.bookmarkBtn:hover .IconContainer {
     width: 90px;
     border-radius: 40px;
     transition-duration: .3s;
-  }
+}
   
-  .bookmarkBtn:hover .text {
+.bookmarkBtn:hover .text {
     transform: translate(10px);
     width: 0;
     font-size: 0;
     transition-duration: .3s;
-  }
+}
   
-  .bookmarkBtn:active {
+.bookmarkBtn:active {
     transform: scale(0.95);
     transition-duration: .3s;
-  }
+}
 
-  #btnContactar {
+#btnContactar {
     position: relative;
     padding: 10px 22px;
     border-radius: 40px;
@@ -279,18 +244,19 @@ mat-chip-option {
     cursor: pointer;
     background-color: #FF5D31;
     transition: all 0.2s ease;
-  }
+    margin-top: 10px;
+}
   
-  #btnContactar:active {
+#btnContactar:active {
     transform: scale(0.96);
-  }
+}
 
-  #btnContactar:hover{
+#btnContactar:hover{
     background-color: #df3608;
-  }
+}
   
-  #btnContactar:before,
-  #btnContactar:after {
+#btnContactar:before,
+#btnContactar:after {
     position: absolute;
     content: "";
     width: 150%;
@@ -299,9 +265,9 @@ mat-chip-option {
     transform: translateX(-50%);
     z-index: -1000;
     background-repeat: no-repeat;
-  }
+}
   
-  #btnContactar:hover:before {
+#btnContactar:hover:before {
     top: -70%;
     background-image: radial-gradient(circle, #FF5D31 20%, transparent 20%),
       radial-gradient(circle, transparent 20%, #FF5D31 20%, transparent 30%),
@@ -316,41 +282,41 @@ mat-chip-option {
       10% 10%, 18% 18%;
     background-position: 50% 120%;
     animation: greentopBubbles 0.6s ease;
-  }
+}
   
-  @keyframes greentopBubbles {
+@keyframes greentopBubbles {
     0% {
       background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
         40% 90%, 55% 90%, 70% 90%;
-    }
+  }
   
-    50% {
+  50% {
       background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
         50% 50%, 65% 20%, 90% 30%;
-    }
+  }
   
-    100% {
+  100% {
       background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
         50% 40%, 65% 10%, 90% 20%;
       background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
-    }
   }
+}
   
-  #btnContactar:hover::after {
-    bottom: -70%;
-    background-image: radial-gradient(circle, #FF5D31 20%, transparent 20%),
+#btnContactar:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #FF5D31 20%, transparent 20%),
       radial-gradient(circle, #FF5D31 20%, transparent 20%),
       radial-gradient(circle, transparent 10%, #FF5D31 15%, transparent 20%),
       radial-gradient(circle, #FF5D31 20%, transparent 20%),
       radial-gradient(circle, #FF5D31 20%, transparent 20%),
       radial-gradient(circle, #FF5D31 20%, transparent 20%),
       radial-gradient(circle, #FF5D31 20%, transparent 20%);
-    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
-    background-position: 50% 0%;
-    animation: greenbottomBubbles 0.6s ease;
-  }
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
   
-  @keyframes greenbottomBubbles {
+@keyframes greenbottomBubbles {
     0% {
       background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
         70% -10%, 70% 0%;
@@ -366,4 +332,32 @@ mat-chip-option {
         110% 10%;
       background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
     }
-  }
+}
+
+.icon-container i {
+  font-size: 22px;
+  color: #20264D;
+  background-color: #fff; 
+  padding: 4px; 
+  border-radius: 50%; 
+  margin-top: 15px;
+}
+
+
+.icons-row {
+  display: flex; 
+  align-items: center; 
+}
+
+.btn-container {
+  padding-top: 15px;
+}
+
+#vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
+  margin-left: 15px;
+}
+
+.noVacunado, .noDesparasitado, .noLibreta, .noCastrado {
+  font-size: 15px;
+  margin-top: 15px;
+}

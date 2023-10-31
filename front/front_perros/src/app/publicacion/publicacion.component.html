@@ -1,92 +1,114 @@
 <div class="contenedor" id="contenidoPrincipal">
-    <div class="container-fluid">
-        <p id="filterBy">FILTRAR POR</p>
-        <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
+  <div class="container-fluid">
+      <p id="filterBy">FILTRAR POR</p>
+      <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
+  </div>
+  <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
+    <p>No hay publicaciones disponibles.</p>
+  </div>
+  <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
+    <div class="col-md-3 containerImagen">
+        <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
     </div>
-    <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
-      <p>No hay publicaciones disponibles.</p>
-    </div>
-        <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
-            <div class="col-md-3 containerImagen">
-                <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
+    <div class="col-md-3" id="dataPerro">
+        <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+        <br>
+        <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
+        <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
+        <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro }}</div>
+        <div class="icon-container">
+          <div class="icons-row">
+              <div id="vacunadoPerro" class="icon-container">
+                  <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
+                  <p class="noVacunado">{{ publicacion.vacunadoPerro === 'No' ? 'No vacunado' : '' }}</p>
+              </div>
+              <div id="libretaPerro" class="icon-container">
+                  <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
+                  <p class="noLibreta">{{ publicacion.libretaPerro === 'No' ? 'Sin libreta' : '' }}</p>
+              </div>
+              <div id="desparasitadoPerro" class="icon-container">
+                  <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>
+                  <p class="noDesparasitado">{{ publicacion.desparasitadoPerro === 'No' ? 'No desparasitado' : '' }}</p>
+              </div>
+              <div id="castradoPerro" class="icon-container">
+                <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
+                <p class="noCastrado">{{ publicacion.castradoPerro === 'No' ? 'No castrado' : '' }}</p>
             </div>
-            <div class="col-md-3" id="dataPerro">
-                <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
-                <br>
-                <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
-                <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
-                <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
-                <button class="bookmarkBtn">
-                  <span class="IconContainer"> 
-                    <svg viewBox="0 0 384 512" height="0.9em" class="icon"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
-                  </span>
-                  <p class="text">Guardar</p>
-                </button>
-                <button class="btn btn-primary" id="btnContactar" (click)="infoContactar(publicacion)">Contactar</button>
-            </div>
-            <hr>
-        </div>
-    </div>
-    <div class="text-center">
-        <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
-    </div>
-
-    <!-- Modal -->
-<div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':displayFiltros}">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-body opciones">
-            <p>Filtrar por sexo</p>
-            <mat-chip-listbox selectable multiple aria-label="Sexo selection">
-                <mat-chip-option (click)="toggleFiltroSexo('Macho')">Macho</mat-chip-option>
-                <mat-chip-option (click)="toggleFiltroSexo('Hembra')">Hembra</mat-chip-option>
-            </mat-chip-listbox>
-            <p id="sexFilter">Filtrar por tamaño</p>
-            <mat-chip-listbox selectable multiple aria-label="Tamaño selection">
-                <mat-chip-option (click)="toggleFiltroTamanio('Pequeño')">Pequeño</mat-chip-option>
-                <mat-chip-option (click)="toggleFiltroTamanio('Mediano')">Mediano</mat-chip-option>
-                <mat-chip-option (click)="toggleFiltroTamanio('Grande')">Grande</mat-chip-option>
-            </mat-chip-listbox>
-            <p id="sexFilter">Otros filtros</p>
-            <mat-chip-listbox selectable multiple aria-label="Desparasitado selection">
-              <mat-chip-option (click)="toggleFiltroDes('Si')">Desparasitado</mat-chip-option>
-              <mat-chip-option (click)="toggleFiltroDes('No')">No desparasitado</mat-chip-option>
-            </mat-chip-listbox>
-            <mat-chip-listbox selectable multiple aria-label="Vacunado selection">
-              <mat-chip-option (click)="toggleFiltroVac('Si')">Vacunado</mat-chip-option>
-              <mat-chip-option (click)="toggleFiltroVac('No')">No vacunado</mat-chip-option>
-            </mat-chip-listbox>
-            <mat-chip-listbox selectable multiple aria-label="Castrado selection">
-              <mat-chip-option (click)="toggleFiltroCas('Si')">Castrado</mat-chip-option>
-              <mat-chip-option (click)="toggleFiltroCas('No')">No castrado</mat-chip-option>
-            </mat-chip-listbox>
-            <mat-chip-listbox selectable multiple aria-label="Libreta selection">
-              <mat-chip-option (click)="toggleFiltroLib('Si')">Con libreta sanitaria</mat-chip-option>
-              <mat-chip-option (click)="toggleFiltroLib('No')">Sin libreta sanitaria</mat-chip-option>
-            </mat-chip-listbox>
-        </div>
-        <div class="text-center">
-            <button type="button" class="btn btn-primary btnAceptar" (click)="onCloseHandled()">Aplicar</button>
-            <button type="button" class="btn btn-primary btnCancelar" (click)="cancelarFiltros()">Limpiar</button>
-        </div>
+          </div>
       </div>
+        <div class="btn-container">
+            <button class="bookmarkBtn">
+                <span class="IconContainer"> 
+                  <svg viewBox="0 0 384 512" height="0.9em" class="icon"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
+                </span>
+                <p class="text">Guardar</p>
+              </button>
+              <button class="btn btn-primary" id="btnContactar" (click)="infoContactar(publicacion)">Contactar</button>
+        </div>
+        </div>
     </div>
+    <hr>
 </div>
-<div class="modal" tabindex="-1" role="dialog" id="modalContactar" [ngStyle]="{'display':displayContactar}">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title">Datos del dueño</h2>
-          <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledContactar()"></button>
-        </div>
-        <div class="modal-body">
-          <p>Usuario: {{usuarioPerroSeleccionado}}</p>
-          <p>Telefono: 1146734516 </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandledContactar()">Cerrar</button>
-        </div>
+
+  <div class="text-center">
+      <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
+  </div>
+
+  <!-- Modal -->
+<div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':displayFiltros}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body opciones">
+          <p>Filtrar por sexo</p>
+          <mat-chip-listbox selectable multiple aria-label="Sexo selection">
+              <mat-chip-option (click)="toggleFiltroSexo('Macho')">Macho</mat-chip-option>
+              <mat-chip-option (click)="toggleFiltroSexo('Hembra')">Hembra</mat-chip-option>
+          </mat-chip-listbox>
+          <p id="sexFilter">Filtrar por tamaño</p>
+          <mat-chip-listbox selectable multiple aria-label="Tamaño selection">
+              <mat-chip-option (click)="toggleFiltroTamanio('Pequeño')">Pequeño</mat-chip-option>
+              <mat-chip-option (click)="toggleFiltroTamanio('Mediano')">Mediano</mat-chip-option>
+              <mat-chip-option (click)="toggleFiltroTamanio('Grande')">Grande</mat-chip-option>
+          </mat-chip-listbox>
+          <p id="sexFilter">Otros filtros</p>
+          <mat-chip-listbox selectable multiple aria-label="Desparasitado selection">
+            <mat-chip-option (click)="toggleFiltroDes('Si')">Desparasitado</mat-chip-option>
+            <mat-chip-option (click)="toggleFiltroDes('No')">No desparasitado</mat-chip-option>
+          </mat-chip-listbox>
+          <mat-chip-listbox selectable multiple aria-label="Vacunado selection">
+            <mat-chip-option (click)="toggleFiltroVac('Si')">Vacunado</mat-chip-option>
+            <mat-chip-option (click)="toggleFiltroVac('No')">No vacunado</mat-chip-option>
+          </mat-chip-listbox>
+          <mat-chip-listbox selectable multiple aria-label="Castrado selection">
+            <mat-chip-option (click)="toggleFiltroCas('Si')">Castrado</mat-chip-option>
+            <mat-chip-option (click)="toggleFiltroCas('No')">No castrado</mat-chip-option>
+          </mat-chip-listbox>
+          <mat-chip-listbox selectable multiple aria-label="Libreta selection">
+            <mat-chip-option (click)="toggleFiltroLib('Si')">Con libreta sanitaria</mat-chip-option>
+            <mat-chip-option (click)="toggleFiltroLib('No')">Sin libreta sanitaria</mat-chip-option>
+          </mat-chip-listbox>
+      </div>
+      <div class="text-center">
+          <button type="button" class="btn btn-primary btnAceptar" (click)="onCloseHandled()">Aplicar</button>
+          <button type="button" class="btn btn-primary btnCancelar" (click)="cancelarFiltros()">Limpiar</button>
       </div>
     </div>
   </div>
-  
+</div>
+<div class="modal" tabindex="-1" role="dialog" id="modalContactar" [ngStyle]="{'display':displayContactar}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title">Datos del dueño</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledContactar()"></button>
+      </div>
+      <div class="modal-body">
+        <p>Usuario: {{usuarioPerroSeleccionado}}</p>
+        <p>Telefono: 1146734516 </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="onCloseHandledContactar()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
