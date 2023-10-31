@@ -6,50 +6,27 @@
     <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
       <p>No hay publicaciones disponibles.</p>
     </div>
-    <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
-      <div class="col-md-3 containerImagen">
-          <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
-      </div>
-      <div class="col-md-3" id="dataPerro">
-          <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
-          <br>
-          <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
-          <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
-          <div class="icon-container">
-              <div class="icons-row">
-                  <div id="vacunadoPerro" *ngIf="publicacion.vacunadoPerro" class="icon-container">
-                      <i class="fa-solid fa-syringe"></i>
-                  </div>
-                  <div id="noVacunadoPerro" *ngIf="!publicacion.vacunadoPerro" class="icon-container">
-                      No vacunado
-                  </div>
-                  <div id="libretaPerro" *ngIf="publicacion.libretaPerro" class="icon-container">
-                      <i class="fa-solid fa-book-open"></i>
-                  </div>
-                  <div id="noLibretaPerro" *ngIf="!publicacion.libretaPerro" class="icon-container">
-                      Sin libreta
-                  </div>
-                  <div id="desparasitadoPerro" *ngIf="publicacion.desparasitadoPerro" class="icon-container">
-                      <i class="fa-solid fa-virus-slash"></i>
-                  </div>
-                  <div id="noDesparasitadoPerro" *ngIf="!publicacion.desparasitadoPerro" class="icon-container">
-                      No desparasitado
-                  </div>
-              </div>
-          </div>
-          <div class="btn-container">
-              <button class="bookmarkBtn">
+        <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
+            <div class="col-md-3 containerImagen">
+                <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
+            </div>
+            <div class="col-md-3" id="dataPerro">
+                <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+                <br>
+                <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
+                <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
+                <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
+                <button class="bookmarkBtn">
                   <span class="IconContainer"> 
                     <svg viewBox="0 0 384 512" height="0.9em" class="icon"><path d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"></path></svg>
                   </span>
                   <p class="text">Guardar</p>
                 </button>
                 <button class="btn btn-primary" id="btnContactar" (click)="infoContactar(publicacion)">Contactar</button>
-          </div>
-      </div>
-      <hr>
-  </div>
-
+            </div>
+            <hr>
+        </div>
+    </div>
     <div class="text-center">
         <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
     </div>
