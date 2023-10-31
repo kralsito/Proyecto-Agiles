@@ -261,3 +261,30 @@ label, input, option, select, textarea {
     margin: 0 !important;
 }
 
+  .icon-container i {
+    font-size: 22px;
+    color: #20264D;
+    background-color: #fff; 
+    padding: 4px; 
+    border-radius: 50%; 
+    margin-top: 15px;
+  }
+  
+  .icons-row {
+    display: flex; 
+    align-items: center; 
+  }
+  
+  .btn-container {
+    padding-top: 15px;
+    margin-left: 15px;
+  }
+  
+  #vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
+    margin-left: 15px;
+  }
+  
+  .noVacunado, .noDesparasitado, .noLibreta, .noCastrado {
+    font-size: 15px;
+    margin-top: 15px;
+  }

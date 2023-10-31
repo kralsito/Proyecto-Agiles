@@ -18,7 +18,7 @@ export class PublicacionComponent implements OnInit {
   filtrosCas: string[] = [];
   filtrosLib: string[] = [];
   displayFiltros = "none";
-  displayMeInteresa = "none";
+  displayContactar = "none";
   usuarioPerroSeleccionado: string = '';
 
 
@@ -44,7 +44,7 @@ export class PublicacionComponent implements OnInit {
     }
   }
 
-  infoMeInteresa(publicacion: any) {
+  infoContactar(publicacion: any) {
     const usuarioId = publicacion.usuario;
     this.router.navigate([`/perfil-otro/${usuarioId}`]);
   }
@@ -54,8 +54,8 @@ export class PublicacionComponent implements OnInit {
     this.displayFiltros = "none";
   }
 
-  onCloseHandledMeInteresa() {
-    this.displayMeInteresa = "none";
+  onCloseHandledContactar() {
+    this.displayContactar = "none";
   }
 
   cancelarFiltros() {
