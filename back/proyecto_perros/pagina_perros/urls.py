@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PublicacionList, PublicacionCreateView , RegisterView, LoginView, UserView, LogoutView, MiPerfilView, PerfilCreateView, VerPerfilDeOtroUsuarioView
+from .views import PublicacionList, PublicacionCreateView , RegisterView, LoginView, UserView, LogoutView, MiPerfilView, PerfilCreateView, VerPerfilDeOtroUsuarioView, PublicacionUpdateView
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
@@ -7,6 +7,7 @@ from . import views
 urlpatterns = [
     path('publicaciones/alta/', PublicacionCreateView.as_view(), name = 'publi-alta'),
     path('publicaciones/', PublicacionList.as_view(), name = 'publi-list'),
+    path('publicaciones/<int:publicacion_id>/', PublicacionUpdateView.as_view(), name = 'ver-publi'),
     path('usuario/registrar/', RegisterView.as_view(), name='registrar-usuario'),
     path('usuario/login/', LoginView.as_view(), name='login'),
     path('usuario/', UserView.as_view()),
