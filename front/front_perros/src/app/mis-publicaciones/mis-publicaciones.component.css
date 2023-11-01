@@ -260,8 +260,8 @@ label, input, option, select, textarea {
 }
 
   .icon-container i {
-    font-size: 22px;
-    color: #07aa4b;
+    font-size: 18px;
+    color: #20264D;
     background-color: #fff; 
     padding: 4px; 
     border-radius: 50%; 
@@ -274,7 +274,6 @@ label, input, option, select, textarea {
   }
   
   .btn-container {
-    padding-top: 15px;
     margin-left: 5px;
     margin-bottom: 10px;
   }
@@ -282,6 +281,8 @@ label, input, option, select, textarea {
   #vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
     margin-left: 15px;
   }
-  #noVacunado, #noLibreta, #noDesparasitado, #noCastrado{
-    color: #c70b0b;
+  
+  .noVacunado, .noDesparasitado, .noLibreta, .noCastrado {
+    font-size: 15px;
+    margin-top: 10px;
   }
