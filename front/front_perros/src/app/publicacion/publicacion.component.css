@@ -336,7 +336,7 @@ mat-chip-option {
 
 .icon-container i {
   font-size: 22px;
-  color: #20264D;
+  color: #07aa4b;
   background-color: #fff; 
   padding: 4px; 
   border-radius: 50%; 
@@ -357,7 +357,6 @@ mat-chip-option {
   margin-left: 15px;
 }
 
-.noVacunado, .noDesparasitado, .noLibreta, .noCastrado {
-  font-size: 15px;
-  margin-top: 15px;
+#noVacunado, #noLibreta, #noDesparasitado, #noCastrado{
+  color: #c70b0b;
 }
