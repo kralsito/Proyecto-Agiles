@@ -334,15 +334,14 @@ mat-chip-option {
     }
 }
 
-.icon-container i {
+.icon-container {
   font-size: 22px;
-  color: #20264D;
+  color: #07aa4b;
   background-color: #fff; 
   padding: 4px; 
   border-radius: 50%; 
-  margin-top: 15px;
+  margin-top: 10px;
 }
-
 
 .icons-row {
   display: flex; 
@@ -351,13 +350,14 @@ mat-chip-option {
 
 .btn-container {
   padding-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 10px;
 }
 
 #vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
   margin-left: 15px;
 }
 
-.noVacunado, .noDesparasitado, .noLibreta, .noCastrado {
-  font-size: 15px;
-  margin-top: 15px;
+#noVacunado, #noLibreta, #noDesparasitado, #noCastrado{
+  color: #c70b0b;
 }
