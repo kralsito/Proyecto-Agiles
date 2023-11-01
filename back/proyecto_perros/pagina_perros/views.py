@@ -158,3 +158,21 @@ class VerPerfilDeOtroUsuarioView(APIView):
                 raise NotFound('User not found')
         except User.DoesNotExist:
             raise NotFound('User not found')
+
+class PublicacionUpdateView(APIView):
+    def put(self, request, publicacion_id):
+        try:
+            publicacion = Publicacion.objects.get(id=publicacion_id)
+            publicacion.nombrePerro = request.data.get('nombrePerro')
+            publicacion.edadPerro = request.data.get('edadPerro')
+            publicacion.sexoPerro = request.data.get('sexoPerro')
+            publicacion.tamanioPerro = request.data.get('tamanioPerro')
+            publicacion.desparasitadoPerro = request.data.get('desparasitadoPerro')
+            publicacion.libretaPerro = request.data.get('libretaPerro')
+            publicacion.castradoPerro = request.data.get('castradoPerro')
+            publicacion.vacunadoPerro = request.data.get('vacunadoPerro')
+            publicacion.fotoPerro = request.data.get('fotoPerro')
+            publicacion.save()
+            return Response({'message': 'Publicación actualizada correctamente'})
+        except Publicacion.DoesNotExist:
+            return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)

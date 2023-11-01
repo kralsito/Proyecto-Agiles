@@ -11,4 +11,9 @@ export class MisPublicacionesService {
   obtenerPublicaciones(): Observable<any> {
     return this.http.get('http://localhost:8000/api/publicaciones/');
   }
+  editarPublicacion(id: number, datosEditados: any) {
+    const url = `http://localhost:8000/api/publicaciones/${id}/`;
+    return this.http.put(url, datosEditados);
+  }
+  
 }
