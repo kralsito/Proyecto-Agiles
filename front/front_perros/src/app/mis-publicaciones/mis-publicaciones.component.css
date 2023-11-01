@@ -22,28 +22,28 @@
 }
 
 #btnEdit, #btnDelete {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
     font-size: 15px;
     border: none;
     font-family: 'Open Sans', sans-serif;
 }
 
 #btnEdit {
-    background-color: rgb(31, 9, 226);
+    background-color: #1e2b85;
     margin-right: 10px;
 }
 
 #btnEdit:hover {
-    background-color: rgb(12, 5, 114);
+    background-color:#20264D;
 }
 
 #btnDelete {
-    background-color: #f00606;
+    background-color: #FF5D31;
 }
 
 #btnDelete:hover {
-    background-color: #610303;
+    background-color: #fc5020;
 }
 
 #nombrePerro {
@@ -89,9 +89,7 @@ p {
     font-size: 18px;
     font-family: 'Inclusive Sans', sans-serif;
     color:#20264D;
-
 }
-
 .opciones {
     margin-left: 10px;
 }
@@ -262,12 +260,12 @@ label, input, option, select, textarea {
 }
 
   .icon-container i {
-    font-size: 22px;
+    font-size: 18px;
     color: #20264D;
     background-color: #fff; 
     padding: 4px; 
     border-radius: 50%; 
-    margin-top: 15px;
+    margin-top: 5px;
   }
   
   .icons-row {
@@ -276,8 +274,8 @@ label, input, option, select, textarea {
   }
   
   .btn-container {
-    padding-top: 15px;
-    margin-left: 15px;
+    margin-left: 5px;
+    margin-bottom: 10px;
   }
   
   #vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
@@ -286,5 +284,5 @@ label, input, option, select, textarea {
   
   .noVacunado, .noDesparasitado, .noLibreta, .noCastrado {
     font-size: 15px;
-    margin-top: 15px;
+    margin-top: 10px;
   }

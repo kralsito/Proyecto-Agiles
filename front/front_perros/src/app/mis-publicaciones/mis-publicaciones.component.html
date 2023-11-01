@@ -17,8 +17,7 @@
                 <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
                 <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
                 <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
-                <div class="icon-container">
-                <div class="icons-row">
+                <div class="icon-container icons-row">
                     <div id="vacunadoPerro" class="icon-container">
                         <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
                         <p class="noVacunado">{{ publicacion.vacunadoPerro === 'No' ? 'No vacunado' : '' }}</p>
@@ -34,17 +33,15 @@
                     <div id="castradoPerro" class="icon-container">
                       <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
                       <p class="noCastrado">{{ publicacion.castradoPerro === 'No' ? 'No castrado' : '' }}</p>
-                  </div>
+                    </div>
                 </div>
-                <button class="btn btn-primary" id="btnEdit" (click)="editarPubli(publicacion)"><i class="fa-solid fa-pen-to-square"></i></button>
-            </div> 
-            <div class="btn-container">
-                <button class="btn btn-primary" id="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn btn-primary" id="btnDelete"><i class="fa-solid fa-trash"></i></button>
+                <div class="btn-container">
+                  <button class="btn btn-primary" id="btnEdit" (click)="editarPubli(publicacion)"><i class="fa-solid fa-pen-to-square"></i></button>
+                  <button class="btn btn-primary" id="btnDelete"><i class="fa-solid fa-trash"></i></button>
+                </div>
             </div>
-          </div>
             <hr>
-        </div>
+          </div>
     </div>
     <div class="text-center">
         <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
