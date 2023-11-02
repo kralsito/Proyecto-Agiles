@@ -1,53 +1,53 @@
 <div class="contenedor" id="contenidoPrincipal">
-  <div class="container-fluid">
-      <p id="filterBy">FILTRAR POR</p>
-      <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
-  </div>
-  <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
-    <p>No hay publicaciones disponibles.</p>
-  </div>
-      <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
-          <div class="col-md-3 containerImagen">
-              <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
-          </div>
-          <div class="col-md-3" id="dataPerro">
-            <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
-            <br>
-            <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
-            <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
-            <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro }}</div>
-            <div class="icon-container">
-              <div class="icons-row">
-                <div id="vacunadoPerro" class="icon-container">
-                  <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
-                  <i class="fa-solid fa-syringe" id="noVacunado" *ngIf="publicacion.vacunadoPerro === 'No'" title=" No vacunado"></i>
-              </div>
-              <div id="libretaPerro" class="icon-container">
-                  <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
-                  <i class="fa-solid fa-book-open" id="noLibreta" *ngIf="publicacion.libretaPerro === 'No'" title="No tiene libreta"></i>
-              </div>
-              <div id="desparasitadoPerro" class="icon-container">
-                  <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>
-                  <i class="fa-solid fa-virus-slash" id="noDesparasitado" *ngIf="publicacion.desparasitadoPerro === 'No'" title="No desparasitado"></i>
-              </div>
-              <div id="castradoPerro" class="icon-container">
-                <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
-                <i class="fa-solid fa-heart-circle-xmark" id="noCastrado" *ngIf="publicacion.castradoPerro === 'No'" title="No castrado"></i>
+    <div class="container-fluid">
+        <p id="filterBy">FILTRAR POR</p>
+        <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
+    </div>
+    <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
+      <p>No hay publicaciones disponibles.</p>
+    </div>
+        <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
+            <div class="col-md-3 containerImagen">
+                <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
             </div>
+            <div class="col-md-3" id="dataPerro">
+                <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+                <br>
+                <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
+                <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
+                <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
+                <div class="icon-container">
+                <div class="icons-row">
+                  <div id="vacunadoPerro" class="icon-container">
+                    <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
+                    <i class="fa-solid fa-syringe" id="noVacunado" *ngIf="publicacion.vacunadoPerro === 'No'" title=" No vacunado"></i>
+                </div>
+                <div id="libretaPerro" class="icon-container">
+                    <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
+                    <i class="fa-solid fa-book-open" id="noLibreta" *ngIf="publicacion.libretaPerro === 'No'" title="No tiene libreta"></i>
+                </div>
+                <div id="desparasitadoPerro" class="icon-container">
+                    <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>
+                    <i class="fa-solid fa-virus-slash" id="noDesparasitado" *ngIf="publicacion.desparasitadoPerro === 'No'" title="No desparasitado"></i>
+                </div>
+                <div id="castradoPerro" class="icon-container">
+                  <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
+                  <i class="fa-solid fa-heart-circle-xmark" id="noCastrado" *ngIf="publicacion.castradoPerro === 'No'" title="No castrado"></i>
               </div>
-              <div class="btn-container">
+                </div>
+                </div>
+            </div> 
+            <div class="btn-container">
                 <button class="btn btn-primary" id="btnEdit" (click)="editarPubli(publicacion)"><i class="fa-solid fa-pen-to-square"></i></button>
                 <button class="btn btn-primary" id="btnDelete"><i class="fa-solid fa-trash"></i></button>
-              </div>
+            </div>
+            <hr>
           </div>
-          <hr>
-        </div>
-  </div>
-  <div class="text-center">
-      <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
-  </div>
+</div>
+<div class="text-center">
+<button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
+</div>
 
-  <!-- Modal -->
 <div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':displayFiltros}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -90,20 +90,20 @@
 </div>
 
 <div class="modal" tabindex="-1" role="dialog" id="modalEdit" [ngStyle]="{'display':displayEditar}" *ngIf="publicacionSeleccionada">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header headerEditar">
-        <h2 class="modal-title titleEditar">Editar publicación</h2>
-        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledEditar()"></button>
-      </div>
-      <div class="modal-body row" id="publicacionPerroModal">
-        <form>
-          <div class="row">
-            <div class="form-group col-md-5">
-              <div id="imgPreview"><img src="{{ publicacionSeleccionada.fotoPerro }}" id="imagenPerro" class="imgModal" alt="" srcset=""></div>
-            </div>
-            <input type="file" id="fotoPerroModal" name="fotoPerroModal" accept="image/*" (change)="mostrarImagen()"/>
-          </div>
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header headerEditar">
+          <h2 class="modal-title titleEditar">Editar publicación</h2>
+          <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledEditar()"></button>
+        </div>
+        <div class="modal-body row" id="publicacionPerroModal">
+          <form>
+            <div class="row">
+              <div class="form-group col-md-5">
+                <div id="imgPreview"><img src="{{ publicacionSeleccionada.fotoPerro }}" id="imagenPerro" class="imgModal" alt="" srcset=""></div>
+                  <input type="file" id="fotoPerroModal" name="fotoPerroModal" accept="image/*" (change)="mostrarImagen()"/>
+                </div>
+              </div>              
           <div class="form-group">
             <label for="nombrePerroModal">Nombre</label>
             <input type="nombre" name="nombrePerro" class="form-control" id="input-nombre" aria-describedby="nombre" placeholder="{{ publicacionSeleccionada.nombrePerro }}" [(ngModel)]="publicacionSeleccionada.nombrePerro"> 

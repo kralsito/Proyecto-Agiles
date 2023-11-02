@@ -171,7 +171,11 @@ class PublicacionUpdateView(APIView):
             publicacion.libretaPerro = request.data.get('libretaPerro')
             publicacion.castradoPerro = request.data.get('castradoPerro')
             publicacion.vacunadoPerro = request.data.get('vacunadoPerro')
-            publicacion.fotoPerro = request.data.get('fotoPerro')
+            nueva_foto = request.data.get('fotoPerro')
+            if nueva_foto:
+                publicacion.fotoPerro = nueva_foto
+            if not nueva_foto:
+                publicacion.fotoPerro = publicacion.fotoPerro
             publicacion.save()
             return Response({'message': 'Publicación actualizada correctamente'})
         except Publicacion.DoesNotExist:
