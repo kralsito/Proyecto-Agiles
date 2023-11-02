@@ -30,12 +30,12 @@
 }
 
 #btnEdit {
-    background-color: #38438b;
+    background-color: #1e2b85;
     margin-right: 10px;
 }
 
 #btnEdit:hover {
-    background-color: #20264D;
+    background-color:#20264D;
 }
 
 #btnDelete {
@@ -273,7 +273,9 @@ label, input, option, select, textarea {
   }
   
   .btn-container {
+    padding-top: 15px;
     margin-left: 5px;
+    margin-bottom: 10px;
   }
   
   #vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
