@@ -11,29 +11,29 @@
         <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
     </div>
     <div class="col-md-3" id="dataPerro">
-        <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
-        <br>
-        <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
-        <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
-        <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro }}</div>
-        <div class="icon-container">
-          <div class="icons-row">
-              <div id="vacunadoPerro" class="icon-container">
-                  <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
-                  <p class="noVacunado">{{ publicacion.vacunadoPerro === 'No' ? 'No vacunado' : '' }}</p>
-              </div>
-              <div id="libretaPerro" class="icon-container">
-                  <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
-                  <p class="noLibreta">{{ publicacion.libretaPerro === 'No' ? 'Sin libreta' : '' }}</p>
-              </div>
-              <div id="desparasitadoPerro" class="icon-container">
-                  <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>
-                  <p class="noDesparasitado">{{ publicacion.desparasitadoPerro === 'No' ? 'No desparasitado' : '' }}</p>
-              </div>
-              <div id="castradoPerro" class="icon-container">
-                <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
-                <p class="noCastrado">{{ publicacion.castradoPerro === 'No' ? 'No castrado' : '' }}</p>
-            </div>
+      <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+      <br>
+      <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
+      <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
+      <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro }}</div>
+      <div class="icon-container">
+        <div class="icons-row">
+          <div id="vacunadoPerro" class="icon-container">
+            <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
+            <i class="fa-solid fa-syringe" id="noVacunado" *ngIf="publicacion.vacunadoPerro === 'No'" title=" No vacunado"></i>
+        </div>
+        <div id="libretaPerro" class="icon-container">
+            <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
+            <i class="fa-solid fa-book-open" id="noLibreta" *ngIf="publicacion.libretaPerro === 'No'" title="No tiene libreta"></i>
+        </div>
+        <div id="desparasitadoPerro" class="icon-container">
+            <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>
+            <i class="fa-solid fa-virus-slash" id="noDesparasitado" *ngIf="publicacion.desparasitadoPerro === 'No'" title="No desparasitado"></i>
+        </div>
+        <div id="castradoPerro" class="icon-container">
+          <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
+          <i class="fa-solid fa-heart-circle-xmark" id="noCastrado" *ngIf="publicacion.castradoPerro === 'No'" title="No castrado"></i>
+      </div>
           </div>
       </div>
         <div class="btn-container">
