@@ -1,4 +1,3 @@
-
 <div class="contenedor" id="contenidoPrincipal">
     <div class="container-fluid">
         <p id="filterBy">FILTRAR POR</p>
@@ -36,10 +35,9 @@
                       <p class="noCastrado">{{ publicacion.castradoPerro === 'No' ? 'No castrado' : '' }}</p>
                   </div>
                 </div>
-                <button class="btn btn-primary" id="btnEdit" (click)="editarPubli(publicacion)"><i class="fa-solid fa-pen-to-square"></i></button>
             </div> 
             <div class="btn-container">
-                <button class="btn btn-primary" id="btnEdit"><i class="fa-solid fa-pen-to-square"></i></button>
+                <button class="btn btn-primary" id="btnEdit" (click)="editarPubli(publicacion)"><i class="fa-solid fa-pen-to-square"></i></button>
                 <button class="btn btn-primary" id="btnDelete"><i class="fa-solid fa-trash"></i></button>
             </div>
           </div>
@@ -49,7 +47,6 @@
     <div class="text-center">
         <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
     </div>
-
     <!-- Modal -->
 <div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':displayFiltros}">
     <div class="modal-dialog" role="document">
@@ -91,7 +88,6 @@
       </div>
     </div>
 </div>
-
 <div class="modal" tabindex="-1" role="dialog" id="modalEdit" [ngStyle]="{'display':displayEditar}" *ngIf="publicacionSeleccionada">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
