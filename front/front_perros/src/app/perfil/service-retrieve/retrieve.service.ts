@@ -1,13 +1,16 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as jwtDecode from 'jwt-decode';
+import { Observable, catchError, throwError } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class RetrieveService {
-  constructor(public jwtHelper: JwtHelperService) { }
+  constructor(public jwtHelper: JwtHelperService, private http: HttpClient) { }
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
     if (token && !this.jwtHelper.isTokenExpired(token)) {
@@ -35,7 +38,7 @@ export class RetrieveService {
     }
     return null;
   }
-  public getCurrentUserProfile(): { nombrePerfil: string, apellidoPerfil: string, telefonoPerfil: number, localidadPerfil: string } | null {
+  public getCurrentUserProfile(): { nombrePerfil: string, apellidoPerfil: string, telefonoPerfil: number, localidadPerfil: string, idPerfil: number } | null {
     const token = localStorage.getItem('token');
 
     if (token) {
@@ -48,7 +51,8 @@ export class RetrieveService {
         return { nombrePerfil: decodedToken.nombre_perfil,
                 apellidoPerfil: decodedToken.apellido_perfil,
                 localidadPerfil: decodedToken.localidad_perfil,
-                telefonoPerfil: decodedToken.telefono_perfil };
+                telefonoPerfil: decodedToken.telefono_perfil,
+                idPerfil: decodedToken.id_perfil };
       } else {
         console.error('El token no contiene la información del perfil o su tipo es incorrecto.');
       }
@@ -57,5 +61,17 @@ export class RetrieveService {
     }
     return null;
   }
+  editarPerfil(perfilId: number, perfilData: any): Observable<any> {
+    const url = `http://localhost:8000/api/usuario/mi-perfil/${perfilId}/`;
+    return this.http.put(url, perfilData)
+      .pipe(
+        catchError((error: any) => {
+          // Agrega el manejo de error aquí, por ejemplo, regresando un Observable con un mensaje de error.
+          console.error('Error al actualizar el perfil', error);
+          return throwError('Error al actualizar el perfil');
+        })
+      );
+  }
+  
 
 }

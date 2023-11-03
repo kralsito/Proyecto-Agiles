@@ -73,6 +73,7 @@ class LoginView(APIView):
             'apellido_perfil': perfil.apellidoPerfil if perfil else None,  # Obtener el apellido del perfil si existe
             'localidad_perfil': perfil.localidad if perfil else None,  # Obtener la localidad del perfil si existe
             'telefono_perfil': perfil.telefono if perfil else None,  # Obtener el telefono del perfil si existe
+            'id_perfil': perfil.id if perfil else None,  # Obtener el id del perfil si existe
             'exp': datetime.datetime.utcnow() + datetime.timedelta(minutes=60),
             'iat': datetime.datetime.utcnow()
         }
@@ -176,3 +177,16 @@ class PublicacionUpdateView(APIView):
             return Response({'message': 'Publicación actualizada correctamente'})
         except Publicacion.DoesNotExist:
             return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)
+        
+class PerfilUpdateView(APIView):
+    def put(self, request, perfil_id):
+        try:
+            perfil = Perfil.objects.get(id=perfil_id)
+            perfil.nombrePerfil = request.data.get('nombrePerfil')
+            perfil.apellidoPerfil = request.data.get('apellidoPerfil')
+            perfil.telefono = request.data.get('telefono')
+            perfil.localidad = request.data.get('localidad')
+            perfil.save()
+            return Response({'message': 'Perfil actualizado correctamente'})
+        except Perfil.DoesNotExist:
+            return Response({'error': 'El perfil no existe'}, status=status.HTTP_404_NOT_FOUND)

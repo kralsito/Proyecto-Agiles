@@ -59,6 +59,7 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AlertCredencialesInvalidasComponent } from './alerts/alert-credenciales-invalidas/alert-credenciales-invalidas.component';
 import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
 import { PerfilOtroComponent } from './perfil-otro/perfil-otro.component';
+import { RetrieveService } from './perfil/service-retrieve/retrieve.service';
 
 export function jwtOptionsFactory() {
   return {
@@ -140,7 +141,7 @@ export function jwtOptionsFactory() {
       }
     })
   ],
-  providers: [LoggingService, { provide: AuthService, useClass: AuthService }, JwtHelperService],
+  providers: [LoggingService, { provide: AuthService, useClass: AuthService }, JwtHelperService, RetrieveService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

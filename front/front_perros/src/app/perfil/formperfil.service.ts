@@ -14,4 +14,8 @@ export class FormperfilService {
     
     return this.http.post(url, perfil);
   }
+  editarPerfil(id: number, datosEditados: any) {
+    const url = `http://localhost:8000/api/usuario/mi-perfil/${id}/`;
+    return this.http.put(url, datosEditados);
+  }
 }

@@ -58,5 +58,41 @@
                 </div>
             </div>
         </div>
+        <button type="button" class="btn btn-primary" (click)="abrirModalEditarPerfil()">Editar Perfil</button>
     </section>
 </body>
+<!-- Modal de Edición de Perfil -->
+<div class="modal" tabindex="-1" role="dialog" id="modalEditarPerfil" [ngStyle]="{'display': displayEditarPerfil}" *ngIf="perfilSeleccionado">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header headerEditar">
+        <h2 class="modal-title titleEditar">Editar Perfil</h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledEditarPerfil()"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="nombrePerfil">Nombre:</label>
+            <input type="text" name="nombrePerfil" class="form-control" [(ngModel)]="perfilSeleccionado.nombrePerfil">
+          </div>
+          <div class="form-group">
+            <label for="apellidoPerfil">Apellido:</label>
+            <input type="text" name="apellidoPerfil" class="form-control" [(ngModel)]="perfilSeleccionado.apellidoPerfil">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefonoPerfil" class="form-control" [(ngModel)]="perfilSeleccionado.telefonoPerfil">
+          </div>
+          <div class="form-group">
+            <label for="localidad">Localidad:</label>
+            <input type="text" name="localidadPerfil" class="form-control" [(ngModel)]="perfilSeleccionado.localidadPerfil">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" (click)="guardarCambiosPerfil()">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary" (click)="onCloseHandledEditarPerfil()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>

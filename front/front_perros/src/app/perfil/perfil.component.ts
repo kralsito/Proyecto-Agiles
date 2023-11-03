@@ -12,6 +12,11 @@ export class PerfilComponent implements OnInit{
   currentProfileApellido: string | null = null;
   currentProfileTelefono: number | null = null;
   currentProfileLocalidad: string | null = null;
+  currentProfileId: number | null = null;
+  currentProfile: any = {}; // Debes definir esta propiedad y asegurarte de que esté inicializada
+
+  perfilSeleccionado: any = {}; // Aquí almacenaremos el perfil que se está editando.
+  displayEditarPerfil = 'none';
 
   constructor(private retrieveService: RetrieveService) {}
 
@@ -29,15 +34,54 @@ export class PerfilComponent implements OnInit{
     const currentProfile = this.retrieveService.getCurrentUserProfile();
 
     if (currentProfile !== null) {
+      this.currentProfile = currentProfile;
       this.currentProfileNombre = currentProfile.nombrePerfil;
       this.currentProfileApellido = currentProfile.apellidoPerfil;
       this.currentProfileTelefono = currentProfile.telefonoPerfil;
       this.currentProfileLocalidad = currentProfile.localidadPerfil;
+      this.currentProfileId = currentProfile.idPerfil;
     } else {
+      this.currentProfile = {};
       this.currentProfileNombre = null;
       this.currentProfileApellido = null;
       this.currentProfileTelefono = null;
       this.currentProfileLocalidad = null;
+      this.currentProfileId = null;
     }
   }
+  abrirModalEditarPerfil() {
+    this.perfilSeleccionado = { ...this.currentProfile }; // Copiar el perfil actual para editarlo
+    this.displayEditarPerfil = 'block';
+  }
+
+  guardarCambiosPerfil() {
+    if (this.perfilSeleccionado && this.currentProfileId) {
+      const perfilEditado = {
+        nombrePerfil: this.perfilSeleccionado.nombrePerfil,
+        apellidoPerfil: this.perfilSeleccionado.apellidoPerfil,
+        telefonoPerfil: this.perfilSeleccionado.telefono,
+        localidadPerfil: this.perfilSeleccionado.localidad
+      };
+  
+      this.retrieveService.editarPerfil(this.currentProfileId, perfilEditado).subscribe(
+        response => {
+          console.log('Perfil actualizado correctamente');
+          this.currentProfileNombre = perfilEditado.nombrePerfil;
+          this.currentProfileApellido = perfilEditado.apellidoPerfil;
+          this.currentProfileTelefono = perfilEditado.telefonoPerfil;
+          this.currentProfileLocalidad = perfilEditado.localidadPerfil;
+          this.displayEditarPerfil = 'none'; // Cerrar el modal
+        },
+        error => {
+          console.error('Error al actualizar el perfil', error);
+          // Manejar el error de acuerdo a tus necesidades
+        }
+      );
+    }
+  }
+
+  onCloseHandledEditarPerfil() {
+    this.displayEditarPerfil = 'none'; // Cerrar el modal sin guardar cambios
+  }
+
 }
