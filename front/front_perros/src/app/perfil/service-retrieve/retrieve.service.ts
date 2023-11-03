@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import * as jwtDecode from 'jwt-decode';
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError, map, throwError } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
@@ -71,6 +71,18 @@ export class RetrieveService {
           return throwError('Error al actualizar el perfil');
         })
       );
+  }
+  refreshToken(): Observable<string | null> {
+    // Realiza una solicitud HTTP al servidor de autenticación para obtener un nuevo token válido
+    // Puedes personalizar esta parte de acuerdo a tu servidor de autenticación
+    return this.http.post<{ token: string }>('/refresh', {}).pipe(
+      map(response => response.token),
+      catchError(error => {
+        console.error('Error al refrescar el token', error);
+        // Devuelve un observable que emite un valor nulo en caso de error
+        return throwError(null);
+      })
+    );
   }
   
 

@@ -59,8 +59,8 @@ export class PerfilComponent implements OnInit{
       const perfilEditado = {
         nombrePerfil: this.perfilSeleccionado.nombrePerfil,
         apellidoPerfil: this.perfilSeleccionado.apellidoPerfil,
-        telefonoPerfil: this.perfilSeleccionado.telefono,
-        localidadPerfil: this.perfilSeleccionado.localidad
+        telefono: this.perfilSeleccionado.telefono,
+        localidad: this.perfilSeleccionado.localidad
       };
   
       this.retrieveService.editarPerfil(this.currentProfileId, perfilEditado).subscribe(
@@ -68,8 +68,8 @@ export class PerfilComponent implements OnInit{
           console.log('Perfil actualizado correctamente');
           this.currentProfileNombre = perfilEditado.nombrePerfil;
           this.currentProfileApellido = perfilEditado.apellidoPerfil;
-          this.currentProfileTelefono = perfilEditado.telefonoPerfil;
-          this.currentProfileLocalidad = perfilEditado.localidadPerfil;
+          this.currentProfileTelefono = perfilEditado.telefono;
+          this.currentProfileLocalidad = perfilEditado.localidad;
           this.displayEditarPerfil = 'none'; // Cerrar el modal
         },
         error => {
