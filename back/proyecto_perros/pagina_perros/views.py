@@ -176,3 +176,12 @@ class PublicacionUpdateView(APIView):
             return Response({'message': 'Publicación actualizada correctamente'})
         except Publicacion.DoesNotExist:
             return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)
+
+class PublicacionDeleteView(APIView):
+    def delete(self, request, publicacion_id):
+        try:
+            publicacion = Publicacion.objects.get(id=publicacion_id)
+            publicacion.delete()
+            return Response({'message': 'Publicación eliminada correctamente'}, status=status.HTTP_204_NO_CONTENT)
+        except Publicacion.DoesNotExist:
+            return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)

@@ -27,6 +27,8 @@ const routes: Routes = [
   { path: 'nav-bar-no-logueado', component: NavBarNoLogueadoComponent},
   { path: 'mis-publicaciones', component: MisPublicacionesComponent, canActivate: [authGuard]},
   { path: 'perfil-otro/:usuarioId', component: PerfilOtroComponent, canActivate: [authGuard] },
+  { path: 'eliminar-publicacion/:id', component: MisPublicacionesComponent, canActivate: [authGuard] }
+
 ];
 
 @NgModule({

@@ -15,5 +15,10 @@ export class MisPublicacionesService {
     const url = `http://localhost:8000/api/publicaciones/${id}/`;
     return this.http.put(url, datosEditados);
   }
+  eliminarPublicacion(id: number) {
+    const url = `http://localhost:8000/api/publicaciones/${id}/`;
+
+    return this.http.delete(url);
+  }
   
 }
