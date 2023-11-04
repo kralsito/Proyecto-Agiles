@@ -22,7 +22,7 @@
                     <div class="profile-card card rounded-lg shadow p-4 p-xl-5 mb-4 text-center">
                         <div class="banner"></div>
                         <img src="../../assets/img/user-profile-icon-free-vector.jpg" alt="" class="img-circle mx-auto mb-3">
-                        <div *ngIf="currentUserEmail">
+                        <div *ngIf="currentProfile">
                         <h3 class="mb-4">{{currentProfileNombre}} {{currentProfileApellido}}</h3>
                         <div class="text-left mb-4">
                                 <p class="mb-2"><i class="fa fa-envelope mr-2"></i> {{currentUserEmail}}</p>
@@ -73,19 +73,19 @@
         <form>
           <div class="form-group">
             <label for="nombrePerfil">Nombre:</label>
-            <input type="text" name="nombrePerfil" class="form-control" [(ngModel)]="perfilSeleccionado.nombrePerfil">
+            <input type="text" name="nombrePerfil" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.nombrePerfil">
           </div>
           <div class="form-group">
             <label for="apellidoPerfil">Apellido:</label>
-            <input type="text" name="apellidoPerfil" class="form-control" [(ngModel)]="perfilSeleccionado.apellidoPerfil">
+            <input type="text" name="apellidoPerfil" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.apellidoPerfil">
           </div>
           <div class="form-group">
             <label for="telefono">Teléfono:</label>
-            <input type="text" name="telefono" class="form-control" [(ngModel)]="perfilSeleccionado.telefono">
+            <input type="text" name="telefono" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.telefono">
           </div>
           <div class="form-group">
             <label for="localidad">Localidad:</label>
-            <input type="text" name="localidad" class="form-control" [(ngModel)]="perfilSeleccionado.localidad">
+            <input type="text" name="localidad" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.localidad">
           </div>
         </form>
       </div>
