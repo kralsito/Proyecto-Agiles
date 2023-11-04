@@ -61,6 +61,27 @@ export class RetrieveService {
     }
     return null;
   }
+
+  public getCurrentUser(): number | null {
+    const token = localStorage.getItem('token');
+    console.log('Token:', token);
+  
+    if (token) {
+      const decodedToken = this.jwtHelper.decodeToken(token);
+
+      console.log('Decoded Token:', decodedToken);
+      if (decodedToken && typeof decodedToken.id === 'number') {
+        const id = decodedToken.id;
+        return id;
+      } else {
+        console.error('El token contiene la propiedad userId, pero su tipo es incorrecto.');
+      }
+    } else {
+      console.error('El token no está presente en el localStorage.');
+    }
+    return null;
+  }
+  
   editarPerfil(perfilId: number, perfilData: any): Observable<any> {
     const url = `http://localhost:8000/api/usuario/mi-perfil/${perfilId}/`;
     return this.http.put(url, perfilData)

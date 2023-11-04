@@ -7,6 +7,7 @@ import { RetrieveService } from './service-retrieve/retrieve.service';
   styleUrls: ['./perfil.component.css']
 })
 export class PerfilComponent implements OnInit{
+  currentUserId: number | null = null; // Para almacenar el id del usuario logueado
   currentUserEmail: string | null = null; // Para almacenar el correo del usuario logueado
   currentProfileNombre: string | null = null;
   currentProfileApellido: string | null = null;
@@ -23,6 +24,7 @@ export class PerfilComponent implements OnInit{
   ngOnInit() {
     // Llama a getCurrentUser para obtener el correo del usuario logueado
     const currentUserMail = this.retrieveService.getCurrentUserEmail();
+    const currentUserId = this.retrieveService.getCurrentUser();
 
     if (currentUserMail !== null) {
       this.currentUserEmail = currentUserMail.toString(); // Convierte el número a una cadena
