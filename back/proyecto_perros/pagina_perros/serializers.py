@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Publicacion, User, Perfil
+from .models import Publicacion, User, Perfil, Favorito
 from django.contrib.auth.hashers import make_password
 
 class PublicacionSerializer(serializers.ModelSerializer):
@@ -32,3 +32,8 @@ class PerfilSerializer(serializers.ModelSerializer):
         instance = self.Meta.model(**validated_data)
         instance.save()
         return instance
+
+class FavoritoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorito
+        fields = '__all__'

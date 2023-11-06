@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PublicacionList, PublicacionCreateView , RegisterView, LoginView, UserView, LogoutView, MiPerfilView, PerfilCreateView, VerPerfilDeOtroUsuarioView, PublicacionUpdateView
+from .views import PublicacionList, PublicacionCreateView , RegisterView, LoginView, UserView, LogoutView, MiPerfilView, PerfilCreateView, VerPerfilDeOtroUsuarioView, PublicacionUpdateView, FavoritosListView
 from django.conf import settings
 from django.conf.urls.static import static
 from . import views
@@ -15,5 +15,6 @@ urlpatterns = [
     path('usuario/mi-perfil/', MiPerfilView.as_view(), name='mi_perfil'),
     path('perfil/alta/', PerfilCreateView.as_view(), name = 'perfil-alta'),
     path('ver-perfil/<int:user_id>/', VerPerfilDeOtroUsuarioView.as_view(), name='ver-perfil'),
+    path('favoritos/', FavoritosListView.as_view(), name='favoritos-list')
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

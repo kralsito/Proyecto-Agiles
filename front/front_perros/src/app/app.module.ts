@@ -59,6 +59,7 @@ import { JwtModule, JwtHelperService, JWT_OPTIONS } from '@auth0/angular-jwt';
 import { AlertCredencialesInvalidasComponent } from './alerts/alert-credenciales-invalidas/alert-credenciales-invalidas.component';
 import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
 import { PerfilOtroComponent } from './perfil-otro/perfil-otro.component';
+import { MisFavoritosComponent } from './mis-favoritos/mis-favoritos.component';
 
 export function jwtOptionsFactory() {
   return {
@@ -88,7 +89,8 @@ export function jwtOptionsFactory() {
     NavBarNoLogueadoComponent,
     AlertCredencialesInvalidasComponent,
     MisPublicacionesComponent,
-    PerfilOtroComponent
+    PerfilOtroComponent,
+    MisFavoritosComponent
   ],
   imports: [
     BrowserModule,
