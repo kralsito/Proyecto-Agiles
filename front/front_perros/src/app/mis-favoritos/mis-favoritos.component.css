@@ -1,0 +1,186 @@
+@import url('https://fonts.googleapis.com/css2?family=Inclusive+Sans&family=Open+Sans:wght@300&family=Yeseva+One&display=swap');
+
+.contenedor{
+    background: rgba(255,255,255,.1);
+    border: 2px solid rgba(255,255,255,.2);
+    box-shadow: 0 0 10px rgba(0,0,0,.2);
+    backdrop-filter: blur(50px);
+    border-radius: 10px;
+    color: #20264D;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 20px;
+}
+
+#publicacionPerro {
+    margin: 0 50px 0;
+}
+
+h1 {
+  padding-top: 15px;
+  padding-left: 50px;
+  font-family: 'Inclusive Sans', sans-serif;
+  font-size: 27px;
+  font-weight: bold;
+  color: #20264D;
+  text-align: start;
+}
+
+#subrayado {
+  margin: 0 50px 0;
+}
+
+hr {
+  color: #20264d6e;
+}
+
+#nombrePerro {
+    margin-top: 20px;
+    font-size: 25px;
+    font-family: 'Inclusive Sans', sans-serif;
+}
+
+#edadPerro, #sexoPerro, #tamañoPerro {
+    font-size: 17px;
+    font-weight: 400;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#nombrePerro, #edadPerro, #sexoPerro, #tamañoPerro {
+    margin-left: 10px;
+}
+
+#imagenPerro {
+    margin: 20px 0px 20px;
+    width: 100%;
+}
+
+.btnInicio {
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 20px;
+    background-color: #FF5D31;
+    border: none;
+}
+
+.btnInicio:hover {
+    cursor: pointer;
+    background-color: #fc5020;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Inclusive Sans', sans-serif;
+    color:#20264D;
+
+}
+
+.opciones {
+    margin-left: 10px;
+}
+
+.fa-rotate-90 {
+    margin-top: 8px !important;
+}
+
+.fa-sliders {
+    color: #20264D;
+    background-color: white;
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: row;
+}
+
+@keyframes example {
+    from {
+      top: -50px;
+      opacity: 0;
+    }
+  
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  
+mat-chip-option {
+    background-color: rgb(247, 170, 193);
+}
+
+.no-publicaciones {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .no-publicaciones p {
+    margin: 0;
+  }
+  
+  .no-publicaciones i {
+    color: #ff0000; /* Cambia el color del icono según tus preferencias */
+  }
+  
+.IconContainer {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to bottom, #FF5D31,#e75128);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .3s;
+}
+  
+.icon {
+    border-radius: 1px;
+}
+  
+.text {
+    padding-top: 13px;
+    height: 100%;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+    transition-duration: .3s;
+    font-size: 1em;
+}
+
+.icon-container {
+  font-size: 22px;
+  color: #07aa4b;
+  background-color: #fff; 
+  padding: 4px; 
+  border-radius: 50%; 
+  margin-top: 10px;
+}
+
+.icons-row {
+  display: flex; 
+  align-items: center; 
+}
+
+.btn-container {
+  padding-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
+  margin-left: 15px;
+}
+
+#noVacunado, #noLibreta, #noDesparasitado, #noCastrado{
+  color: #c70b0b;
+}

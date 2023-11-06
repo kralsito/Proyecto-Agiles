@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from .models import Publicacion , User, Perfil
-from .serializers import PublicacionSerializer , UserSerializer, PerfilSerializer
+from .models import Publicacion , User, Perfil, Favorito
+from .serializers import PublicacionSerializer , UserSerializer, PerfilSerializer, FavoritoSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -13,6 +13,7 @@ from django.contrib.auth.models import Group
 from rest_framework.exceptions import AuthenticationFailed, NotFound
 import jwt, datetime
 from rest_framework.permissions import IsAuthenticated  
+from django.http import JsonResponse
 # Create your views here.
 
 
@@ -29,7 +30,6 @@ class PublicacionList(generics.ListAPIView):
             usuario = User.objects.filter(id=usuario_id).first()
             if usuario:
                 publicacion['usuario_email'] = usuario.email
-
         return Response(serializer.data)
 
 
@@ -180,3 +180,20 @@ class PublicacionUpdateView(APIView):
             return Response({'message': 'Publicación actualizada correctamente'})
         except Publicacion.DoesNotExist:
             return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)
+
+class AgregarAFavoritos(APIView):
+    def post(self, request, publicacion_id):
+        usuario = request.user
+        publicacion = get_object_or_404(Publicacion, id=publicacion_id)
+
+        favorito, created = Favorito.objects.get_or_create(usuario=usuario, publicacion=publicacion)
+
+        if created:
+            return Response({'mensaje': 'Agregado a favoritos'}, status=status.HTTP_201_CREATED)
+        else:
+            favorito.delete()
+            return Response({'mensaje': 'Eliminado de favoritos'}, status=status.HTTP_204_NO_CONTENT)
+
+class FavoritosListView(generics.ListAPIView):
+    queryset = Favorito.objects.all()
+    serializer_class = FavoritoSerializer

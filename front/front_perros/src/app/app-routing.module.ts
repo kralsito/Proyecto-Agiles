@@ -13,6 +13,7 @@ import { authGuardForLogin } from './guards/sesion-guard.guard';
 import { NavBarNoLogueadoComponent } from './nav-bar-no-logueado/nav-bar-no-logueado.component';
 import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
 import { PerfilOtroComponent } from './perfil-otro/perfil-otro.component';
+import { MisFavoritosComponent } from './mis-favoritos/mis-favoritos.component';
 
 const routes: Routes = [
   { path: 'publicacion', component: PublicacionComponent, canActivate: [authGuard]},
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'nav-bar-no-logueado', component: NavBarNoLogueadoComponent},
   { path: 'mis-publicaciones', component: MisPublicacionesComponent, canActivate: [authGuard]},
   { path: 'perfil-otro/:usuarioId', component: PerfilOtroComponent, canActivate: [authGuard] },
+  { path: 'mis-favoritos', component: MisFavoritosComponent, canActivate: [authGuard]}
 ];
 
 @NgModule({
