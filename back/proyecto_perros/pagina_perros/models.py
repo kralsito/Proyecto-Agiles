@@ -71,7 +71,7 @@ def registrar_usuario(request):
             return JsonResponse({'mensaje': 'Correo duplicado'}, status=400)
    
 class Publicacion(models.Model):
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
+    usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True) #Esto es lo que modifique para poder eliminar
     nombrePerro = models.CharField(max_length=30)
     fotoPerro = models.ImageField(upload_to="./perros", null=True, blank=True)
     edadPerro = models.CharField(max_length=20)
