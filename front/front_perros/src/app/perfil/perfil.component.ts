@@ -16,6 +16,8 @@ export class PerfilComponent implements OnInit{
   currentProfileTelefono: number | null = null;
   currentProfileLocalidad: string | null = null;
   currentProfileId: number | null = null;
+  currentProfileBio: string | null = null;
+  currentProfilePicture: File | null = null;
   currentProfile: any; // Debes definir esta propiedad y asegurarte de que esté inicializada
 
   perfilSeleccionado: any; // Aquí almacenaremos el perfil que se está editando.
@@ -37,38 +39,15 @@ export class PerfilComponent implements OnInit{
           this.currentProfileLocalidad = this.currentProfile.perfil_data.localidad;
           this.currentUserEmail = this.currentProfile.user_data.email;
           this.currentProfileId = this.currentProfile.perfil_data.id;
+          this.currentProfileBio = this.currentProfile.perfil_data.biografia;
+          this.currentProfilePicture = this.currentProfile.perfil_data.fotoPerfil;
+          console.log(this.currentProfilePicture);
         },
         (error) => {
           console.error('Error al obtener el perfil del otro usuario', error);
         }
       );
     }
-
-
-    //if (currentUserMail !== null) {
-    //  this.currentUserEmail = currentUserMail.toString(); // Convierte el número a una cadena
-    //} else {
-    //  this.currentUserEmail = null; // Maneja el caso nulo si es necesario
-    //}
-    //console.log(currentUserMail)
-
-    //const currentProfile = this.retrieveService.getCurrentUserProfile();
-
-    //if (currentProfile !== null) {
-    //  this.currentProfile = currentProfile;
-    //  this.currentProfileNombre = currentProfile.nombrePerfil;
-    //  this.currentProfileApellido = currentProfile.apellidoPerfil;
-    //  this.currentProfileTelefono = currentProfile.telefonoPerfil;
-    //  this.currentProfileLocalidad = currentProfile.localidadPerfil;
-    //  this.currentProfileId = currentProfile.idPerfil;
-    //} else {
-    //  this.currentProfile = {};
-    //  this.currentProfileNombre = null;
-    //  this.currentProfileApellido = null;
-    //  this.currentProfileTelefono = null;
-    //  this.currentProfileLocalidad = null;
-    //  this.currentProfileId = null;
-    //}
   }
   abrirModalEditarPerfil() {
     console.log(this.currentProfileId);
@@ -83,7 +62,9 @@ export class PerfilComponent implements OnInit{
         nombrePerfil: this.perfilSeleccionado.perfil_data.nombrePerfil,
         apellidoPerfil: this.perfilSeleccionado.perfil_data.apellidoPerfil,
         telefono: this.perfilSeleccionado.perfil_data.telefono,
-        localidad: this.perfilSeleccionado.perfil_data.localidad
+        localidad: this.perfilSeleccionado.perfil_data.localidad,
+        biografia: this.perfilSeleccionado.perfil_data.biografia,
+        fotoPerfil: this.perfilSeleccionado.perfil_data.fotoPerfil,
       };
       console.log(perfilEditado);
   
@@ -108,4 +89,18 @@ export class PerfilComponent implements OnInit{
     this.displayEditarPerfil = 'none'; // Cerrar el modal sin guardar cambios
   }
 
+  mostrarImagen() {
+    const imgPreviewElement: HTMLElement = document.getElementById('imgPreview')!;
+    const fotoPerfilInput: HTMLInputElement = document.getElementById('fotoPerfilModal') as HTMLInputElement;
+
+    if (fotoPerfilInput.files && fotoPerfilInput.files[0]) {
+      const reader = new FileReader();
+
+      reader.onload = (e: any) => {
+        imgPreviewElement.innerHTML = `<img src="${e.target.result}" id="fotoInputPerfil" style="max-width: 300px; max-height: 300px; margin-bottom: 10px"/>`;
+      };
+
+      reader.readAsDataURL(fotoPerfilInput.files[0]);
+    }
+  }
 }

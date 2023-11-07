@@ -26,7 +26,7 @@ class UserSerializer(serializers.ModelSerializer):
 class PerfilSerializer(serializers.ModelSerializer):
     class Meta:
         model = Perfil
-        fields = ['id', 'nombrePerfil', 'apellidoPerfil', 'telefono', 'localidad']
+        fields = ['id', 'nombrePerfil', 'apellidoPerfil', 'telefono', 'localidad', 'biografia', 'fotoPerfil']
         
     def create(self, validated_data):
         instance = self.Meta.model(**validated_data)

@@ -21,7 +21,7 @@
                     <!--Card para Perfil-->
                     <div class="profile-card card rounded-lg shadow p-4 p-xl-5 mb-4 text-center">
                         <div class="banner"></div>
-                        <img src="../../assets/img/user-profile-icon-free-vector.jpg" alt="" class="img-circle mx-auto mb-3">
+                        <img src="{{currentProfilePicture}}" alt="" class="img-circle mx-auto mb-3">
                         <div *ngIf="currentProfile">
                         <h3 class="mb-4">{{currentProfileNombre}} {{currentProfileApellido}}</h3>
                         <div class="text-left mb-4">
@@ -40,7 +40,7 @@
                           Sobre Mi
                         </div>
                         <div class="card-body">
-                          <p class="card-text"> Soy uno de los integrantes del grupo que está encargado principalmente en tareas relacionadas con el front.</p>
+                          <p class="card-text"> {{currentProfileBio}}</p>
                         </div>
                       </div>
                       <br>
@@ -71,6 +71,16 @@
       </div>
       <div class="modal-body">
         <form>
+          <div class="row">
+            <div class="form-group col-md-5">
+              <div id="imgPreview"><img src="{{ perfilSeleccionado.perfil_data.fotoPerfil }}" id="imagenPerfil" class="imgModal" alt="" srcset=""></div>
+            </div>
+            <input type="file" id="fotoPerfilModal" name="fotoPerfilModal" accept="image/*" (change)="mostrarImagen()"/>
+          </div>
+          <div class="form-group">
+            <label for="biografia">Biografia:</label>
+            <textarea name="biografia" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.biografia"></textarea>
+          </div>
           <div class="form-group">
             <label for="nombrePerfil">Nombre:</label>
             <input type="text" name="nombrePerfil" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.nombrePerfil">

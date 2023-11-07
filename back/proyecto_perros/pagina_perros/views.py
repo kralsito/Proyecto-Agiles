@@ -186,6 +186,8 @@ class PerfilUpdateView(APIView):
             perfil.apellidoPerfil = request.data.get('apellidoPerfil')
             perfil.telefono = request.data.get('telefono')
             perfil.localidad = request.data.get('localidad')
+            perfil.biografia = request.data.get('biografia')
+            perfil.fotoPerfil = request.data.get('fotoPerfil')
             perfil.save()
             return Response({'message': 'Perfil actualizado correctamente'})
         except Perfil.DoesNotExist:
