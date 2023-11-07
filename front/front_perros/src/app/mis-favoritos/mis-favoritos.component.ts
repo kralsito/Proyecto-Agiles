@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MisFavoritosService } from './mis-favoritos.service';
 import { AuthService } from '../guards/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-mis-favoritos',
@@ -10,8 +11,11 @@ import { AuthService } from '../guards/auth.service';
 export class MisFavoritosComponent implements OnInit {
   publicaciones: any = [];
   favoritos: any = [];
+  displayContactar = "none";
+  usuarioPerroSeleccionado: string = '';
 
-  constructor(private misFavoritos: MisFavoritosService, private authService: AuthService) {}
+
+  constructor(private misFavoritos: MisFavoritosService, private authService: AuthService, private router: Router) {}
 
   ngOnInit() {
     const userId = this.authService.getCurrentUser();
@@ -27,5 +31,14 @@ export class MisFavoritosComponent implements OnInit {
     } else {
       // Maneja el caso en el que no se haya encontrado un usuario logeado
     }
+  }
+
+  infoContactar(publicacion: any) {
+    const usuarioId = publicacion.usuario;
+    this.router.navigate([`/perfil-otro/${usuarioId}`]);
+  }
+  
+  onCloseHandledContactar() {
+    this.displayContactar = "none";
   }
 }

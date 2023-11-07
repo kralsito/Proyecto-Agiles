@@ -184,3 +184,158 @@ mat-chip-option {
 #noVacunado, #noLibreta, #noDesparasitado, #noCastrado{
   color: #c70b0b;
 }
+
+.btn-container {
+  padding-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+.bookmarkBtn:hover .IconContainer {
+  width: 90px;
+  border-radius: 40px;
+  transition-duration: .3s;
+}
+
+.bookmarkBtn:hover .text {
+  transform: translate(10px);
+  width: 0;
+  font-size: 0;
+  transition-duration: .3s;
+}
+
+.bookmarkBtn:active {
+  transform: scale(0.95);
+  transition-duration: .3s;
+}
+
+#btnContactar {
+  position: relative;
+  padding: 10px 22px;
+  border-radius: 40px;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  background-color: #FF5D31;
+  transition: all 0.2s ease;
+  margin-top: 10px;
+}
+
+#btnContactar:active {
+  transform: scale(0.96);
+}
+
+#btnContactar:hover{
+  background-color: #df3608;
+}
+
+#btnContactar:before,
+#btnContactar:after {
+  position: absolute;
+  content: "";
+  width: 150%;
+  left: 50%;
+  height: 100%;
+  transform: translateX(-50%);
+  z-index: -1000;
+  background-repeat: no-repeat;
+}
+
+#btnContactar:hover:before {
+  top: -70%;
+  background-image: radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, transparent 20%, #FF5D31 20%, transparent 30%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #FF5D31 15%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%);
+  background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+    10% 10%, 18% 18%;
+  background-position: 50% 120%;
+  animation: greentopBubbles 0.6s ease;
+}
+
+@keyframes greentopBubbles {
+  0% {
+    background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+      40% 90%, 55% 90%, 70% 90%;
+}
+
+50% {
+    background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+      50% 50%, 65% 20%, 90% 30%;
+}
+
+100% {
+    background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+      50% 40%, 65% 10%, 90% 20%;
+    background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+}
+}
+
+#btnContactar:hover::after {
+bottom: -70%;
+background-image: radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, transparent 10%, #FF5D31 15%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%),
+    radial-gradient(circle, #FF5D31 20%, transparent 20%);
+background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+background-position: 50% 0%;
+animation: greenbottomBubbles 0.6s ease;
+}
+
+.bookmarkBtn {
+  width: 105px;
+  height: 45px;
+  border-radius: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.349);
+  background-color: #20264D;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition-duration: .3s;
+  overflow: hidden;
+  text-align: center;
+}
+
+.btnAceptar, .btnCancelar {
+  font-family: 'Inclusive Sans', sans-serif;
+  font-size: 18px;
+  border: none;
+  margin-top: 40px;
+  border-radius: 20px;
+  border: 2px solid;
+}
+
+.btnAceptar {
+  margin-right: 15px;
+  background-color: #17644d;
+  border-color: #17644d;
+}
+
+.btnAceptar:hover {
+  background-color: #609686;
+  border-color: #609686;
+}
+
+.btnCancelar {
+  background-color: white;
+  color: #20264D;
+  border-color: #20264D;
+}
+
+.btnCancelar:hover {
+  background-color: #20264D;
+  color: white;
+}
+
+[id="modalMeInteresa"] .modal-content {
+  border-radius: 10px;
+}
