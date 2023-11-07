@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from rest_framework import generics
-from .models import Publicacion , User, Perfil
-from .serializers import PublicacionSerializer , UserSerializer, PerfilSerializer
+from .models import Publicacion , User, Perfil, Favorito
+from .serializers import PublicacionSerializer , UserSerializer, PerfilSerializer, FavoritoSerializer
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -13,10 +13,16 @@ from django.contrib.auth.models import Group
 from rest_framework.exceptions import AuthenticationFailed, NotFound
 import jwt, datetime
 from rest_framework.permissions import IsAuthenticated  
+
 from django.db import transaction
 from django.db import IntegrityError
 from django.db.models import ProtectedError
 from django.http import Http404
+from django.http import Http404
+from django.http import JsonResponse
+from rest_framework.decorators import api_view
+from django.contrib.auth import get_user_model
+
 # Create your views here.
 
 
@@ -33,7 +39,6 @@ class PublicacionList(generics.ListAPIView):
             usuario = User.objects.filter(id=usuario_id).first()
             if usuario:
                 publicacion['usuario_email'] = usuario.email
-
         return Response(serializer.data)
 
 
@@ -175,14 +180,17 @@ class PublicacionUpdateView(APIView):
             publicacion.libretaPerro = request.data.get('libretaPerro')
             publicacion.castradoPerro = request.data.get('castradoPerro')
             publicacion.vacunadoPerro = request.data.get('vacunadoPerro')
-            publicacion.fotoPerro = request.data.get('fotoPerro')
+            nueva_foto = request.data.get('fotoPerro')
+            if nueva_foto:
+                publicacion.fotoPerro = nueva_foto
+            if not nueva_foto:
+                publicacion.fotoPerro = publicacion.fotoPerro
             publicacion.save()
             return Response({'message': 'Publicación actualizada correctamente'})
         except Publicacion.DoesNotExist:
             return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)
-        
-from django.http import Http404
 
+       
 class PublicacionDeleteView(APIView):
     def delete(self, request, publicacion_id):
         try:
@@ -199,6 +207,29 @@ class PublicacionDeleteView(APIView):
 
 
 
+class FavoritosListView(generics.ListAPIView):
+    queryset = Favorito.objects.all()
+    serializer_class = FavoritoSerializer
 
+@api_view(['POST'])
+def AgregarFavoritoView(request, publicacion_id):
+    try:
+        publicacion = Publicacion.objects.get(id=publicacion_id)
+        usuarioId = request.data.get('usuarioId')  # Obtén el usuarioId desde la solicitud POST
 
+        # Verificar si la publicación ya está en favoritos del usuario (puede personalizar esto según tus necesidades)
+        usuario = get_user_model().objects.get(id=usuarioId)  # Obtén el usuario usando el usuarioId
+
+        favorito_existente = Favorito.objects.filter(usuario=usuario, publicacion=publicacion).first()
+
+        if favorito_existente:
+            return Response({'message': 'La publicación ya está en tus favoritos'}, status=status.HTTP_400_BAD_REQUEST)
+
+        # Crear una nueva entrada en Favorito
+        favorito = Favorito(usuario=usuario, publicacion=publicacion)
+        favorito.save()
+
+        return Response({'message': 'La publicación se ha agregado a tus favoritos'})
+    except Publicacion.DoesNotExist:
+        return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)
 

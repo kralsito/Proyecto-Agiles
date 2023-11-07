@@ -110,3 +110,7 @@ class Perfil(models.Model):
     telefono = models.IntegerField()
     def __str__(self):
         return f"Perfil de: {self.nombrePerfil}"
+
+class Favorito(models.Model):
+    usuario = models.ForeignKey(get_user_model(), on_delete=models.CASCADE)
+    publicacion = models.ForeignKey(Publicacion, on_delete=models.CASCADE)
