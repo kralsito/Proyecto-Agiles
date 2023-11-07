@@ -3,6 +3,7 @@
       <p id="filterBy">FILTRAR POR</p>
       <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
   </div>
+  <hr id="subrayado">
   <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
     <p>No hay publicaciones disponibles.</p>
   </div>
@@ -48,8 +49,8 @@
               <button class="btn btn-primary" id="btnContactar" (click)="infoContactar(publicacion)">Contactar</button>
         </div>
         </div>
+        <hr class="separador">
     </div>
-    <hr>
 </div>
 
   <div class="text-center">
