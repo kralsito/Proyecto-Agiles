@@ -13,6 +13,10 @@ from django.contrib.auth.models import Group
 from rest_framework.exceptions import AuthenticationFailed, NotFound
 import jwt, datetime
 from rest_framework.permissions import IsAuthenticated  
+from django.db import transaction
+from django.db import IntegrityError
+from django.db.models import ProtectedError
+from django.http import Http404
 # Create your views here.
 
 
@@ -176,12 +180,25 @@ class PublicacionUpdateView(APIView):
             return Response({'message': 'Publicación actualizada correctamente'})
         except Publicacion.DoesNotExist:
             return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)
+        
+from django.http import Http404
 
 class PublicacionDeleteView(APIView):
     def delete(self, request, publicacion_id):
         try:
             publicacion = Publicacion.objects.get(id=publicacion_id)
+
+            if publicacion.usuario is not None:
+                publicacion.usuario = None
+                publicacion.save()
+
             publicacion.delete()
-            return Response({'message': 'Publicación eliminada correctamente'}, status=status.HTTP_204_NO_CONTENT)
+            return Response({'message': 'Publicación eliminada correctamente'})
         except Publicacion.DoesNotExist:
-            return Response({'error': 'La publicación no existe'}, status=status.HTTP_404_NOT_FOUND)
+            raise Http404
+
+
+
+
+
+

@@ -8,7 +8,7 @@ urlpatterns = [
     path('publicaciones/alta/', PublicacionCreateView.as_view(), name = 'publi-alta'),
     path('publicaciones/', PublicacionList.as_view(), name = 'publi-list'),
     path('publicaciones/<int:publicacion_id>/', PublicacionUpdateView.as_view(), name = 'ver-publi'),
-    path('publicaciones/<int:publicacion_id>/', PublicacionDeleteView.as_view(), name='eliminar-publi'),
+    path('publicaciones/eliminar/<int:publicacion_id>/', PublicacionDeleteView.as_view(), name='eliminar-publi'),
     path('usuario/registrar/', RegisterView.as_view(), name='registrar-usuario'),
     path('usuario/login/', LoginView.as_view(), name='login'),
     path('usuario/', UserView.as_view()),
