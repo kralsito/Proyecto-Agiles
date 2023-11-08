@@ -163,4 +163,25 @@
       </div>
     </div>
   </div>
+  <!-- Modal de Confirmación de Eliminación -->
+  <div class="modal" tabindex="-2" role="dialog" [ngStyle]="{'display': displayConfirmacion}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Eliminación</h5>
+        <button type="button" class="close" aria-label="Close" (click)="onCloseConfirmacion()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar esta publicación?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCloseConfirmacion()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="eliminarPublicacionConfirmada()">Eliminar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 </div>

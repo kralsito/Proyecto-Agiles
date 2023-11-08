@@ -22,6 +22,8 @@ export class MisPublicacionesComponent implements OnInit {
   filtrosLib: string[] = [];
   displayFiltros = "none";
   displayEditar = "none";
+  displayConfirmacion = "none";
+  publicacionParaEliminar: any;
   usuarioPerroSeleccionado: string = '';
 
 
@@ -241,18 +243,28 @@ export class MisPublicacionesComponent implements OnInit {
     }
   }
   eliminarPublicacion(publicacion: any) {
-    const confirmarEliminacion = confirm('¿Estás seguro de que deseas eliminar esta publicación?');
-  
-    if (confirmarEliminacion) {
-      this.publicacionService.eliminarPublicacion(publicacion.id).subscribe(
-        () => {
-          // Eliminar la publicación de la lista local de publicaciones
-          this.publicaciones = this.publicaciones.filter((p: any) => p.id !== publicacion.id);
-        },
-        (error) => {
-          console.error('Error al eliminar la publicación', error);
-        }
-      );
-    }
+    this.publicacionParaEliminar = publicacion;
+    this.displayConfirmacion = "block";
+  }
+  eliminarPublicacionConfirmada() {
+    // Función para eliminar la publicación después de la confirmación
+    const publicacion = this.publicacionParaEliminar;
+
+    this.publicacionService.eliminarPublicacion(publicacion.id).subscribe(
+      () => {
+        // Eliminar la publicación de la lista local de publicaciones
+        this.publicaciones = this.publicaciones.filter((p: any) => p.id !== publicacion.id);
+        this.onCloseConfirmacion(); // Cierra el modal de confirmación
+      },
+      (error) => {
+        console.error('Error al eliminar la publicación', error);
+      }
+    );
+  }
+
+  onCloseConfirmacion() {
+    // Cierra el modal de confirmación
+    this.displayConfirmacion = "none";
+    this.publicacionParaEliminar = null;
   }
 }  
