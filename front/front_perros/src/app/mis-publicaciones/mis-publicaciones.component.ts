@@ -242,10 +242,12 @@ export class MisPublicacionesComponent implements OnInit {
       );
     }
   }
+
   eliminarPublicacion(publicacion: any) {
     this.publicacionParaEliminar = publicacion;
     this.displayConfirmacion = "block";
   }
+  
   eliminarPublicacionConfirmada() {
     // Función para eliminar la publicación después de la confirmación
     const publicacion = this.publicacionParaEliminar;
