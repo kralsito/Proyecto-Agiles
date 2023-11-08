@@ -242,6 +242,7 @@ export class MisPublicacionesComponent implements OnInit {
       );
     }
   }
+
   eliminarPublicacion(publicacion: any) {
     this.publicacionParaEliminar = publicacion;
     this.displayConfirmacion = "block";
