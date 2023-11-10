@@ -285,3 +285,11 @@ label, input, option, select, textarea {
   #noVacunado, #noLibreta, #noDesparasitado, #noCastrado{
     color: #c70b0b;
   }
+
+#subrayado {
+    margin: 0 50px 0;
+}
+  
+hr {
+    color: #20264d6e;
+}

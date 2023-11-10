@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Publicacion, User, Perfil
+from .models import Publicacion, User, Perfil, Favorito
 from django.contrib.auth.hashers import make_password
 
 class PublicacionSerializer(serializers.ModelSerializer):
@@ -33,7 +33,7 @@ class PerfilSerializer(serializers.ModelSerializer):
         instance = self.Meta.model(**validated_data)
         instance.save()
         return instance
-    
+
     def get_fotoPerfil(self, obj):  # Agrega esta función
         if obj.fotoPerfil:  # Verifica si hay una imagen
             request = self.context.get('request')
@@ -43,3 +43,8 @@ class PerfilSerializer(serializers.ModelSerializer):
                 # Ajusta la URL manualmente
                 return f"http://localhost:8000{obj.fotoPerfil.url}"
         return None
+
+class FavoritoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Favorito
+        fields = '__all__'

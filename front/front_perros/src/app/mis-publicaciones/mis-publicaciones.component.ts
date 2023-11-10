@@ -22,6 +22,8 @@ export class MisPublicacionesComponent implements OnInit {
   filtrosLib: string[] = [];
   displayFiltros = "none";
   displayEditar = "none";
+  displayConfirmacion = "none";
+  publicacionParaEliminar: any;
   usuarioPerroSeleccionado: string = '';
 
 
@@ -163,6 +165,11 @@ export class MisPublicacionesComponent implements OnInit {
 
   editarPubli(publicacion: any) {
     this.publicacionSeleccionada = publicacion;
+    const imageUrl = this.publicacionSeleccionada.fotoPerro;
+    const parts = imageUrl.split('/');
+    const fileName = parts[parts.length - 1];
+    console.log(fileName); // Esto mostrará 'perrito_KiOgH9q.jpg'
+    console.log(this.publicacionSeleccionada.fotoPerro);
     this.displayEditar = "block";
   }
 
@@ -201,38 +208,64 @@ export class MisPublicacionesComponent implements OnInit {
   
       const nuevaFotoInput: HTMLInputElement = document.getElementById('fotoPerroModal') as HTMLInputElement;
       if (nuevaFotoInput && nuevaFotoInput.files && nuevaFotoInput.files.length > 0) {
+        // Aquí mantienes el nuevo valor solo si se selecciona una nueva foto
         const nuevaFotoFile = nuevaFotoInput.files[0];
-        const formData = new FormData();
-        formData.append('nombrePerro', publicacionEditada.nombrePerro);
-        formData.append('edadPerro', publicacionEditada.edadPerro);
-        formData.append('sexoPerro', publicacionEditada.sexoPerro);
-        formData.append('tamanioPerro', publicacionEditada.tamanioPerro);
-        formData.append('desparasitadoPerro', publicacionEditada.desparasitadoPerro);
-        formData.append('vacunadoPerro', publicacionEditada.vacunadoPerro);
-        formData.append('libretaPerro', publicacionEditada.libretaPerro);
-        formData.append('castradoPerro', publicacionEditada.castradoPerro);
-        formData.append('fotoPerro', nuevaFotoFile);
-
-        this.publicacionService.editarPublicacion(this.publicacionSeleccionada.id, formData).subscribe(
-          (response) => {
-            console.log('Publicación editada exitosamente', response);
-            this.onCloseHandledEditar();
-          },
-          (error) => {
-            console.error('Error al editar la publicación', error);
-          }
-        );
-      } else {
-        this.publicacionService.editarPublicacion(this.publicacionSeleccionada.id, publicacionEditada).subscribe(
-          (response) => {
-            console.log('Publicación editada exitosamente', response);
-            this.onCloseHandledEditar();
-          },
-          (error) => {
-            console.error('Error al editar la publicación', error);
-          }
-        );
+        publicacionEditada.fotoPerro = nuevaFotoFile;
       }
+      else {
+        const imageUrl = this.publicacionSeleccionada.fotoPerro;
+        const parts = imageUrl.split('/');
+        const fileName = parts[parts.length - 1];
+        const urlCompleta = 'perros/' + fileName;
+        publicacionEditada.fotoPerro = urlCompleta;
+      }
+  
+      const formData = new FormData();
+      formData.append('nombrePerro', publicacionEditada.nombrePerro);
+      formData.append('edadPerro', publicacionEditada.edadPerro);
+      formData.append('sexoPerro', publicacionEditada.sexoPerro);
+      formData.append('tamanioPerro', publicacionEditada.tamanioPerro);
+      formData.append('desparasitadoPerro', publicacionEditada.desparasitadoPerro);
+      formData.append('vacunadoPerro', publicacionEditada.vacunadoPerro);
+      formData.append('libretaPerro', publicacionEditada.libretaPerro);
+      formData.append('castradoPerro', publicacionEditada.castradoPerro);
+      formData.append('fotoPerro', publicacionEditada.fotoPerro);
+  
+      this.publicacionService.editarPublicacion(this.publicacionSeleccionada.id, formData).subscribe(
+        (response) => {
+          console.log('Publicación editada exitosamente', response);
+          this.onCloseHandledEditar();
+        },
+        (error) => {
+          console.error('Error al editar la publicación', error);
+        }
+      );
     }
+  }
+
+  eliminarPublicacion(publicacion: any) {
+    this.publicacionParaEliminar = publicacion;
+    this.displayConfirmacion = "block";
+  }
+  eliminarPublicacionConfirmada() {
+    // Función para eliminar la publicación después de la confirmación
+    const publicacion = this.publicacionParaEliminar;
+
+    this.publicacionService.eliminarPublicacion(publicacion.id).subscribe(
+      () => {
+        // Eliminar la publicación de la lista local de publicaciones
+        this.publicaciones = this.publicaciones.filter((p: any) => p.id !== publicacion.id);
+        this.onCloseConfirmacion(); // Cierra el modal de confirmación
+      },
+      (error) => {
+        console.error('Error al eliminar la publicación', error);
+      }
+    );
+  }
+
+  onCloseConfirmacion() {
+    // Cierra el modal de confirmación
+    this.displayConfirmacion = "none";
+    this.publicacionParaEliminar = null;
   }
 }  

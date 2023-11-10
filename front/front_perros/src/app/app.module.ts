@@ -60,6 +60,7 @@ import { AlertCredencialesInvalidasComponent } from './alerts/alert-credenciales
 import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
 import { PerfilOtroComponent } from './perfil-otro/perfil-otro.component';
 import { RetrieveService } from './perfil/service-retrieve/retrieve.service';
+import { MisFavoritosComponent } from './mis-favoritos/mis-favoritos.component';
 
 export function jwtOptionsFactory() {
   return {
@@ -89,7 +90,8 @@ export function jwtOptionsFactory() {
     NavBarNoLogueadoComponent,
     AlertCredencialesInvalidasComponent,
     MisPublicacionesComponent,
-    PerfilOtroComponent
+    PerfilOtroComponent,
+    MisFavoritosComponent
   ],
   imports: [
     BrowserModule,
