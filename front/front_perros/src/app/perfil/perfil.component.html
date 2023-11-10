@@ -13,7 +13,7 @@
 
     <section class="main-content">
         <div class="container">
-            <h1>Perfil</h1>
+            <h1>Mi Perfil <button type="button" class="btn btn-primary" (click)="abrirModalEditarPerfil()"><i class="fa-solid fa-pen-to-square"></i></button></h1>
 
             <div class="row">
                 <div class="col-sm-8 col-md-6 col-lg-4">
@@ -44,21 +44,22 @@
                         </div>
                       </div>
                       <br>
-                      <div class="card" style="width: 18rem;">
+                      <div class="card" style="width: 420px;">
                         <div class="card-header">
-                          Intereses
+                          Publicaciones del usuario
                         </div>
+                        <div class="card-body">
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Desarrollo Web</li>
-                          <li class="list-group-item">Inversiones</li>
-                          <li class="list-group-item">Ingeniería de Software</li>
+                          <li class="list-group-item">Proximamente...</li>
+                          <li class="list-group-item">Proximamente...</li>
+                          <li class="list-group-item">Proximamente...</li>
                         </ul>
                       </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-primary" (click)="abrirModalEditarPerfil()">Editar Perfil</button>
     </section>
 </body>
 <!-- Modal de Edición de Perfil -->
@@ -100,8 +101,8 @@
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" (click)="guardarCambiosPerfil()">Guardar Cambios</button>
-        <button type="button" class="btn btn-secondary" (click)="onCloseHandledEditarPerfil()">Cancelar</button>
+        <button type="button" class="btn btn-primary btnEditModal" (click)="guardarCambiosPerfil()">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary btnEditModalCancel" (click)="onCloseHandledEditarPerfil()">Cancelar</button>
       </div>
     </div>
   </div>
