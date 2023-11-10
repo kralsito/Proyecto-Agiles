@@ -9,6 +9,7 @@
       <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
           <div class="col-md-3 containerImagen">
               <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
+              <script>console.log(publicacion.fotoPerro)</script>
           </div>
           <div class="col-md-3" id="dataPerro">
             <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>

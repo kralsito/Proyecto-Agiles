@@ -41,7 +41,7 @@ export class PerfilComponent implements OnInit{
           this.currentProfileId = this.currentProfile.perfil_data.id;
           this.currentProfileBio = this.currentProfile.perfil_data.biografia;
           this.currentProfilePicture = this.currentProfile.perfil_data.fotoPerfil;
-          console.log(this.currentProfilePicture);
+          console.log(this.currentProfilePicture)
         },
         (error) => {
           console.error('Error al obtener el perfil del otro usuario', error);
@@ -50,9 +50,7 @@ export class PerfilComponent implements OnInit{
     }
   }
   abrirModalEditarPerfil() {
-    console.log(this.currentProfileId);
     this.perfilSeleccionado = this.currentProfile;
-    console.log(this.perfilSeleccionado); // Copiar el perfil actual para editarlo
     this.displayEditarPerfil = 'block';
   }
 
@@ -66,9 +64,19 @@ export class PerfilComponent implements OnInit{
         biografia: this.perfilSeleccionado.perfil_data.biografia,
         fotoPerfil: this.perfilSeleccionado.perfil_data.fotoPerfil,
       };
-      console.log(perfilEditado);
+
+      const nuevaFotoInput: HTMLInputElement = document.getElementById('fotoPerfilModal') as HTMLInputElement;
+      if (nuevaFotoInput && nuevaFotoInput.files && nuevaFotoInput.files.length > 0) {
+        const nuevaFotoFile = nuevaFotoInput.files[0];
+        const formData = new FormData();
+        formData.append('nombrePerfil', perfilEditado.nombrePerfil);
+        formData.append('apellidoPerfil', perfilEditado.apellidoPerfil);
+        formData.append('telefono', perfilEditado.telefono.toString());
+        formData.append('localidad', perfilEditado.localidad);
+        formData.append('biografia', perfilEditado.biografia);
+        formData.append('fotoPerfil', nuevaFotoFile);
   
-      this.retrieveService.editarPerfil(this.currentProfileId, perfilEditado).subscribe(
+      this.retrieveService.editarPerfil(this.currentProfileId, formData).subscribe(
         response => {
           console.log('Perfil actualizado correctamente');
           this.displayEditarPerfil = 'none'; // Cerrar el modal
@@ -80,6 +88,7 @@ export class PerfilComponent implements OnInit{
           // Manejar el error de acuerdo a tus necesidades
         }
       );
+      }
     } else{
       console.error('No se puede actualizar el perfil porque no se ha obtenido el id del perfil');
     }

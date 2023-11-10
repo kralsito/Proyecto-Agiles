@@ -20,10 +20,10 @@
 
                     <!--Card para Perfil-->
                     <div class="profile-card card rounded-lg shadow p-4 p-xl-5 mb-4 text-center">
-                        <div class="banner"></div>
-                        <img src="{{currentProfilePicture}}" alt="" class="img-circle mx-auto mb-3">
                         <div *ngIf="currentProfile">
-                        <h3 class="mb-4">{{currentProfileNombre}} {{currentProfileApellido}}</h3>
+                        <img src="{{currentProfile.perfil_data.fotoPerfil}}" alt="" class="img-circle mx-auto mb-3">
+                        <div class="banner"></div>
+                        <h3 class="mb-4">{{currentProfile.perfil_data.nombrePerfil}} {{currentProfileApellido}}</h3>
                         <div class="text-left mb-4">
                                 <p class="mb-2"><i class="fa fa-envelope mr-2"></i> {{currentUserEmail}}</p>
                                 <p class="mb-2"><i class="fa fa-phone mr-2"></i> {{currentProfileTelefono}}</p>
