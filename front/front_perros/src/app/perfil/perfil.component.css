@@ -5,12 +5,13 @@
 
 body{
     background: transparent;
-    font-family: Poppins, sans-serif;
+    font-family: 'Inclusive Sans', sans-serif;
 }
 
 h1{
-    font-family: Poppins, sans-serif;
+    font-family: 'Inclusive Sans', sans-serif;
     margin-top: 0;
+    font-weight: bold;
 }
 
 .shadow{
@@ -71,8 +72,20 @@ h1{
     width: 100%;
 }
 
-.imgModal {
-    margin-top: 0px !important;
+@keyframes example {
+    from {
+      top: -50px;
+      opacity: 0;
+    }
+  
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+
+.modal{
+    animation: example 0.5s 1;
 }
 
 .modal-body {
@@ -101,7 +114,7 @@ label {
 
 label, input, option, select, textarea {
     font-size: 15px;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Inclusive Sans', sans-serif;
     color: #20264D;
     margin-top: 5px;
 }
