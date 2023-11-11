@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import PublicacionList, PublicacionCreateView, RegisterView, LoginView, UserView, LogoutView, MiPerfilView, PerfilCreateView, VerPerfilDeOtroUsuarioView, PublicacionUpdateView, FavoritosListView, AgregarFavoritoView, PublicacionDeleteView
+from .views import PublicacionList, PublicacionCreateView , RegisterView, LoginView, UserView, LogoutView, MiPerfilView, PerfilCreateView, PerfilUpdateView, VerPerfilDeOtroUsuarioView, PublicacionUpdateView, PublicacionDeleteView, FavoritosListView, AgregarFavoritoView
 from django.conf import settings
 from django.conf.urls.static import static
 
