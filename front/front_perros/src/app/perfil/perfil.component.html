@@ -13,17 +13,17 @@
 
     <section class="main-content">
         <div class="container">
-            <h1>Perfil</h1>
+            <h1>Mi Perfil <button type="button" class="btn btn-primary" (click)="abrirModalEditarPerfil()"><i class="fa-solid fa-pen-to-square"></i></button></h1>
 
             <div class="row">
                 <div class="col-sm-8 col-md-6 col-lg-4">
 
                     <!--Card para Perfil-->
                     <div class="profile-card card rounded-lg shadow p-4 p-xl-5 mb-4 text-center">
+                        <div *ngIf="currentProfile">
+                        <img src="{{currentProfile.perfil_data.fotoPerfil}}" alt="" class="img-circle mx-auto mb-3">
                         <div class="banner"></div>
-                        <img src="../../assets/img/user-profile-icon-free-vector.jpg" alt="" class="img-circle mx-auto mb-3">
-                        <div *ngIf="currentUserEmail">
-                        <h3 class="mb-4">{{currentProfileNombre}} {{currentProfileApellido}}</h3>
+                        <h3 class="mb-4">{{currentProfile.perfil_data.nombrePerfil}} {{currentProfileApellido}}</h3>
                         <div class="text-left mb-4">
                                 <p class="mb-2"><i class="fa fa-envelope mr-2"></i> {{currentUserEmail}}</p>
                                 <p class="mb-2"><i class="fa fa-phone mr-2"></i> {{currentProfileTelefono}}</p>
@@ -40,23 +40,72 @@
                           Sobre Mi
                         </div>
                         <div class="card-body">
-                          <p class="card-text"> Soy uno de los integrantes del grupo que está encargado principalmente en tareas relacionadas con el front.</p>
+                          <p class="card-text"> {{currentProfileBio}}</p>
                         </div>
                       </div>
                       <br>
-                      <div class="card" style="width: 18rem;">
+                      <div class="card" style="width: 420px;">
                         <div class="card-header">
-                          Intereses
+                          Publicaciones del usuario
                         </div>
+                        <div class="card-body">
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Desarrollo Web</li>
-                          <li class="list-group-item">Inversiones</li>
-                          <li class="list-group-item">Ingeniería de Software</li>
+                          <li class="list-group-item">Proximamente...</li>
+                          <li class="list-group-item">Proximamente...</li>
+                          <li class="list-group-item">Proximamente...</li>
                         </ul>
                       </div>
+                    </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 </body>
+<!-- Modal de Edición de Perfil -->
+<div class="modal" tabindex="-1" role="dialog" id="modalEditarPerfil" [ngStyle]="{'display': displayEditarPerfil}" *ngIf="perfilSeleccionado">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header headerEditar">
+        <h2 class="modal-title titleEditar">Editar Perfil
+          <small class="text-muted">Editá tus datos.</small>
+        </h2>
+        <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledEditarPerfil()"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <div class="form-group col-md-5">
+              <div id="imgPreview"><img src="{{ perfilSeleccionado.perfil_data.fotoPerfil }}" id="imagenPerfil" class="imgModal" alt="" srcset=""></div>
+            </div>
+            <input type="file" id="fotoPerfilModal" name="fotoPerfilModal" accept="image/*" (change)="mostrarImagen()"/>
+          </div>
+          <div class="form-group">
+            <label for="biografia">Biografia:</label>
+            <textarea name="biografia" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.biografia"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="nombrePerfil">Nombre:</label>
+            <input type="text" name="nombrePerfil" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.nombrePerfil">
+          </div>
+          <div class="form-group">
+            <label for="apellidoPerfil">Apellido:</label>
+            <input type="text" name="apellidoPerfil" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.apellidoPerfil">
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono:</label>
+            <input type="text" name="telefono" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.telefono">
+          </div>
+          <div class="form-group">
+            <label for="localidad">Localidad:</label>
+            <input type="text" name="localidad" class="form-control" [(ngModel)]="perfilSeleccionado.perfil_data.localidad">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary btnEditModal" (click)="guardarCambiosPerfil()">Guardar Cambios</button>
+        <button type="button" class="btn btn-secondary btnEditModalCancel" (click)="onCloseHandledEditarPerfil()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
