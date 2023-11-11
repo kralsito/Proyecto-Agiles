@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Agrega los siguientes enlaces de Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <section class="main-content">
+        <div class="container">
+            <h1>Perfil</h1>
+
+            <div class="row">
+                <div class="col-sm-8 col-md-6 col-lg-4">
+
+                    <!--Card para Perfil-->
+                    <div class="profile-card card rounded-lg shadow p-4 p-xl-5 mb-4 text-center">
+                      <div *ngIf="perfilUsuario">
+                        <img src="{{perfilUsuario.perfil_data.fotoPerfil}}" alt="" class="img-circle mx-auto mb-3">
+                        <div class="banner"></div>
+                          <h3 class="mb-4">{{ perfilUsuario.perfil_data.nombrePerfil }} {{ perfilUsuario.perfil_data.apellidoPerfil }}</h3>
+                          <div class="text-left mb-4">
+                            <p class="mb-2"><i class="fa fa-envelope mr-2"></i> {{ perfilUsuario.user_data.email }} </p>
+                            <p class="mb-2"><i class="fa fa-phone mr-2"></i> {{ perfilUsuario.perfil_data.telefono }}</p>
+                            <p class="mb-2"><i class="fa fa-map-marker mr-2"></i> {{ perfilUsuario.perfil_data.localidad }} </p>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-6 col-lg-4">
+                    <div class="ancho">
+                    
+                        <div class="card">
+                        <div class="card-header">
+                          Sobre Mi
+                        </div>
+                        <div class="card-body">
+                          <p class="card-text"> {{perfilUsuario.perfil_data.biografia}}</p>
+                        </div>
+                      </div>
+                      <br>
+                      <div class="card" style="width: 420px;">
+                        <div class="card-header">
+                          Publicaciones del usuario
+                        </div>
+                        <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Proximamente...</li>
+                          <li class="list-group-item">Proximamente...</li>
+                          <li class="list-group-item">Proximamente...</li>
+                        </ul>
+                      </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+</body>

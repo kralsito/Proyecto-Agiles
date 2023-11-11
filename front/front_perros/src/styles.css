@@ -38,3 +38,25 @@ body {
     margin: 0; 
     font-family: Roboto, "Helvetica Neue", sans-serif; 
 }
+
+.containerAlert {
+    display: flex;
+    justify-content: space-between;
+    border-color: #e02222;
+    border-width: 1px;
+    background-color: #fce4e1;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.containerAlert p {
+    color: rgb(173, 4, 4);
+}
+
+.close-button {
+    outline: none;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

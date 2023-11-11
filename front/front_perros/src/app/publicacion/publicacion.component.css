@@ -16,34 +16,6 @@
     margin: 0 50px 0;
 }
 
-#iconHeart {
-    color: white;
-    font-size: 15px;
-}
-
-#btnHeart {
-    background-color: rgb(247, 170, 193);
-    border: none;
-    margin-right: 10px;
-    margin-top: 10px;
-    font-size: 15px;
-}
-
-#btnHeart:hover {
-    background-color: rgb(255, 103, 149);
-}
-
-#btnInteresa {
-    background-color: #609686;
-    border: none;
-    font-size: 15px;
-    margin-top: 10px;
-    font-family: 'Open Sans', sans-serif;
-}
-
-#btnInteresa:hover {
-    background-color: #17644d;
-}
 
 #nombrePerro {
     margin-top: 20px;
@@ -77,4 +49,323 @@
 .btnInicio:hover {
     cursor: pointer;
     background-color: #fc5020;
+}
+
+p {
+    font-size: 18px;
+    font-family: 'Inclusive Sans', sans-serif;
+    color:#20264D;
+
+}
+
+.opciones {
+    margin-left: 10px;
+}
+
+#modalFiltros {
+    width: 33%; 
+    left: 67%; 
+    position: fixed;
+    top: 0;
+    height: 100%;
+    background-color: white;
+    z-index: 999; 
+    box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.fa-rotate-90 {
+    margin-top: 8px !important;
+}
+
+.fa-sliders {
+    color: #20264D;
+    background-color: white;
+}
+
+.container-fluid {
+    display: flex;
+    flex-direction: row;
+}
+
+#filterBy {
+    margin-top: 15px;
+    margin-left: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Inclusive Sans', sans-serif;
+}
+
+#sexFilter {
+    margin-top: 15px;
+}
+
+.btnAceptar, .btnCancelar {
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 18px;
+    border: none;
+    margin-top: 40px;
+    border-radius: 20px;
+    border: 2px solid;
+}
+
+.btnAceptar {
+    margin-right: 15px;
+    background-color: #17644d;
+    border-color: #17644d;
+}
+
+.btnAceptar:hover {
+    background-color: #609686;
+    border-color: #609686;
+}
+
+.btnCancelar {
+    background-color: white;
+    color: #20264D;
+    border-color: #20264D;
+}
+
+.btnCancelar:hover {
+    background-color: #20264D;
+    color: white;
+}
+
+[id="modalMeInteresa"] .modal-content {
+    border-radius: 10px;
+}
+
+[id="modalFiltros"] .modal-content {
+    border: none;
+}
+
+@keyframes example {
+    from {
+      top: -50px;
+      opacity: 0;
+    }
+  
+    to {
+      top: 0;
+      opacity: 1;
+    }
+  }
+  
+mat-chip-option {
+    background-color: rgb(247, 170, 193);
+}
+
+.no-publicaciones {
+    text-align: center;
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    color: #555;
+    font-size: 16px;
+  }
+  
+  .no-publicaciones p {
+    margin: 0;
+  }
+  
+  .no-publicaciones i {
+    color: #ff0000; /* Cambia el color del icono según tus preferencias */
+  }
+
+.bookmarkBtn {
+    width: 105px;
+    height: 45px;
+    border-radius: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.349);
+    background-color: #20264D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: .3s;
+    overflow: hidden;
+    text-align: center;
+}
+  
+.IconContainer {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to bottom, #FF5D31,#e75128);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: .3s;
+}
+  
+.icon {
+    border-radius: 1px;
+}
+  
+.text {
+    padding-top: 13px;
+    height: 100%;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+    transition-duration: .3s;
+    font-size: 1em;
+}
+  
+.bookmarkBtn:hover .IconContainer {
+    width: 90px;
+    border-radius: 40px;
+    transition-duration: .3s;
+}
+  
+.bookmarkBtn:hover .text {
+    transform: translate(10px);
+    width: 0;
+    font-size: 0;
+    transition-duration: .3s;
+}
+  
+.bookmarkBtn:active {
+    transform: scale(0.95);
+    transition-duration: .3s;
+}
+
+#btnContactar {
+    position: relative;
+    padding: 10px 22px;
+    border-radius: 40px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: #FF5D31;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+  
+#btnContactar:active {
+    transform: scale(0.96);
+}
+
+#btnContactar:hover{
+    background-color: #df3608;
+}
+  
+#btnContactar:before,
+#btnContactar:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+}
+  
+#btnContactar:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, #FF5D31 20%, transparent 30%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #FF5D31 15%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+      10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+}
+  
+@keyframes greentopBubbles {
+    0% {
+      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+        40% 90%, 55% 90%, 70% 90%;
+  }
+  
+  50% {
+      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+  }
+  
+  100% {
+      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+        50% 40%, 65% 10%, 90% 20%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+  }
+}
+  
+#btnContactar:hover::after {
+  bottom: -70%;
+  background-image: radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, #FF5D31 15%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%),
+      radial-gradient(circle, #FF5D31 20%, transparent 20%);
+  background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+  background-position: 50% 0%;
+  animation: greenbottomBubbles 0.6s ease;
+}
+  
+@keyframes greenbottomBubbles {
+    0% {
+      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+        70% -10%, 70% 0%;
+    }
+  
+    50% {
+      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+        105% 0%;
+    }
+  
+    100% {
+      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+        110% 10%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+}
+
+.icon-container {
+  font-size: 22px;
+  color: #07aa4b;
+  background-color: #fff; 
+  padding: 4px; 
+  border-radius: 50%; 
+  margin-top: 10px;
+}
+
+.icons-row {
+  display: flex; 
+  align-items: center; 
+}
+
+.btn-container {
+  padding-top: 15px;
+  margin-left: 5px;
+  margin-bottom: 10px;
+}
+
+#vacunadoPerro, #libretaPerro, #desparasitadoPerro, #castradoPerro{
+  margin-left: 15px;
+}
+
+#noVacunado, #noLibreta, #noDesparasitado, #noCastrado{
+  color: #c70b0b;
+}
+
+#subrayado {
+  margin: 0 50px 0;
+}
+
+hr {
+  color: #20264d6e;
 }

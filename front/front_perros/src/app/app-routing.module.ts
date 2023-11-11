@@ -7,17 +7,29 @@ import { MenuPrincipalComponent } from './menu-principal/menu-principal.componen
 import { TituloYEsloganComponent } from './titulo-yeslogan/titulo-yeslogan.component';
 import { LoginComponent } from './login/login.component';
 import { FormusuarioComponent } from './formusuario/formusuario.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { authGuard } from './guards/auth.guard';
+import { authGuardForLogin } from './guards/sesion-guard.guard';
+import { NavBarNoLogueadoComponent } from './nav-bar-no-logueado/nav-bar-no-logueado.component';
+import { MisPublicacionesComponent } from './mis-publicaciones/mis-publicaciones.component';
+import { PerfilOtroComponent } from './perfil-otro/perfil-otro.component';
+import { MisFavoritosComponent } from './mis-favoritos/mis-favoritos.component';
 
 const routes: Routes = [
-  { path: 'publicacion', component: PublicacionComponent },
-  { path: '', component: MenuPrincipalComponent },
-  { path: 'formpublicacion', component: FormpublicacionComponent},
-  { path: 'nav-bar', component: NavBarComponent },
-  { path: 'menu-principal', component: MenuPrincipalComponent},
-  { path: 'titulo-yeslogan', component: TituloYEsloganComponent},
-  { path: 'login', component: LoginComponent},
-  { path: 'registro', component: FormusuarioComponent},
-
+  { path: 'publicacion', component: PublicacionComponent, canActivate: [authGuard]},
+  { path: '', component: MenuPrincipalComponent, canActivate: [authGuard]},
+  { path: 'formpublicacion', component: FormpublicacionComponent, canActivate: [authGuard]},
+  { path: 'nav-bar', component: NavBarComponent, canActivate: [authGuard] },
+  { path: 'menu-principal', component: MenuPrincipalComponent, canActivate: [authGuard]},
+  { path: 'titulo-yeslogan', component: TituloYEsloganComponent, canActivate: [authGuard]},
+  { path: 'login', component: LoginComponent, canActivate: [authGuardForLogin]},
+  { path: 'registro', component: FormusuarioComponent, canActivate: [authGuardForLogin]},
+  { path: 'perfil', component: PerfilComponent, canActivate: [authGuard]},
+  { path: 'nav-bar-no-logueado', component: NavBarNoLogueadoComponent},
+  { path: 'mis-publicaciones', component: MisPublicacionesComponent, canActivate: [authGuard]},
+  { path: 'perfil-otro/:usuarioId', component: PerfilOtroComponent, canActivate: [authGuard] },
+  { path: 'eliminar-publicacion/:id', component: MisPublicacionesComponent, canActivate: [authGuard] },
+  { path: 'mis-favoritos', component: MisFavoritosComponent, canActivate: [authGuard]}
 ];
 
 @NgModule({
