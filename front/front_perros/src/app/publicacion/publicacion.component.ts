@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { PublicacionService } from './publicacion.service';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { Router } from '@angular/router';
+import { AuthService } from '../guards/auth.service'; // Asegúrate de importar el AuthService
+
 @Component({
   selector: 'app-publicacion',
   templateUrl: './publicacion.component.html',
@@ -22,7 +24,7 @@ export class PublicacionComponent implements OnInit {
   usuarioPerroSeleccionado: string = '';
 
 
-  constructor(private publicacionService: PublicacionService, private router: Router) {}
+  constructor(private publicacionService: PublicacionService, private router: Router, private authService: AuthService) {}
 
   ngOnInit() {
     this.publicacionService.obtenerPublicaciones().subscribe(
@@ -156,4 +158,25 @@ export class PublicacionComponent implements OnInit {
   
     this.publicaciones = publicacionesFiltradasVac;
   }   
+  agregarAFavoritos(publicacionId: number) {
+    const usuarioId = this.authService.getCurrentUser(); // Obtén el ID del usuario desde el AuthService
+    if (usuarioId) {
+      this.publicacionService.agregarPublicacionAFavoritos(publicacionId, usuarioId).subscribe(
+        (response) => {
+          // Manejar la respuesta exitosa, como mostrar un mensaje al usuario o cambiar el aspecto del botón.
+          console.log('Publicación agregada a favoritos', response);
+  
+          // Puedes cambiar el aspecto del botón después de agregar la publicación a favoritos.
+          const button = document.querySelector('.bookmarkBtn');
+          if (button) {
+            button.classList.add('favorito'); // Agregar una clase CSS para mostrar que está en favoritos
+          }
+        },
+        (error) => {
+          // Manejar cualquier error que ocurra al agregar a favoritos.
+          console.error('Error al agregar a favoritos', error);
+        }
+      );
+    }
+  }
 }

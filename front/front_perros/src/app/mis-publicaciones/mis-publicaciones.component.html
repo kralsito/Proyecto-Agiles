@@ -1,54 +1,52 @@
 <div class="contenedor" id="contenidoPrincipal">
   <div class="container-fluid">
-      <p id="filterBy">FILTRAR POR</p>
-      <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
+    <p id="filterBy">FILTRAR POR</p>
+    <button class="btn btn-primary btnFitro" style="background-color: transparent; border: none;" (click)="abrirFiltros()"><i class="fa-solid fa-sliders fa-rotate-90"></i></button>
   </div>
+  <hr id="subrayado">
   <div *ngIf="publicaciones && publicaciones.length === 0" class="no-publicaciones">
     <p>No hay publicaciones disponibles.</p>
   </div>
-      <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
-          <div class="col-md-3 containerImagen">
-              <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
-              <script>console.log(publicacion.fotoPerro)</script>
+  <div *ngFor="let publicacion of publicaciones" class="row" id="publicacionPerro">
+    <div class="col-md-3 containerImagen">
+      <img src="{{ publicacion.fotoPerro }}" id="imagenPerro" alt="" srcset="">
+    </div>
+    <div class="col-md-3" id="dataPerro">
+      <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
+      <br>
+      <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
+      <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
+      <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro}} </div> 
+      <div class="icon-container">
+        <div class="icons-row">
+          <div id="vacunadoPerro" class="icon-container">
+            <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
+            <i class="fa-solid fa-syringe" id="noVacunado" *ngIf="publicacion.vacunadoPerro === 'No'" title=" No vacunado"></i>
           </div>
-          <div class="col-md-3" id="dataPerro">
-            <div id="nombrePerro"> {{ publicacion.nombrePerro }}</div>
-            <br>
-            <div id="edadPerro"> Edad: {{ publicacion.edadPerro }}</div>
-            <div id="sexoPerro"> Sexo: {{ publicacion.sexoPerro }}</div>
-            <div id="tamañoPerro"> Tamaño: {{ publicacion.tamanioPerro }}</div>
-            <div class="icon-container">
-              <div class="icons-row">
-                <div id="vacunadoPerro" class="icon-container">
-                  <i class="fa-solid fa-syringe" *ngIf="publicacion.vacunadoPerro === 'Si'" title="Vacunado"></i>
-                  <i class="fa-solid fa-syringe" id="noVacunado" *ngIf="publicacion.vacunadoPerro === 'No'" title=" No vacunado"></i>
-              </div>
-              <div id="libretaPerro" class="icon-container">
-                  <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
-                  <i class="fa-solid fa-book-open" id="noLibreta" *ngIf="publicacion.libretaPerro === 'No'" title="No tiene libreta"></i>
-              </div>
-              <div id="desparasitadoPerro" class="icon-container">
-                  <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>
-                  <i class="fa-solid fa-virus-slash" id="noDesparasitado" *ngIf="publicacion.desparasitadoPerro === 'No'" title="No desparasitado"></i>
-              </div>
-              <div id="castradoPerro" class="icon-container">
-                <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
-                <i class="fa-solid fa-heart-circle-xmark" id="noCastrado" *ngIf="publicacion.castradoPerro === 'No'" title="No castrado"></i>
-            </div>
-              </div>
-              <div class="btn-container">
-                <button class="btn btn-primary" id="btnEdit" (click)="editarPubli(publicacion)"><i class="fa-solid fa-pen-to-square"></i></button>
-                <button class="btn btn-primary" id="btnDelete"><i class="fa-solid fa-trash"></i></button>
-              </div>
+          <div id="libretaPerro" class="icon-container">
+            <i class="fa-solid fa-book-open" *ngIf="publicacion.libretaPerro === 'Si'" title="Tiene libreta"></i>
+            <i class="fa-solid fa-book-open" id="noLibreta" *ngIf="publicacion.libretaPerro === 'No'" title="No tiene libreta"></i>
           </div>
-          <hr>
+          <div id="desparasitadoPerro" class="icon-container">
+            <i class="fa-solid fa-virus-slash" *ngIf="publicacion.desparasitadoPerro === 'Si'" title="Desparasitado"></i>              <i class="fa-solid fa-virus-slash" id="noDesparasitado" *ngIf="publicacion.desparasitadoPerro === 'No'" title="No desparasitado"></i>
+          </div>
+          <div id="castradoPerro" class="icon-container">
+            <i class="fa-solid fa-heart-circle-xmark" *ngIf="publicacion.castradoPerro === 'Si'" title="Castrado"></i>
+            <i class="fa-solid fa-heart-circle-xmark" id="noCastrado" *ngIf="publicacion.castradoPerro === 'No'" title="No castrado"></i>
+          </div>
         </div>
+      </div>
+    </div> 
+    <div class="btn-container">
+      <button class="btn btn-primary" id="btnEdit" (click)="editarPubli(publicacion)"><i class="fa-solid fa-pen-to-square"></i></button>
+      <button class="btn btn-primary" id="btnDelete" (click)="eliminarPublicacion(publicacion)"><i class="fa-solid fa-trash"></i></button>
+    </div>
+    <hr class="separador">
   </div>
-  <div class="text-center">
-      <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
-  </div>
-
-  <!-- Modal -->
+</div>
+<div class="text-center">
+  <button class="btn btn-primary btnInicio" [routerLink]="['/menu-principal']">Volver a inicio</button>
+</div>
 <div class="modal" tabindex="-1" role="dialog" id="modalFiltros" [ngStyle]="{'display':displayFiltros}">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -97,31 +95,31 @@
         <h2 class="modal-title titleEditar">Editar publicación</h2>
         <button type="button" class="btn-close" aria-label="Close" (click)="onCloseHandledEditar()"></button>
       </div>
-      <div class="modal-body row" id="publicacionPerroModal">
-        <form>
-          <div class="row">
-            <div class="form-group col-md-5">
-              <div id="imgPreview"><img src="{{ publicacionSeleccionada.fotoPerro }}" id="imagenPerro" class="imgModal" alt="" srcset=""></div>
+    <div class="modal-body row" id="publicacionPerroModal">
+      <form>
+        <div class="row">
+          <div class="form-group col-md-5">
+            <div id="imgPreview"><img src="{{ publicacionSeleccionada.fotoPerro }}" id="imagenPerro" class="imgModal" alt="" srcset=""></div>
+              <input type="file" id="fotoPerroModal" name="fotoPerroModal" accept="image/*" (change)="mostrarImagen()"/>
             </div>
-            <input type="file" id="fotoPerroModal" name="fotoPerroModal" accept="image/*" (change)="mostrarImagen()"/>
-          </div>
-          <div class="form-group">
+        </div>             
+        <div class="form-group">
             <label for="nombrePerroModal">Nombre</label>
             <input type="nombre" name="nombrePerro" class="form-control" id="input-nombre" aria-describedby="nombre" placeholder="{{ publicacionSeleccionada.nombrePerro }}" [(ngModel)]="publicacionSeleccionada.nombrePerro"> 
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="edadPerroModal">Edad</label>
             <input type="edad" name="edadPerro" class="form-control" id="input-edad" placeholder="{{ publicacionSeleccionada.edadPerro }}" [(ngModel)]="publicacionSeleccionada.edadPerro">
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="sexoPerroModal">Sexo</label>
             <select class="form-control form-control-sm" name="sexoPerro" id="sexoPerroModal" [(ngModel)]="publicacionSeleccionada.sexoPerro">  
               <option value=""></option>
               <option value="Macho">Macho</option>
               <option value="Hembra">Hembra</option>
             </select>
-          </div>
-          <div class="form-group">
+        </div>
+        <div class="form-group">
             <label for="tamanioPerroModal">Tamaño</label>
             <select class="form-control form-control-sm" name="tamanioPerro" id="tamanioPerroModal" [(ngModel)]="publicacionSeleccionada.tamanioPerro">  
               <option value=""></option>
@@ -129,40 +127,62 @@
               <option value="Mediano">Mediano</option>
               <option value="Grande">Grande</option>
             </select>
-          </div>
-          <div class="row">
+        </div>
+        <div class="row">
             <!--Select radio para ver si tiene libreta sanitaria-->
-            <div class="form-group col-md-6">
-              <label for="libretaPerro">¿Tiene libreta sanitaria?</label>
-              <br>
-                <input type="radio" id="libretaSi" name="libretaPerro" value="Si" [(ngModel)]="publicacionSeleccionada.libretaPerro"> Si
-                <input type="radio" id="libretaNo" name="libretaPerro" value="No" [(ngModel)]="publicacionSeleccionada.libretaPerro"> No
-            </div>
-            <div class="form-group col-md-6">
-              <label for="desparasitadoPerro">¿Está desparasitado?</label>
-              <br>
-              <input type="radio" id="desparasitadoSi" name="desparasitadoPerro" value="Si" [(ngModel)]="publicacionSeleccionada.desparasitadoPerro"> Si
-              <input type="radio" id="desparasitadoNo" name="desparasitadoPerro" value="No" [(ngModel)]="publicacionSeleccionada.desparasitadoPerro"> No
-            </div>
+          <div class="form-group col-md-6">
+            <label for="libretaPerro">¿Tiene libreta sanitaria?</label>
+            <br>
+            <input type="radio" id="libretaSi" name="libretaPerro" value="Si" [(ngModel)]="publicacionSeleccionada.libretaPerro"> Si
+            <input type="radio" id="libretaNo" name="libretaPerro" value="No" [(ngModel)]="publicacionSeleccionada.libretaPerro"> No
           </div>
-          <div class="row">
-            <div class="form-group col-md-6">
-              <label for="castradoPerro">¿Está castrado?</label>
-              <br>
-              <input type="radio" id="castradoSi" name="castradoPerro" value="Si" [(ngModel)]="publicacionSeleccionada.castradoPerro"> Si
-              <input type="radio" id="castradoNo" name="castradoPerro" value="No" [(ngModel)]="publicacionSeleccionada.castradoPerro"> No
-            </div>
-            <div class="form-group col-md-6">
-              <label for="vacunadoPerro">¿Está vacunado?</label>
-              <br>
-              <input type="radio" id="vacunadoSi" name="vacunadoPerro" value="Si" [(ngModel)]="publicacionSeleccionada.vacunadoPerro"> Si
-              <input type="radio" id="vacunadoNo" name="vacunadoPerro" value="No" [(ngModel)]="publicacionSeleccionada.vacunadoPerro"> No
-            </div>
+          <div class="form-group col-md-6">
+            <label for="desparasitadoPerro">¿Está desparasitado?</label>
+            <br>
+            <input type="radio" id="desparasitadoSi" name="desparasitadoPerro" value="Si" [(ngModel)]="publicacionSeleccionada.desparasitadoPerro"> Si
+            <input type="radio" id="desparasitadoNo" name="desparasitadoPerro" value="No" [(ngModel)]="publicacionSeleccionada.desparasitadoPerro"> No
           </div>
-        </form>
+        </div>
+        <div class="row">
+          <div class="form-group col-md-6">
+            <label for="castradoPerro">¿Está castrado?</label>
+            <br>
+            <input type="radio" id="castradoSi" name="castradoPerro" value="Si" [(ngModel)]="publicacionSeleccionada.castradoPerro"> Si
+            <input type="radio" id="castradoNo" name="castradoPerro" value="No" [(ngModel)]="publicacionSeleccionada.castradoPerro"> No
+          </div>
+          <div class="form-group col-md-6">
+            <label for="vacunadoPerro">¿Está vacunado?</label>
+            <br>
+            <input type="radio" id="vacunadoSi" name="vacunadoPerro" value="Si" [(ngModel)]="publicacionSeleccionada.vacunadoPerro"> Si
+            <input type="radio" id="vacunadoNo" name="vacunadoPerro" value="No" [(ngModel)]="publicacionSeleccionada.vacunadoPerro"> No
+          </div>
+        </div>
+      </form>
       <div class="footer">
         <button type="button" class="btn btn-primary btnEditModal" data-dismiss="modal" (click)="onAceptarEdicion()">Aceptar</button>
         <button type="button" class="btn btn-secondary btnEditModalCancel" data-dismiss="modal" (click)="onCloseHandledEditar()">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+  <!-- Modal de Confirmación de Eliminación -->
+<div class="modal" tabindex="-1" role="dialog" id="modalEliminar" [ngStyle]="{'display':displayConfirmacion}" *ngIf="publicacionParaEliminar">
+ <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Confirmar Eliminación</h5>
+        <button type="button" class="close" aria-label="Close" (click)="onCloseConfirmacion()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ¿Estás seguro de que deseas eliminar esta publicación?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onCloseConfirmacion()">Cancelar</button>
+        <button type="button" class="btn btn-danger" (click)="eliminarPublicacionConfirmada()">Eliminar</button>
       </div>
     </div>
   </div>
