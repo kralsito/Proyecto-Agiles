@@ -1,6 +1,5 @@
 import { Component, OnInit} from '@angular/core';
 import { Perro } from '../../perro.model';
-import { LoggingService } from '../../LoggingService.service';
 import { FormpubliService } from './formpubli.service';
 import { AuthService } from '../../guards/auth.service';
 
@@ -26,7 +25,7 @@ export class FormpublicacionComponent implements OnInit {
     }
   }
   
-  constructor(private authService: AuthService, private loggingService: LoggingService, private formpubliService: FormpubliService) {}
+  constructor(private authService: AuthService, private formpubliService: FormpubliService) {}
 
   ngOnInit() {
   }

@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../usuario.model';
-import { Perfil } from '../perfil.model';
-import { LoggingService } from '../LoggingService.service';
 import { FormuserService } from './formuser.service';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {
   MatDialog,
-  MatDialogRef,
-  MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { AlertMailDuplicadoComponent } from '../alerts/alert-mail-duplicado/alert-mail-duplicado.component';
 import { FormperfilService } from '../perfil/formperfil.service';
@@ -21,7 +17,6 @@ export class FormusuarioComponent implements OnInit {
   repeatPass: string = 'none';
   display = 'none';
   constructor(
-    private loggingService: LoggingService,
     private formuserService: FormuserService,
     private dialog: MatDialog,
     private formperfilService: FormperfilService

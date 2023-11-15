@@ -169,7 +169,7 @@ export class PublicacionComponent implements OnInit {
           // Puedes cambiar el aspecto del botón después de agregar la publicación a favoritos.
           const button = document.querySelector('.bookmarkBtn');
           if (button) {
-            button.classList.add('favorito'); // Agregar una clase CSS para mostrar que está en favoritos
+            button.classList.add('clicked'); // Agregar una clase CSS para mostrar que está en favoritos
           }
         },
         (error) => {
