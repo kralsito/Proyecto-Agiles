@@ -85,22 +85,15 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-if DEBUG:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-    DATABASES = {
+
+DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ['RDS_NAME'],
-            'USER': os.environ['RDS_USER'],
-            'PASSWORD': os.environ['RDS_PASSWORD'],
-            'HOST': os.environ['RDS_HOST'],
-            'PORT': os.environ['RDS_PORT'],
+            'NAME': 'adopterdb',
+            'USER': 'superuser',
+            'PASSWORD': 'adopterdb',
+            'HOST': 'adopterdb.crigkiksi7x5.us-east-1.rds.amazonaws.com',
+            'PORT': '5432'
         }
     }
 
