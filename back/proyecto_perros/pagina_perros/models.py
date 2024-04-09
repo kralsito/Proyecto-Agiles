@@ -102,12 +102,12 @@ class Publicacion(models.Model):
         return self.nombrePerro
     
 class Perfil(models.Model):
-    #fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
     nombrePerfil = models.CharField(max_length=30)
     apellidoPerfil = models.CharField(max_length=30)
-    #descripcion = models.CharField(max_length=200, null=True)
     localidad = models.CharField(max_length=30)
     telefono = models.IntegerField()
+    biografia = models.CharField(max_length=200, null=True)
+    fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
     def __str__(self):
         return f"Perfil de: {self.nombrePerfil}"
 

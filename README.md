@@ -17,6 +17,7 @@ npm install
 npm i bootstrap@5.3.1
 npm install --save @fortawesome/angular-fontawesome
 npm install @auth0/angular-jwt
+ng add @angular/material
 
 ```
 
