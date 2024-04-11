@@ -12,6 +12,9 @@ h1{
     font-family: 'Inclusive Sans', sans-serif;
     margin-top: 0;
     font-weight: bold;
+    color: #20264D;
+    font-family: 'Inclusive Sans', sans-serif;
+    font-size: 25;
 }
 
 .shadow{
@@ -22,18 +25,6 @@ h1{
     padding-top:0px;
     margin-top: 0px;
     padding-bottom:300px;
-}
-
-.banner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 30%;
-    background: url(https://img.freepik.com/foto-gratis/bandera-argentina_1401-57.jpg?size=626&ext=jpg&ga=GA1.1.1016474677.1696723200&semt=sph) no-repeat center;
-    background-size: cover;
-    background-position: center;
-    z-index: 1; /* Coloca el banner detrás de otros elementos */
 }
 
 .img-circle {
@@ -144,4 +135,21 @@ label, input, option, select, textarea {
 .btnEditModalCancel:hover {
     background-color: #20264D;
     color: white;
+}
+
+#btnEdit {
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    font-size: 15px;
+    border: none;
+    font-family: 'Open Sans', sans-serif;
+}
+
+#btnEdit {
+    background-color: #1e2b85;
+    margin-right: 10px;
+}
+
+#btnEdit:hover {
+    background-color:#20264D;
 }

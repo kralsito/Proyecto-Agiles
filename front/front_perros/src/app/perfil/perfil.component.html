@@ -10,19 +10,14 @@
 </head>
 
 <body>
-
     <section class="main-content">
         <div class="container">
-            <h1>Mi Perfil <button type="button" class="btn btn-primary" (click)="abrirModalEditarPerfil()"><i class="fa-solid fa-pen-to-square"></i></button></h1>
-
             <div class="row">
                 <div class="col-sm-8 col-md-6 col-lg-4">
-
                     <!--Card para Perfil-->
                     <div class="profile-card card rounded-lg shadow p-4 p-xl-5 mb-4 text-center">
                         <div *ngIf="currentProfile">
-                        <img src="{{currentProfile.perfil_data.fotoPerfil}}" alt="" class="img-circle mx-auto mb-3">
-                        <div class="banner"></div>
+                        <img src="{{ currentProfile.perfil_data.fotoPerfil }}" alt="" class="img-circle mx-auto mb-3">
                         <h3 class="mb-4">{{currentProfile.perfil_data.nombrePerfil}} {{currentProfileApellido}}</h3>
                         <div class="text-left mb-4">
                                 <p class="mb-2"><i class="fa fa-envelope mr-2"></i> {{currentUserEmail}}</p>
@@ -34,13 +29,13 @@
                 </div>
                 <div class="col-sm-8 col-md-6 col-lg-4">
                     <div class="ancho">
-                    
+                      <h1>Mi perfil <button type="button" class="btn btn-primary" id="btnEdit" (click)="abrirModalEditarPerfil()"><i class="fa-solid fa-pen-to-square"></i></button></h1>
                         <div class="card">
                         <div class="card-header">
-                          Sobre Mi
+                          Sobre mi
                         </div>
                         <div class="card-body">
-                          <p class="card-text"> {{currentProfileBio}}</p>
+                        <p class="card-text"> {{currentProfileBio}}</p>
                         </div>
                       </div>
                       <br>
@@ -50,8 +45,6 @@
                         </div>
                         <div class="card-body">
                         <ul class="list-group list-group-flush">
-                          <li class="list-group-item">Proximamente...</li>
-                          <li class="list-group-item">Proximamente...</li>
                           <li class="list-group-item">Proximamente...</li>
                         </ul>
                       </div>
@@ -76,7 +69,7 @@
         <form>
           <div class="row">
             <div class="form-group col-md-5">
-              <div id="imgPreview"><img src="{{ perfilSeleccionado.perfil_data.fotoPerfil }}" id="imagenPerfil" class="imgModal" alt="" srcset=""></div>
+              <div id="imgPreview"><img src="{{ perfilSeleccionado.perfil_data.fotoPerfil }}" id="imagenPerfil" class="imgModal" alt=""></div>
             </div>
             <input type="file" id="fotoPerfilModal" name="fotoPerfilModal" accept="image/*" (change)="mostrarImagen()"/>
           </div>

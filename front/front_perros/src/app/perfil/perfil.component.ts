@@ -66,6 +66,7 @@ export class PerfilComponent implements OnInit{
       };
 
       const nuevaFotoInput: HTMLInputElement = document.getElementById('fotoPerfilModal') as HTMLInputElement;
+      
       if (nuevaFotoInput && nuevaFotoInput.files && nuevaFotoInput.files.length > 0) {
         const nuevaFotoFile = nuevaFotoInput.files[0];
         const formData = new FormData();
