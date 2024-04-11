@@ -46,4 +46,10 @@ python manage.py runserver
 ng serve -o
 
 ```
+```
+pip install psycopg2
+pip install psycopg2-binary
+pip install boto3
+pip install django-storage
 
+```
