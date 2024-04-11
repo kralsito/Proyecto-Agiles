@@ -165,10 +165,6 @@ export class MisPublicacionesComponent implements OnInit {
 
   editarPubli(publicacion: any) {
     this.publicacionSeleccionada = publicacion;
-    const imageUrl = this.publicacionSeleccionada.fotoPerro;
-    const parts = imageUrl.split('/');
-    const fileName = parts[parts.length - 1];
-    console.log(fileName); // Esto mostrará 'perrito_KiOgH9q.jpg'
     console.log(this.publicacionSeleccionada.fotoPerro);
     this.displayEditar = "block";
   }
@@ -213,11 +209,7 @@ export class MisPublicacionesComponent implements OnInit {
         publicacionEditada.fotoPerro = nuevaFotoFile;
       }
       else {
-        const imageUrl = this.publicacionSeleccionada.fotoPerro;
-        const parts = imageUrl.split('/');
-        const fileName = parts[parts.length - 1];
-        const urlCompleta = 'perros/' + fileName;
-        publicacionEditada.fotoPerro = urlCompleta;
+        publicacionEditada.fotoPerro = this.publicacionSeleccionada.fotoPerro;
       }
   
       const formData = new FormData();

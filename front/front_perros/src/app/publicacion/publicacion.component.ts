@@ -12,6 +12,7 @@ import { AuthService } from '../guards/auth.service'; // Asegúrate de importar 
 export class PublicacionComponent implements OnInit {
   publicaciones: any;
   publicacionesOriginales: any;
+  urlImagen: string = '';
   faHeart = faHeart;
   filtrosSexo: string[] = [];
   filtrosTamanio: string[] = [];
@@ -38,6 +39,7 @@ export class PublicacionComponent implements OnInit {
     );
   } 
   
+
   abrirFiltros() {
     this.displayFiltros= "block";
     const contenidoPrincipal = document.getElementById("contenidoPrincipal");

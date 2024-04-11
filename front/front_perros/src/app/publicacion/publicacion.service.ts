@@ -22,5 +22,4 @@ export class PublicacionService {
     // Realizar una solicitud POST para agregar la publicación a favoritos
     return this.http.post(`http://localhost:8000/api/publicaciones/${publicacionId}/favorito/`, data);
   }
-  
 }
