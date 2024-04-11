@@ -1,6 +1,8 @@
+from sqlite3 import IntegrityError
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.contrib.auth.models import Group, Permission
+from django.http import JsonResponse
 from django.utils import timezone
 from django.contrib.auth import get_user_model
 # Create your models here.
@@ -73,7 +75,7 @@ def registrar_usuario(request):
 class Publicacion(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True) #Esto es lo que modifique para poder eliminar
     nombrePerro = models.CharField(max_length=30)
-    fotoPerro = models.ImageField(upload_to="./perros", null=True, blank=True)
+    fotoPerro = models.ImageField(upload_to='publicaciones',null=True, blank=True)
     edadPerro = models.CharField(max_length=20)
     SEXO_CHOICES = [
         ('Macho', 'Macho'),
@@ -107,7 +109,7 @@ class Perfil(models.Model):
     localidad = models.CharField(max_length=30)
     telefono = models.IntegerField()
     biografia = models.CharField(max_length=200, null=True)
-    fotoPerfil = models.ImageField(upload_to="./perfil", null=True, blank=True)
+    fotoPerfil = models.ImageField(upload_to='perfiles',null=True, blank=True)
     def __str__(self):
         return f"Perfil de: {self.nombrePerfil}"
 

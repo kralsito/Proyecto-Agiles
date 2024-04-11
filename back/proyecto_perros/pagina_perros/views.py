@@ -1,3 +1,4 @@
+import boto3
 from django.shortcuts import render, redirect
 from rest_framework import generics
 from .models import Publicacion , User, Perfil, Favorito
