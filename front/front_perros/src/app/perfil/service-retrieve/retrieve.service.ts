@@ -98,13 +98,6 @@ export class RetrieveService {
   editarPerfil(perfilId: number, perfilData: any): Observable<any> {
     const url = `http://localhost:8000/api/usuario/mi-perfil/${perfilId}/`;
     return this.http.put(url, perfilData)
-      .pipe(
-        catchError((error: any) => {
-          // Agrega el manejo de error aquí, por ejemplo, regresando un Observable con un mensaje de error.
-          console.error('Error al actualizar el perfil', error);
-          return throwError('Error al actualizar el perfil');
-        })
-      );
   }
   refreshToken(): Observable<string | null> {
     // Realiza una solicitud HTTP al servidor de autenticación para obtener un nuevo token válido

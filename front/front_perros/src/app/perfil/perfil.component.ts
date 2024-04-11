@@ -55,45 +55,40 @@ export class PerfilComponent implements OnInit{
   }
 
   guardarCambiosPerfil() {
-    if (this.currentProfile && this.currentProfileId) {
+    if (this.perfilSeleccionado) {
       const perfilEditado = {
+        id: this.perfilSeleccionado.perfil_data.id,
         nombrePerfil: this.perfilSeleccionado.perfil_data.nombrePerfil,
         apellidoPerfil: this.perfilSeleccionado.perfil_data.apellidoPerfil,
         telefono: this.perfilSeleccionado.perfil_data.telefono,
         localidad: this.perfilSeleccionado.perfil_data.localidad,
         biografia: this.perfilSeleccionado.perfil_data.biografia,
-        fotoPerfil: this.perfilSeleccionado.perfil_data.fotoPerfil,
+        fotoPerfil: this.perfilSeleccionado.perfil_data.fotoPerfil
       };
-
-      const nuevaFotoInput: HTMLInputElement = document.getElementById('fotoPerfilModal') as HTMLInputElement;
-      
-      if (nuevaFotoInput && nuevaFotoInput.files && nuevaFotoInput.files.length > 0) {
-        const nuevaFotoFile = nuevaFotoInput.files[0];
-        const formData = new FormData();
-        formData.append('nombrePerfil', perfilEditado.nombrePerfil);
-        formData.append('apellidoPerfil', perfilEditado.apellidoPerfil);
-        formData.append('telefono', perfilEditado.telefono.toString());
-        formData.append('localidad', perfilEditado.localidad);
-        formData.append('biografia', perfilEditado.biografia);
-        formData.append('fotoPerfil', nuevaFotoFile);
-  
-      this.retrieveService.editarPerfil(this.currentProfileId, formData).subscribe(
-        response => {
-          console.log('Perfil actualizado correctamente');
-          this.displayEditarPerfil = 'none'; // Cerrar el modal
-          // Refrescar la página para mostrar los cambios
-          window.location.reload();
+      const formData = new FormData();
+      const fotoPerfilInput: HTMLInputElement = document.getElementById('fotoPerfilModal') as HTMLInputElement;
+      formData.append('nombrePerfil', perfilEditado.nombrePerfil);
+      formData.append('apellidoPerfil', perfilEditado.apellidoPerfil);
+      formData.append('telefono', perfilEditado.telefono.toString());
+      formData.append('localidad', perfilEditado.localidad);
+      formData.append('biografia', perfilEditado.biografia);
+      if (fotoPerfilInput.files && fotoPerfilInput.files[0]) {
+        formData.append('fotoPerfil', fotoPerfilInput.files[0]);
+      }
+      else {
+        perfilEditado.fotoPerfil = this.perfilSeleccionado.perfil_data.fotoPerfil;
+      }
+      this.retrieveService.editarPerfil(perfilEditado.id, formData).subscribe(
+        (response) => {
+          console.log('Perfil editado exitosamente', response);
+          this.onCloseHandledEditarPerfil();
         },
-        error => {
-          console.error('Error al actualizar el perfil', error);
-          // Manejar el error de acuerdo a tus necesidades
+        (error) => {
+          console.error('Error al editar el perfil', error);
         }
       );
-      }
-    } else{
-      console.error('No se puede actualizar el perfil porque no se ha obtenido el id del perfil');
     }
-  }
+}
 
   onCloseHandledEditarPerfil() {
     this.displayEditarPerfil = 'none'; // Cerrar el modal sin guardar cambios
