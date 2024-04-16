@@ -97,7 +97,7 @@
     <div class="input-box">
       <input type="password" class="form-control" formControlName="password" id="password" placeholder="Contraseña">
       <div class="form-text text-danger" *ngIf="password.errors?.['required'] && (password.dirty || password.touched)">
-        Introduzca su password.
+        Introduzca su contraseña.
       </div>
     </div>
     </div>
@@ -113,7 +113,7 @@
   <br>
   <div class="form-check">
     <input type="checkbox" class="form-check-input" formControlName="terminos" id="terminos">
-    <label class="form-check-label" for="terminos"><p>Juro que la información proporcionada arriba es verídica</p></label>
+    <label class="form-check-label" for="terminos"><p>Confirmo que mis datos son correctos.</p></label>
   </div>
   <div class="row">
     <div class="col-6 offset-3">

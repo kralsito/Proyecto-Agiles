@@ -7,7 +7,6 @@
 }
 
 .btn1, .btn2 {
-    margin-top: 20px;
     margin-bottom: 100px !important;
 }
 
@@ -16,9 +15,8 @@
 }
 
 .btn{
-    border: 3px solid #20264D;
-    color: #20264D;
-    background: none;
+    background-color: #20264D;
+    color: white;
     padding: 10px 20px;
     font-size: 20px;
     cursor: pointer;
@@ -29,29 +27,11 @@
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.btn:hover{
+.btn1:hover, .btn2:hover {
+    background-color: #FF5D31;
     color: #20264D;
 }
 
-.btn::before{
-    content: "";
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height: 0%;
-    background: #FF5D31;
-    z-index: -1;
-    transition: 0.8s;
-}
-.btn::before {
-    top: 0;
-    border-radius: 0 0 50% 50%;
-}
-
-.btn:hover::before {
-    height: 180%;
-}
-
 .contenedor1 {
-    margin-top: 0px;
+    margin-top: 15px;
 }
