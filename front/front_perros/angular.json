@@ -13,6 +13,13 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "budgets": [
+              {
+                "type": "initial",
+                "maximumWarning": "50mb",
+                "maximumError": "100mb"
+              }
+            ],
             "outputPath": "dist/front_perros",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -32,34 +39,10 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
-            "budgets": [
-              {
-                "type": "anyComponentStyle",
-                "maximumWarning": "600kb",
-                "maximumError": "600kb"
-              }
             ]
           },
           "configurations": {
             "production": {
-              "budgets": [
-                {
-                  "type": "initial",
-                  "maximumWarning": "50mb",
-                  "maximumError": "100mb"
-                },
-                {
-                  "type": "anyComponentStyle",
-                  "maximumWarning": "10000kb",
-                  "maximumError": "20000kb"
-                },
-                {
-                  "type": "all",
-                  "maximumWarning": "10000kb",
-                  "maximumError": "20000kb"
-                }
-              ],
               "outputHashing": "all"
             },
             "development": {
