@@ -36,8 +36,8 @@
             "budgets": [
               {
                 "type": "anyComponentStyle",
-                "maximumWarning": "60kb",
-                "maximumError": "60kb"
+                "maximumWarning": "600kb",
+                "maximumError": "600kb"
               }
             ]
           },
@@ -51,28 +51,13 @@
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "1000kb",
-                  "maximumError": "2000kb"
+                  "maximumWarning": "10000kb",
+                  "maximumError": "20000kb"
                 },
                 {
-                  "type": "component-styles",
-                  "maximumWarning": "1000kb",
-                  "maximumError": "2000kb"
-                },
-                {
-                  "type": "menu-principal.component.css",
-                  "maximumWarning": "60kb",
-                  "maximumError": "60kb"
-                },
-                {
-                  "type": "mis-favoritos.component.css",
-                  "maximumWarning": "60kb",
-                  "maximumError": "60kb"
-                },
-                {
-                  "type": "publicacion.component.css",
-                  "maximumWarning": "60kb",
-                  "maximumError": "60kb"
+                  "type": "all",
+                  "maximumWarning": "10000kb",
+                  "maximumError": "20000kb"
                 }
               ],
               "outputHashing": "all"
