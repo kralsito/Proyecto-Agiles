@@ -32,6 +32,13 @@
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ],
+            "budgets": [
+              {
+                "type": "component-styles",
+                "maximumWarning": "500kb",
+                "maximumError": "1000kb"
+              }
             ]
           },
           "configurations": {
