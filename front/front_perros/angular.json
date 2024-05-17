@@ -18,6 +18,11 @@
                 "type": "initial",
                 "maximumWarning": "50mb",
                 "maximumError": "100mb"
+              },
+              {
+                "type": "anyComponentStyle",
+                "maximumWarning": "50mb",
+                "maximumError": "100mb"
               }
             ],
             "outputPath": "dist/front_perros",
